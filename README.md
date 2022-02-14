@@ -16,6 +16,7 @@ This is a west end clone.
    - Return an item on the order (Update)
    - Cancel an order (Delete)
 - Upcoming features
+   - Search
    - Favorites List
    - Save for Later
    - Account details
