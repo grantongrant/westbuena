@@ -1,6 +1,6 @@
 # west buena
 
-This is a west end clone. 
+This is a west elm clone. 
 
 ## Features
 
