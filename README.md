@@ -1,6 +1,24 @@
-# Flask React Project
+# west buena
 
-This is the starter for the Flask React project.
+This is a west end clone. 
+
+## Features
+
+- Create an account, sign in, or log in as a demo user
+- Shopping cart
+   - Add to shopping cart (Create)
+   - View shopping cart (Read)
+   - Update items in shopping cart (Update)
+   - Delete items in shopping cart (Delete)
+- Track Orders
+   - Create an order by checking out (Create)
+   - View details of the order (Read)
+   - Return an item on the order (Update)
+   - Cancel an order (Delete)
+- Upcoming features
+   - Favorites List
+   - Save for Later
+   - Account details
 
 ## Getting started
 
