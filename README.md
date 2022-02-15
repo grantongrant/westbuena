@@ -21,6 +21,8 @@ This is a [West Elm](https://www.westelm.com/) clone.
    - Save for Later
    - Account details
 
+------------
+
 ## Getting started
 
 1. Clone this repository (only this branch)
