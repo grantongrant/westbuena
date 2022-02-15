@@ -13,7 +13,6 @@ class Product(db.Model):
     final_price = db.Column(db.Numeric(6,2), nullable=False)
     image_url1 = db.Column(db.String(500), nullable=False)
     image_url2 = db.Column(db.String(500), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
 
