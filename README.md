@@ -1,6 +1,6 @@
-# west buena
+# West Buena
 
-This is a west elm clone. 
+This is a [West Elm](https://www.westelm.com/) clone. 
 
 ## Features
 
