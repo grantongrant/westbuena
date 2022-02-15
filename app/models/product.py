@@ -18,7 +18,7 @@ class Product(db.Model):
     updated_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
 
     category = db.relationship("Category", back_populates="products")
-    cart_items = db.relationship("Product", back_populates="product")
+    cart_items = db.relationship("CartItem", back_populates="product")
     orders = db.relationship("OrderDetail", back_populates="product")
 
 

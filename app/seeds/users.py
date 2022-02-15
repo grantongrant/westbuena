@@ -1,21 +1,22 @@
 from app.models import db, User
+import os
 
+seed_password = os.environ.get("SEED_PASSWORD")
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    montrose = User(
+        full_name= 'Montrose Irving', email='montrose@aa.io', password=seed_password)
+    belle = User(
+        full_name='Belle Plaine', email='belle@aa.io', password=seed_password)
+    sheridan = User(
+        full_name='Sheridan Sheffield', email='sheridan@aa.io', password=seed_password)
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(montrose)
+    db.session.add(belle)
+    db.session.add(sheridan)
 
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
