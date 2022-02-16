@@ -5,10 +5,9 @@ from app.models.shoppingcart import CartItem
 
 shopping_cart_routes = Blueprint("shopping_cart", __name__)
 
-@shopping_cart_routes.route("/<int:id>")
-def get_shoppingcart(id):
-    items = CartItem.query.filter(CartItem.user_id == id).all()
-    return {"items": [item.to_dict() for item in items]}
+
+# CREATE
+
 
 @shopping_cart_routes.route("/", methods=["POST"])
 def add_to_shoppingcart():
@@ -18,6 +17,9 @@ def add_to_shoppingcart():
     # Does the item already exist in the cart?
 
     item = CartItem.query.filter(CartItem.user_id == data["userId"], CartItem.product_id == data["productId"]).first()
+
+    # If the item does not exist, add the passed in quantity to the shopping cart
+    # Else increment the quantity count of the existing product in the shopping cart
 
     if (item == None):
         new_item = CartItem(product_id = data["productId"], quantity = data["quantity"], user_id = data["userId"])
@@ -29,9 +31,35 @@ def add_to_shoppingcart():
 
     return {"message": "success"}
 
-@shopping_cart_routes.route("/<int:id>", methods=["PUT"])
+
+# READ
+
+
+@shopping_cart_routes.route("/<int:id>")
+def get_shoppingcart(id):
+    items = CartItem.query.filter(CartItem.user_id == id).all()
+    return {"items": [item.to_dict() for item in items]}
+
+
+# UPDATE
+
+
+@shopping_cart_routes.route("/", methods=["PATCH"])
 def update_shoppingcart():
-    pass
+
+    # This is similar to CREATE: find the item in the database and then update its quantity
+
+    data = request.json
+
+    item = CartItem.query.filter(CartItem.user_id == data["userId"], CartItem.product_id == data["productId"]).first()
+    item.quantity = data["quantity"]
+    db.session.commit()
+
+    return {"message": "success"}
+
+
+# DELETE
+
 
 @shopping_cart_routes.route("/delete", methods=["DELETE"])
 def delete_shoppingcart():

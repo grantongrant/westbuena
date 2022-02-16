@@ -1,5 +1,6 @@
 const GET_CART = 'shoppingcart/GET_CART';
-const ADD_TO_CART = 'shoppingcart/ADD_TO_CART'
+const ADD_TO_CART = 'shoppingcart/ADD_TO_CART';
+const UPDATE_CART = 'shopping/UPDATE_CART';
 
 // CREATE -----------------------------------
 const addToShoppingCart = (data) => ({
@@ -14,6 +15,10 @@ const getShoppingcart = (items) => ({
 });
 
 // UPDATE -----------------------------------
+const updateShoppingcart = (data) => ({
+    type: UPDATE_CART,
+    data,
+})
 
 // DELETE -----------------------------------
 
@@ -56,6 +61,28 @@ export const getAllShoppingcart = (userId) => async (dispatch) => {
     };
 };
 
+// UPDATE ------------------------------------
+export const updateCart = (userId, productId, quantity) => async (dispatch) => {
+    const response = await fetch('/api/shoppingcart/', {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            userId,
+            productId,
+            quantity,
+        })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(updateShoppingcart(data));
+    } else {
+        return response;
+    }
+}
+
 
 // REDUCER
 export default function reducer(state = {}, action) {
@@ -66,7 +93,10 @@ export default function reducer(state = {}, action) {
     case ADD_TO_CART:
         newState = {...state, ...action.data}
         return newState;
+    case UPDATE_CART:
+        newState = {...state}
+        return newState;
     default:
         return state;
-    };
+    }
 };
