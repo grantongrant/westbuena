@@ -19,5 +19,6 @@ class CartItem(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'product_id': self.product_id,
-            'quanity': self.quantity
+            'quantity': self.quantity,
+            'product_name': self.product.name
         }

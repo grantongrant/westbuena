@@ -8,7 +8,6 @@ function ProductPage() {
     const { productId } = useParams();
     const dispatch = useDispatch(); 
     const product = useSelector((state) => state.product)
-    console.log(product)
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
