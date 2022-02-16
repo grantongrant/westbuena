@@ -19,16 +19,6 @@ function UsersList() {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch('/api/products/');
-  //     console.log(response)
-  //     const responseData = await response.json();
-  //     setProducts(responseData.products);
-  //   }
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     dispatch(getAllProducts())
   }, [dispatch]);
