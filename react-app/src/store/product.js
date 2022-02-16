@@ -18,6 +18,19 @@ export const getAllProducts = () => async (dispatch) => {
     };
 };
 
+export const getOneproduct = (productId) => async (dispatch) => {
+    const response = await fetch(`/api/products/${productId}`);
+
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        };
+        dispatch(getProducts(data));
+        return data;
+    };
+}
+
 export default function reducer(state = {}, action) {
     switch (action.type) {
     case GET_PRODUCTS:
