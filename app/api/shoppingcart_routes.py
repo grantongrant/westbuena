@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from flask_login import current_user
 from app.models import db
 from app.models.shoppingcart import CartItem 
 
@@ -14,13 +15,19 @@ def add_to_shoppingcart():
 
     data = request.json
 
-    new_item = CartItem(product_id = data["productId"], quantity = data["quantity"], user_id = data["userId"])
+    # Does the item already exist in the cart?
 
-    db.session.add(new_item)
+    item = CartItem.query.filter(CartItem.user_id == data["userId"], CartItem.product_id == data["productId"]).first()
 
-    db.session.commit()
+    if (item == None):
+        new_item = CartItem(product_id = data["productId"], quantity = data["quantity"], user_id = data["userId"])
+        db.session.add(new_item)
+        db.session.commit()
+    else:
+        item.quantity += data["quantity"]
+        db.session.commit()
 
-    return data
+    return {"message": "success"}
 
 @shopping_cart_routes.route("/<int:id>", methods=["PUT"])
 def update_shoppingcart():
