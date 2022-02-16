@@ -27,9 +27,9 @@ class Product(db.Model):
             'name': self.name,
             'category_id': self.category_id,
             'attributes': self.attributes,
-            'original_price': self.original_price,
+            'original_price': str(self.original_price),
             'discount': self.discount,
-            'final_price': self.final_price,
+            'final_price': str(self.final_price),
             'image_url1': self.image_url1,
             'image_url2': self.image_url2
         }

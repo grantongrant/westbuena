@@ -10,8 +10,8 @@ def seed_products():
         original_price=35.00,
         discount=42,
         final_price=14.70,
-        image_url1="https://res.cloudinary.com/ddxtopm0l/image/upload/v1644967313/westbuena/glass_metal_terrarium_image1_f2luyz.png",
-        image_url2="https://res.cloudinary.com/ddxtopm0l/image/upload/v1644967313/westbuena/glass_metal_terrarium_image2_wghmyi.png"
+        image_url1="https://westbuena.s3.us-east-2.amazonaws.com/glass_metal_terrarium_image1.png",
+        image_url2="https://westbuena.s3.us-east-2.amazonaws.com/glass_metal_terrarium_image2.png"
     )
 
     db.session.add(glass_metal_terrarium)
