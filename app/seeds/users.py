@@ -5,6 +5,7 @@ seed_password = os.environ.get("SEED_PASSWORD")
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
+    
     montrose = User(
         full_name= 'Montrose Irving', email='montrose@aa.io', password=seed_password)
     belle = User(

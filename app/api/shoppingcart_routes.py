@@ -6,9 +6,8 @@ shopping_cart_routes = Blueprint("shopping_cart", __name__)
 
 @shopping_cart_routes.route("/<int:id>")
 def get_shoppingcart(id):
-    items = CartItem.query.filter(CartItem.user_id == id)
-    return {"items": [item.todict() for item in items]}
-
+    items = CartItem.query.filter(CartItem.user_id == id).all()
+    return {"items": [item.to_dict() for item in items]}
 
 @shopping_cart_routes.route("/new", methods=["POST"])
 def add_to_shoppingcart():
