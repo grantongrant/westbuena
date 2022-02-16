@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getAllProducts } from '../store/product';
 
 function UsersList() {
   const [users, setUsers] = useState([]);
-  console.log(users)
-  const [products, setProducts] = useState();
+  const dispatch = useDispatch();
+  const productObject = useSelector((state) => state.product)
+  const products = Object.values(productObject)
   console.log(products)
-
+  
   useEffect(() => {
     async function fetchData() {
       const response = await fetch('/api/users/');
-      console.log(response)
       const responseData = await response.json();
       setUsers(responseData.users);
     }
     fetchData();
   }, []);
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch('/api/products/');
+  //     console.log(response)
+  //     const responseData = await response.json();
+  //     setProducts(responseData.products);
+  //   }
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('/api/products/');
-      console.log(response)
-      const responseData = await response.json();
-      setProducts(responseData.products);
-    }
-    fetchData();
-  }, []);
+    dispatch(getAllProducts())
+  }, [dispatch]);
 
   const userComponents = users.map((user) => {
     return (
@@ -38,7 +44,7 @@ function UsersList() {
   const productComponents = products?.map((product) => {
     return (
       <li key={product.id}>
-        <NavLink to={`/products/${product.id}`}><img src={product.image_url1}/></NavLink>
+        <NavLink to={`/products/${product.id}`}><img src={product.image_url1} alt="product"/></NavLink>
       </li>
     );
   });
