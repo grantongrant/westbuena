@@ -9,9 +9,18 @@ def get_shoppingcart(id):
     items = CartItem.query.filter(CartItem.user_id == id).all()
     return {"items": [item.to_dict() for item in items]}
 
-@shopping_cart_routes.route("/new", methods=["POST"])
+@shopping_cart_routes.route("/", methods=["POST"])
 def add_to_shoppingcart():
-    pass
+
+    data = request.json
+
+    new_item = CartItem(product_id = data["productId"], quantity = data["quantity"], user_id = data["userId"])
+
+    db.session.add(new_item)
+
+    db.session.commit()
+
+    return data
 
 @shopping_cart_routes.route("/<int:id>", methods=["PUT"])
 def update_shoppingcart():
@@ -20,4 +29,6 @@ def update_shoppingcart():
 @shopping_cart_routes.route("/delete", methods=["DELETE"])
 def delete_shoppingcart():
     pass
+
+
 
