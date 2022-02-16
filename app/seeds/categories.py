@@ -6,8 +6,8 @@ def seed_categories():
     planters = Category(
         name="Planters")
     
-    terrariums = Category(
-        name="Terrariums")
+    botanicals = Category(
+        name="Botanicals")
 
     live_plants = Category(
         name="Live Plants")
@@ -18,8 +18,8 @@ def seed_categories():
     stems_branches_bouquets = Category(
         name="Stems, Branches & Bouquets")
 
-    wreaths_garlands = Category(
-        name="Wreaths & Garlands")
+    candles = Category(
+        name="Candles")
 
     garden_tools = Category(
         name="Garden Tools")
@@ -31,11 +31,11 @@ def seed_categories():
         name="Seeds")
 
     db.session.add(planters)
-    db.session.add(terrariums)
+    db.session.add(botanicals)
     db.session.add(live_plants)
     db.session.add(faux_plants)
     db.session.add(stems_branches_bouquets)
-    db.session.add(wreaths_garlands)
+    db.session.add(candles)
     db.session.add(garden_tools)
     db.session.add(garden_decor)
     db.session.add(seeds)
