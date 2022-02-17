@@ -22,7 +22,8 @@ def get_categories():
     return {"categories": [category.to_dict() for category in categories]}
 
 
-@product_routes.route('/<string>category')
+@product_routes.route('/<string:category>')
 def get_products_by_category(category):
-    products = Product.query.filter(Product.category == category)
+    cat = Category.query.filter(Category.name == category).first()
+    products = Product.query.filter(Product.category_id == cat.id)
     return {"products": [product.to_dict() for product in products]}
