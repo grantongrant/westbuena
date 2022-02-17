@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllShoppingcart, updateCart } from '../../store/shoppingcart';
+import { deleteCartItem, getAllShoppingcart, updateCart } from '../../store/shoppingcart';
 import { NavLink } from 'react-router-dom';
 
 
@@ -18,9 +18,12 @@ function ShoppingCart() {
       }, [dispatch, user.id]);
 
     const updateQuantity = () => {
-        console.log(user.id, productId, parseInt(quantity,10))
         dispatch(updateCart(user.id, productId, parseInt(quantity,10)))
     };
+
+    const removeItem = (item) => {
+        dispatch(deleteCartItem(item));
+      };
 
     const cartComponents = items.map((item) => {
         return (
@@ -37,8 +40,11 @@ function ShoppingCart() {
                         }}
                         name="quantity"
                         />
-                    <button type="button" onClick={updateQuantity}>Update</button>
+                    <button onClick={updateQuantity}>Update</button>
                 </form>
+                <button type="button" onClick={(e) => {
+                    removeItem(item)
+                }}>Remove</button>
             </li>
         );
       });

@@ -61,9 +61,17 @@ def update_shoppingcart():
 # DELETE
 
 
-@shopping_cart_routes.route("/delete", methods=["DELETE"])
-def delete_shoppingcart():
-    pass
+@shopping_cart_routes.route("/", methods=["DELETE"])
+def delete_shoppingcart_item():
+
+    data = request.json["item"]
+    print(data)
+    print("hello")
+    item = CartItem.query.filter(CartItem.id == data["id"]).first()
+    db.session.delete(item)
+    db.session.commit()
+
+    return {"message": "success"}
 
 
 

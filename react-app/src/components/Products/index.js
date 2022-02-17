@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { getOneproduct } from '../../store/product';
 import { addToCart } from '../../store/shoppingcart';
 
@@ -10,14 +10,19 @@ function ProductPage() {
     const dispatch = useDispatch(); 
     const product = useSelector((state) => state.product)
     const user = useSelector(state => state.session.user);
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
       }, [dispatch, productId]);
 
-    const addToShoppingcart = () => {
+    const addToShoppingcart = async () => {
         const quantity = 1;
-        return dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
+        await dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
+        .then(() => {
+            alert("Successfully added!")
+            history.push("/shoppingcart")
+        })
     }
 
     return (

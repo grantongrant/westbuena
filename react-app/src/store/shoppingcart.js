@@ -1,6 +1,7 @@
 const GET_CART = 'shoppingcart/GET_CART';
 const ADD_TO_CART = 'shoppingcart/ADD_TO_CART';
-const UPDATE_CART = 'shopping/UPDATE_CART';
+const UPDATE_CART = 'shoppingcart/UPDATE_CART';
+const DELETE_ITEM = 'shoppingcart/DELETE_ITEM';
 
 // CREATE -----------------------------------
 const addToShoppingCart = (data) => ({
@@ -21,6 +22,11 @@ const updateShoppingcart = (data) => ({
 })
 
 // DELETE -----------------------------------
+
+const deleteOneItem = (itemId) => ({
+    type: DELETE_ITEM,
+    itemId,
+})
 
 // ------------------------------------------
 
@@ -81,7 +87,28 @@ export const updateCart = (userId, productId, quantity) => async (dispatch) => {
     } else {
         return response;
     }
-}
+};
+
+// DELETE ------------------------------------
+
+export const deleteCartItem = (item) => async (dispatch) => {
+    const response = await fetch('/api/shoppingcart/', {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            item
+        })
+    });
+
+    if (response.ok) {
+        console.log(item.id)
+        dispatch(deleteOneItem(item.id));
+    } else {
+        return response;
+    }
+};
 
 
 // REDUCER
@@ -95,6 +122,12 @@ export default function reducer(state = {}, action) {
         return newState;
     case UPDATE_CART:
         newState = {...state}
+        return newState;
+    case DELETE_ITEM:
+        newState = {...state}
+        console.log(newState)
+        console.log(action.itemId)
+        delete newState[action.itemId]
         return newState;
     default:
         return state;
