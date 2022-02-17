@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import ProductPage from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
 import CategoryPage from './components/Products/Category';
+import ShoppingCartPage from './components/ShoppingCart';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,7 +37,7 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path="/shoppingcart" exact={true}>
-          <ShoppingCart />
+          <ShoppingCartPage />
         </Route>
         <Route path="/shop/:category" exact={true}>
           <CategoryPage />
@@ -47,9 +48,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
         <Route exact path="/products/:productId">
           <ProductPage />
         </Route>

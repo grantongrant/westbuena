@@ -2,61 +2,34 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartItem, getAllShoppingcart, updateCart } from '../../store/shoppingcart';
 import { NavLink } from 'react-router-dom';
+import Shoppingcart from './Shoppingcart';
 
 
-function ShoppingCart() {
+function ShoppingCartPage() {
 
     const user = useSelector(state => state.session.user);
-    const dispatch = useDispatch();
-    const cartObject = useSelector((state) => state.shoppingcart)
-    const items = Object.values(cartObject)
-    const [quantity, setQuantity] = useState();
-    const [productId, setProductId] = useState("");
 
-    useEffect(() => {
-        dispatch(getAllShoppingcart(user.id))
-      }, [dispatch, user.id]);
-
-    const updateQuantity = () => {
-        dispatch(updateCart(user.id, productId, parseInt(quantity,10)))
-    };
-
-    const removeItem = (item) => {
-        dispatch(deleteCartItem(item));
-      };
-
-    const cartComponents = items.map((item) => {
-        return (
-            <li key={item.id}>
-                <NavLink to={`/products/${item.product_id}`}>{item.product_name}</NavLink>
-                <p>Total: ${(item.price * item.quantity).toFixed(2)}</p>
-                <form>
-                    <input
-                        type="text"
-                        placeholder={item.quantity}
-                        defaultValue={item.quantity}
-                        onChange={(e) => {
-                            setQuantity(e.target.value)
-                            setProductId(item.product_id)
-                        }}
-                        name="quantity"
-                        />
-                    <button type="button" onClick={updateQuantity}>Update</button>
-                </form>
-                <button type="button" onClick={(e) => {
-                    removeItem(item)
-                }}>Remove</button>
-            </li>
-        );
-      });
+    let sessionLinks;
+    if (user) {
+        sessionLinks = <Shoppingcart user={user}/>
+    } else {
+        sessionLinks = 
+        <div>
+            <h2>Shopping Cart</h2>
+            <p>Hi! Looks Like Your Cart's Empty...</p>
+            <NavLink to="/login"><button id="log-in-button">Sign In</button></NavLink>
+            <p>OR</p>
+            <NavLink to="/login"><button id="log-in-button">Create an Account</button></NavLink>
+            <p>OR</p>
+            <NavLink to="/"><button id="log-in-button">Continue Browsing</button></NavLink>
+        </div>
+    }
     
     return (
         <>
-            {user === null ? <p>Please sign in to your your shopping cart</p> : cartComponents }
-            {/* <h1>Shopping Cart: </h1>
-            {cartComponents} */}
+            {sessionLinks}
         </>
     );
 };
 
-export default ShoppingCart;
+export default ShoppingCartPage;
