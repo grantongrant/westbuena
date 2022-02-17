@@ -8,7 +8,6 @@ function UsersList() {
   const dispatch = useDispatch();
   const productObject = useSelector((state) => state.product)
   const products = Object.values(productObject)
-  console.log(products)
   
   useEffect(() => {
     async function fetchData() {

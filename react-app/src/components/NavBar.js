@@ -1,9 +1,28 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 
 const NavBar = () => {
+
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/products/categories');
+      const responseData = await response.json();
+      setCategories(responseData.categories);
+    }
+    fetchData();
+  }, []);
+
+  const categoryComponents = categories?.map((category) => {
+    return (
+      <li key={category.id}>
+        <NavLink to={`/shop/${category.name}`}>{category.name}</NavLink>
+      </li>
+    );
+  });
+
   return (
     <nav>
       <ul>
@@ -28,9 +47,15 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/shoppingcart' exact={true} activeClassName='active'>
+            Shopping Cart
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton />
         </li>
       </ul>
+      <ul>{categoryComponents}</ul>
     </nav>
   );
 }
