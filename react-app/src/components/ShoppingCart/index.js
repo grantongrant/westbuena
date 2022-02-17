@@ -29,6 +29,7 @@ function ShoppingCart() {
         return (
             <li key={item.id}>
                 <NavLink to={`/products/${item.product_id}`}>{item.product_name}</NavLink>
+                <p>Total: ${(item.price * item.quantity).toFixed(2)}</p>
                 <form>
                     <input
                         type="text"
