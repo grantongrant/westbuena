@@ -26,6 +26,7 @@ class Product(db.Model):
             'id': self.id,
             'name': self.name,
             'category_id': self.category_id,
+            'category': self.category.name,
             'attributes': self.attributes,
             'original_price': str(self.original_price),
             'discount': self.discount,
