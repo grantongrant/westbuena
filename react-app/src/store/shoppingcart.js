@@ -16,9 +16,9 @@ const getShoppingcart = (items) => ({
 });
 
 // UPDATE -----------------------------------
-const updateShoppingcart = (data) => ({
+const updateShoppingcart = (item) => ({
     type: UPDATE_CART,
-    data,
+    item,
 })
 
 // DELETE -----------------------------------
@@ -82,12 +82,12 @@ export const updateCart = (userId, productId, quantity) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const data = await response.json();
-        if (data.errors) {
+        const item = await response.json();
+        if (item.errors) {
             return;
         };
-        dispatch(updateShoppingcart(data));
-        return data;
+        dispatch(updateShoppingcart(item));
+        return item;
     };
 };
 
@@ -105,7 +105,6 @@ export const deleteCartItem = (item) => async (dispatch) => {
     });
 
     if (response.ok) {
-        console.log(item.id)
         dispatch(deleteOneItem(item.id));
     } else {
         return response;
@@ -124,7 +123,13 @@ export default function reducer(state = {}, action) {
         return newState;
     case UPDATE_CART:
         newState = {...state}
-        console.log(newState)
+        let array = Object.values(newState)
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].id === action.item.id) {
+                array[i] = action.item
+            }
+            newState = {...array}
+        }
         return newState;
     case DELETE_ITEM:
         newState = {...state}

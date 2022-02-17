@@ -55,7 +55,7 @@ def update_shoppingcart():
     item.quantity = data["quantity"]
     db.session.commit()
 
-    return {"message": "success"}
+    return item.to_dict()
 
 
 # DELETE
