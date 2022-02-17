@@ -3,45 +3,51 @@ body {
     padding: 0;
     width: 100%;
     display: block;
-  }
+}
   
-  .navigation-header {
+.navigation-header {
     display: flex;
     height: 86px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding-top: 12px;
-  }
+}
   
-  .global-navigation {
+.global-navigation {
     height: 72px;
     display: flex;
     width: 95%;
-  }
+}
   
-  .left-container {
+.left-container {
     margin-left: 10px;
-  }
+}
   
-  .secondary-navigation {
+.secondary-navigation {
     height: 0px;
     display: flex;
     width: 100%;
     border-bottom: 2px solid rgba(34, 34, 34, 0.15);
-  }
+}
 
-  .cart-menu {
+.cart-menu {
       border: 1px solid black;
       display: inline-block;
-  }
+}
 
-  .cart-content {
+.cart-content {
     border: 1px solid black;
     display: none;
     position: absolute;
-  }
+}
+
+.account-content {
+    border: 1px solid black;
+    position: absolute;
+}
   
-  .cart-menu:hover .cart-content {
+  
+.cart-menu:hover .cart-content {
     display: block;
-  }
+}

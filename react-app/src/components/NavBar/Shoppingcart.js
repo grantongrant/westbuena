@@ -31,7 +31,7 @@ function Shoppingcart () {
 
     if (sessionUser) {
         sessionLinks = (
-        <nav>
+        <nav className="cart-content">
             <p>Track Order</p>
         </nav>
         );

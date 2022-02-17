@@ -49,7 +49,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>Splash Page</h1>
         </Route>
         <Route exact path="/products/:productId">
           <ProductPage />

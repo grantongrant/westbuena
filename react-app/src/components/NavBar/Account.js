@@ -32,14 +32,14 @@ function Account () {
 
     if (sessionUser) {
         sessionLinks = (
-        <nav>
+        <nav className="account-content">
             <p>Track Order</p>
             <LogoutButton/>
         </nav>
         );
     } else {
         sessionLinks = (
-        <nav className="login-signup">
+        <nav className="account-content">
             <NavLink to="/login"><button id="log-in-button">Log In / Sign Up</button></NavLink>
             <p>Track Order</p>
         </nav>
