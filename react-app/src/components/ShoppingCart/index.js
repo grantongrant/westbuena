@@ -27,7 +27,7 @@ function ShoppingCart() {
 
     const cartComponents = items.map((item) => {
         return (
-            <li key={item.product_id}>
+            <li key={item.id}>
                 <NavLink to={`/products/${item.product_id}`}>{item.product_name}</NavLink>
                 <form>
                     <input

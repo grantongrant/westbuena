@@ -19,10 +19,7 @@ function ProductPage() {
     const addToShoppingcart = async () => {
         const quantity = 1;
         await dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
-        .then(() => {
-            alert("Successfully added!")
-            history.push("/shoppingcart")
-        })
+        .then(() => history.push("/shoppingcart"))
     }
 
     return (

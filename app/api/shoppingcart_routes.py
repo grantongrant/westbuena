@@ -25,11 +25,11 @@ def add_to_shoppingcart():
         new_item = CartItem(product_id = data["productId"], quantity = data["quantity"], user_id = data["userId"])
         db.session.add(new_item)
         db.session.commit()
+        return new_item.to_dict()
     else:
         item.quantity += data["quantity"]
         db.session.commit()
-
-    return {"message": "success"}
+        return item.to_dict()
 
 
 # READ

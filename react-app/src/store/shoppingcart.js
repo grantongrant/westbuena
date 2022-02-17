@@ -45,12 +45,17 @@ export const addToCart = (userId, productId, quantity) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const data = await response.json();
-        dispatch(addToShoppingCart(data));
-        return data;
-    } else {
-        return response;
-    }
+        const item = await response.json();
+        if (item.errors) {
+            return;
+        };
+        if (item.quantity === 1) {
+            dispatch(addToShoppingCart(item));
+        } else {
+            dispatch(updateShoppingcart(item));
+        }
+        return item;
+    };
 }
 
 // READ --------------------------------------
@@ -86,7 +91,11 @@ export const updateCart = (userId, productId, quantity) => async (dispatch) => {
         if (item.errors) {
             return;
         };
-        dispatch(updateShoppingcart(item));
+        if (item.quantity === 0) {
+            dispatch(deleteCartItem(item));
+        } else {
+            dispatch(updateShoppingcart(item));
+        }
         return item;
     };
 };

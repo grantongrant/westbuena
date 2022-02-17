@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ProductPage from './components/Products';
 import ShoppingCart from './components/ShoppingCart';
+import CategoryPage from './components/Products/Category';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path="/shoppingcart" exact={true}>
           <ShoppingCart />
+        </Route>
+        <Route path="/shop/:category" exact={true}>
+          <CategoryPage />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
