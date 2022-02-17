@@ -1,5 +1,5 @@
 from flask import Blueprint
-from app.models import Product
+from app.models import Product, Category
 
 product_routes = Blueprint("products", __name__)
 
@@ -12,3 +12,8 @@ def get_all_products():
 def get_product_by_id(id):
     product = Product.query.get(id)
     return product.to_dict()
+
+@product_routes.route('/categories')
+def get_product_by_category():
+    categories = Category.query.all()
+    return {"categories": [category.to_dict() for category in categories]}
