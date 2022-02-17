@@ -52,8 +52,9 @@ function ShoppingCart() {
     
     return (
         <>
-            <h1>Shopping Cart: </h1>
-            {cartComponents}
+            {user === null ? <p>Please sign in to your your shopping cart</p> : cartComponents }
+            {/* <h1>Shopping Cart: </h1>
+            {cartComponents} */}
         </>
     );
 };
