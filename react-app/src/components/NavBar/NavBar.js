@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Account from './Account';
 import Shoppingcart from './Shoppingcart';
 import './NavBar.css'
+import { BsArrowRight } from 'react-icons/bs';
 
 const NavBar = () => {
 
@@ -28,6 +29,15 @@ const NavBar = () => {
 
   return (
     <header className="navigation-header">
+      <div className="global-promo">
+        <div className="promo-content">
+          <p>Up to 60% off warehosue deals <BsArrowRight/></p>
+          <p> | </p>
+          <p>Up to 40% off in-stock furniture <BsArrowRight/></p>
+          <p>|</p>
+          <p>Up to 30% off bedding <BsArrowRight/></p>
+        </div>
+      </div>
       <div className="global-navigation">
         <div className="search-container">
           <p>search bar here</p>
