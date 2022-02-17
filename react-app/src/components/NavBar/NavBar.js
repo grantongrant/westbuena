@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import { useSelector } from 'react-redux';
+import ProfileButton from './ProfileButton';
+import LogoutButton from '../auth/LogoutButton'
 
 const NavBar = () => {
 
+  const sessionUser = useSelector((state) => state.session.user);
   const [categories, setCategories] = useState();
+
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = <ProfileButton user={sessionUser} />;
+  } else {
+    sessionLinks = (
+      <nav className="login-signup">
+        <h1>Hi</h1>
+      </nav>
+    );
+  }
 
   useEffect(() => {
     async function fetchData() {

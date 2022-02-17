@@ -5,15 +5,15 @@ import React, { useEffect, useState } from 'react';
 function CategoryPage() {
 
     const { category } = useParams();
+    console.log(category)
     const [products, setProducts] = useState();
-    console.log(products)
 
     useEffect(() => {
         async function fetchData() {
         const response = await fetch(`/api/products/${category}`);
         const responseData = await response.json();
         console.log(responseData)
-        setProducts(responseData.categories)
+        setProducts(responseData.products)
     }
     fetchData();
     }, [category]);
