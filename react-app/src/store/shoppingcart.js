@@ -77,16 +77,18 @@ export const updateCart = (userId, productId, quantity) => async (dispatch) => {
         body: JSON.stringify({
             userId,
             productId,
-            quantity,
+            quantity
         })
     });
 
     if (response.ok) {
         const data = await response.json();
+        if (data.errors) {
+            return;
+        };
         dispatch(updateShoppingcart(data));
-    } else {
-        return response;
-    }
+        return data;
+    };
 };
 
 // DELETE ------------------------------------
@@ -122,12 +124,17 @@ export default function reducer(state = {}, action) {
         return newState;
     case UPDATE_CART:
         newState = {...state}
+        console.log(newState)
         return newState;
     case DELETE_ITEM:
         newState = {...state}
-        console.log(newState)
-        console.log(action.itemId)
-        delete newState[action.itemId]
+        let values = Object.values(newState)
+        for (let i = 0; i < values.length; i++) {
+            if (values[i].id === action.itemId) {
+                delete values[i]
+            }
+            newState = {...values};
+        }
         return newState;
     default:
         return state;

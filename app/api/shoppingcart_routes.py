@@ -65,8 +65,6 @@ def update_shoppingcart():
 def delete_shoppingcart_item():
 
     data = request.json["item"]
-    print(data)
-    print("hello")
     item = CartItem.query.filter(CartItem.id == data["id"]).first()
     db.session.delete(item)
     db.session.commit()

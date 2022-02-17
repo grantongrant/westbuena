@@ -18,6 +18,9 @@ function ShoppingCart() {
       }, [dispatch, user.id]);
 
     const updateQuantity = () => {
+        console.log(user.id)
+        console.log(productId)
+        console.log(parseInt(quantity,10))
         dispatch(updateCart(user.id, productId, parseInt(quantity,10)))
     };
 
