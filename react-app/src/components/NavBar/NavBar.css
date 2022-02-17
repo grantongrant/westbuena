@@ -12,7 +12,7 @@ body {
   
 .navigation-header {
     display: flex;
-    height: 150px;
+    height: 249px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -79,6 +79,11 @@ body {
     font-weight: bold;
     height: 43px;
     align-items: center;
+    cursor: pointer;
+}
+
+.my-name:hover {
+    background-color: rgb(229, 240, 242);
 }
 
 #last-name {
@@ -88,7 +93,7 @@ body {
 
 .technologies {
     height: 43px;
-    background-color: rgb(248,248,248);
+    background-color: rgb(248, 248, 248);
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -113,20 +118,57 @@ body {
 }
 
 .global-navigation {
-    height: 60px;
+    height: 97px;
     display: flex;
-    width: 95%;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.search-container {
+    background-color: yellow;
+    width: 30%;
+    align-items: center;
 }
   
 .left-container {
-    margin-left: 10px;
+    width: 60%;
+    text-align: center;
+    align-items: center;
 }
-  
-.secondary-navigation {
-    height: 0px;
+
+#logo-font {
+    text-decoration: none;
+    color: #363636;
+    font-size: 34px;
+    font-family: sans-serif;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+.right-container {
+    color: #363636;
     display: flex;
-    width: 100%;
-    border-bottom: 2px solid rgba(34, 34, 34, 0.15);
+    flex-direction: row;
+    width: 30%;
+    height: 18px;
+    justify-content: flex-end;
+    line-height: 1.4;
+}
+
+.account-icon {
+    height: 18px;
+    display: flex;
+    flex-direction: row;
+}
+
+.shoppingcart-icon {
+    height: 18px;
+    width: 20px;
+    display: flex;
+    margin-left: 48px;
 }
 
 .cart-menu {
@@ -148,4 +190,61 @@ body {
   
 .cart-menu:hover .cart-content {
     display: block;
+}
+
+.secondary-navigation {
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.secondary-content {
+    font-family: "GT-Eesti 3r",Arial,sans-serif;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #363636;
+    letter-spacing: .12px;
+    line-height: 1.25;
+    cursor: pointer;
+}
+
+#spacer {
+    margin: 0px 10px;
+}
+
+.downarrow {
+    padding-top: 6px;
+    font-size: 12px;
+}
+.category-list {
+    height: 40px;
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: row;
+    color: #363636;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;;
+    border-top: 1px solid #d9d9d9;
+}
+
+.category-list-content a{
+    text-decoration: none;
+    color: #363636;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.category-list-content a:hover{
+    color:#866347;
+    border-bottom: 1px solid #866347;
 }

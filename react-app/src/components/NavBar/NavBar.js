@@ -5,6 +5,7 @@ import Account from './Account';
 import Shoppingcart from './Shoppingcart';
 import './NavBar.css'
 import { BsArrowRightShort } from 'react-icons/bs';
+import { AiFillCaretDown } from 'react-icons/ai';
 
 const NavBar = () => {
 
@@ -21,7 +22,7 @@ const NavBar = () => {
 
   const categoryComponents = categories?.map((category) => {
     return (
-      <li key={category.id}>
+      <li className="category-list-content" key={category.id}>
         <NavLink to={`/shop/${category.name}`}>{category.name}</NavLink>
       </li>
     );
@@ -66,11 +67,19 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className="right-container">
-          <Account />
-          <Shoppingcart />
+          <div className="account-icon"><Account /></div>
+          <div className="shoppingcart-icon"><Shoppingcart /></div>
         </div>
       </div>
       <div className="secondary-navigation">
+        <div className="secondary-content">
+          <p>design & values</p>
+          <p id="spacer"> | </p>
+          <p>hire me</p>
+          <span className="downarrow"><AiFillCaretDown/></span>
+        </div>
+      </div>
+      <div className="category-list">
         {categoryComponents}
       </div>
     </header>
