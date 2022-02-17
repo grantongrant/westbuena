@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Account from './Account';
 import Shoppingcart from './Shoppingcart';
 import './NavBar.css'
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowRightShort } from 'react-icons/bs';
 
 const NavBar = () => {
 
@@ -31,11 +31,29 @@ const NavBar = () => {
     <header className="navigation-header">
       <div className="global-promo">
         <div className="promo-content">
-          <p>Up to 60% off warehosue deals <BsArrowRight/></p>
+          <p>Up to 60% off warehouse deals</p>
+          <span className="rightarrow"><BsArrowRightShort/></span>
           <p> | </p>
-          <p>Up to 40% off in-stock furniture <BsArrowRight/></p>
+          <p>Up to 40% off in-stock furniture</p>
+          <span className="rightarrow"><BsArrowRightShort/></span>
           <p>|</p>
-          <p>Up to 30% off bedding <BsArrowRight/></p>
+          <p>Up to 30% off bedding</p>
+          <span className="rightarrow"><BsArrowRightShort/></span>
+        </div>
+      </div>
+      <div className="technologies">
+        <div className="west-buena"><p>west buena</p></div>
+        <div className="my-name"><p>grant</p><p id="last-name">russell</p></div>
+        <div className="technology-content">
+          <li>javascript</li>
+          <li>python</li>
+          <li>react</li>
+          <li>redux</li>
+          <li>sqlalchemy</li>
+          <li>html</li>
+          <li>css</li>
+          <li>amazon s3</li>
+          <li>git</li>
         </div>
       </div>
       <div className="global-navigation">

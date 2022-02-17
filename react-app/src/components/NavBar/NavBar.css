@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    list-style: none;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
   
 .navigation-header {
     display: flex;
-    height: 100px;
+    height: 150px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -43,7 +44,74 @@ body {
     margin-bottom: 12px;
     justify-self: center;
 }
-  
+
+.rightarrow {
+    padding-top: 6px;
+    font-size: 17px;
+}
+
+.west-buena {
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
+    color: #363636;
+    letter-spacing: .13px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: white;
+    margin-top:0px;
+    height: 43px;
+    align-items: center;
+}
+
+.my-name {
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #363636;
+    letter-spacing: .13px;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 43px;
+    align-items: center;
+}
+
+#last-name {
+    margin-left: 3px;
+    color: #467e8b;
+}
+
+.technologies {
+    height: 43px;
+    background-color: rgb(248,248,248);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: sans-serif;
+    height: 43px;
+    align-items: center;
+}
+
+.technology-content {
+    display: flex;
+    flex-direction: row;
+    color: #363636;
+    font-size: 9.5px;
+    letter-spacing: .8px;
+    font-family: sans-serif;
+}
+
+.technology-content li {
+    padding-right: 15px;
+}
+
 .global-navigation {
     height: 60px;
     display: flex;
