@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteCartItem, getAllShoppingcart, updateCart } from '../../store/shoppingcart';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Shoppingcart from './Shoppingcart';
+import './Shoppingcart.css';
 
 
 function ShoppingCartPage() {
@@ -14,14 +14,15 @@ function ShoppingCartPage() {
         sessionLinks = <Shoppingcart user={user}/>
     } else {
         sessionLinks = 
-        <div>
+        <div className="empty-cart-content">
             <h2>Shopping Cart</h2>
             <p>Hi! Looks Like Your Cart's Empty...</p>
-            <NavLink to="/login"><button id="login-button">Sign In</button></NavLink>
-            <p>OR</p>
-            <NavLink to="/login"><button id="login-button">Create an Account</button></NavLink>
-            <p>OR</p>
-            <NavLink to="/"><button id="login-button">Continue Browsing</button></NavLink>
+            <div>
+                <NavLink to="/login"><button className="cart-button blue-white-button">Sign In</button></NavLink>
+                <NavLink to="/login"><button className="cart-button white-blue-button">Create an Account</button></NavLink>
+            </div>
+            <p id="or">OR</p>
+            <NavLink to="/"><button className="cart-button white-brown-button">Continue Browsing</button></NavLink>
         </div>
     }
     

@@ -9,7 +9,6 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ProductPage from './components/Products';
-import ShoppingCart from './components/ShoppingCart';
 import CategoryPage from './components/Products/Category';
 import ShoppingCartPage from './components/ShoppingCart';
 
