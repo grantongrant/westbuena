@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartItem, getAllShoppingcart, updateCart } from '../../store/shoppingcart';
 import { NavLink } from 'react-router-dom';
+import './Shoppingcart.css';
 
 
 function ShoppingCart({user}) {
