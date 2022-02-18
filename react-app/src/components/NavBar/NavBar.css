@@ -176,9 +176,38 @@ body {
 } */
 
 .cart-content {
-    border: 1px solid black;
     display: none;
     position: absolute;
+    margin-top: 2px;
+    right: 20px;
+    background-color: white;
+    justify-content: center;
+    font-size: 12px;
+    text-align: right;
+    padding:12px;
+    border-top: 3px solid #af1a31;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,.25);
+}
+
+.cart-menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+#log-in-button {
+    background-color: #023a51;
+    border-color: #023a51;
+    color: white;
+    line-height: 38px;
+    font-size: 14px;
+}
+
+#login-button-account {
+    background-color: transparent;
+    border-color: none;
 }
 
 .account-button {
@@ -272,4 +301,12 @@ body {
 .category-list-content a:hover{
     color:#866347;
     border-bottom: 1px solid #866347;
+}
+
+#sale a {
+    color: #af1a31;
+}
+
+#sale a:hover {
+    border-bottom: 1 px solid #af1a31;
 }

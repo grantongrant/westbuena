@@ -81,6 +81,9 @@ const NavBar = () => {
       </div>
       <div className="category-list">
         {categoryComponents}
+        <li id="sale" className="category-list-content" key="sale">
+        <NavLink to="/shop/sale">SALE</NavLink>
+      </li>
       </div>
     </header>
   )

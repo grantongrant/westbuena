@@ -38,7 +38,7 @@ function Shoppingcart () {
     } else {
         sessionLinks = (
         <nav className="cart-content">
-            <div>
+            <div className="cart-menu-content">
                 <p>Hi! Looks Like Your Cart's Empty...</p>
                 <NavLink to="/login"><button id="log-in-button">Sign In</button></NavLink>
                 <p>to add to your cart</p>

@@ -17,11 +17,11 @@ function ShoppingCartPage() {
         <div>
             <h2>Shopping Cart</h2>
             <p>Hi! Looks Like Your Cart's Empty...</p>
-            <NavLink to="/login"><button id="log-in-button">Sign In</button></NavLink>
+            <NavLink to="/login"><button id="login-button">Sign In</button></NavLink>
             <p>OR</p>
-            <NavLink to="/login"><button id="log-in-button">Create an Account</button></NavLink>
+            <NavLink to="/login"><button id="login-button">Create an Account</button></NavLink>
             <p>OR</p>
-            <NavLink to="/"><button id="log-in-button">Continue Browsing</button></NavLink>
+            <NavLink to="/"><button id="login-button">Continue Browsing</button></NavLink>
         </div>
     }
     
