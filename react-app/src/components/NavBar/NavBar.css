@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+
 * {
     box-sizing: border-box;
     list-style: none;
+    font-family: 'Open Sans', sans-serif;    
+
 }
 
 body {
@@ -29,7 +33,6 @@ body {
 }
 
 .promo-content {
-    font-family: "GT-Eesti 3r",Arial,sans-serif;
     font-size: 12px;
     display: flex;
     justify-content: center;
@@ -59,7 +62,6 @@ body {
     color: #363636;
     letter-spacing: .13px;
     font-weight: bold;
-    font-family: sans-serif;
     background-color: white;
     margin-top:0px;
     height: 43px;
@@ -75,7 +77,6 @@ body {
     font-size: 18px;
     color: #363636;
     letter-spacing: .13px;
-    font-family: sans-serif;
     font-weight: bold;
     height: 43px;
     align-items: center;
@@ -99,7 +100,6 @@ body {
     flex-direction: row;
     padding-left: 20px;
     padding-right: 20px;
-    font-family: sans-serif;
     height: 43px;
     align-items: center;
 }
@@ -110,7 +110,6 @@ body {
     color: #363636;
     font-size: 9.5px;
     letter-spacing: .8px;
-    font-family: sans-serif;
 }
 
 .technology-content li {
@@ -143,7 +142,6 @@ body {
     text-decoration: none;
     color: #363636;
     font-size: 34px;
-    font-family: sans-serif;
     letter-spacing: 1.5px;
     cursor: pointer;
 }
@@ -194,7 +192,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
 }
 
 #log-in-button {
@@ -255,7 +252,6 @@ body {
 }
 
 .secondary-content {
-    font-family: "GT-Eesti 3r",Arial,sans-serif;
     font-size: 12px;
     display: flex;
     justify-content: center;
@@ -283,7 +279,6 @@ body {
     color: #363636;
     font-size: 10px;
     letter-spacing: 1px;
-    font-family: sans-serif;
     cursor: pointer;
     justify-content: space-between;
     align-items: center;
