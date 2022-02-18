@@ -4,6 +4,7 @@ import { BsChevronDown } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton'
 import { useEffect, useState } from 'react';
+import './NavBar.css';
 
 
 function Account () {
@@ -50,7 +51,10 @@ function Account () {
     return (
         <div>
             <div>
-                <button type="button" onClick={openMenu}><BiUser /><BsChevronDown/></button>
+                <button className="account-button" type="button" onClick={openMenu}>
+                    <div id="account-icon-a"><BiUser /></div>
+                    <div id="account-arrow-a"><BsChevronDown/></div>
+                </button>
             </div>
             {showMenu && sessionLinks}
             {/* {sessionLinks} */}

@@ -51,7 +51,7 @@ function Shoppingcart () {
 
     return (
         <div className="cart-menu">
-            <NavLink to="/shoppingcart"><BsCart /></NavLink>
+            <NavLink id="cart-icon-a" to="/shoppingcart"><BsCart /></NavLink>
             {sessionLinks}
         </div>
     )

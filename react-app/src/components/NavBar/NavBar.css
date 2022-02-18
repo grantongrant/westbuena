@@ -160,7 +160,7 @@ body {
 
 .account-icon {
     height: 18px;
-    display: flex;
+    display: inline-block;
     flex-direction: row;
 }
 
@@ -171,10 +171,9 @@ body {
     margin-left: 48px;
 }
 
-.cart-menu {
-      border: 1px solid black;
-      display: inline-block;
-}
+/* .cart-menu {
+    display: inline-block;
+} */
 
 .cart-content {
     border: 1px solid black;
@@ -182,9 +181,35 @@ body {
     position: absolute;
 }
 
+.account-button {
+    height: 18px;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border: none;
+}
 .account-content {
     border: 1px solid black;
     position: absolute;
+}
+
+#account-icon-a {
+    font-size: 21px;
+    display: flex;
+    color: #363636;
+}
+
+#account-arrow-a {
+    font-size: 8px;
+    display: flex;
+    margin-left: -3px;
+    margin-top: 5px;
+}
+
+#cart-icon-a {
+    font-size: 21px;
+    display: flex;
+    color: #363636;
 }
   
   
