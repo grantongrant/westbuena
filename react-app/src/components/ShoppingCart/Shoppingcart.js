@@ -17,7 +17,7 @@ function ShoppingCart({user}) {
       }, [dispatch, user.id]);
     
     return (
-        <div>
+        <div className="cart-container">
             <div className="left-container-item-detail">
                 <p>Shopping Cart</p>
                 <p>Shipping</p>
