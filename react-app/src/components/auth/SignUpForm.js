@@ -7,6 +7,7 @@ const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [repeatEmail, setRepeatEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -14,7 +15,7 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    if (password === repeatPassword && email === repeatEmail) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
@@ -28,6 +29,10 @@ const SignUpForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateRepeatEmail = (e) => {
+    setRepeatEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -44,13 +49,15 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
+      <p>Create an Account</p>
+      <p>When you open a west buena account, you'll be able to Checkout, create a Wishlist, search for products, and see your order history.</p>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label>User Name</label>
+        <label>FULL NAME</label>
         <input
           type='text'
           name='username'
@@ -59,7 +66,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label>EMAIL</label>
         <input
           type='text'
           name='email'
@@ -68,7 +75,17 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label>CONFIRM EMAIL</label>
+        <input
+          type='text'
+          name='repeat_email'
+          onChange={updateRepeatEmail}
+          value={repeatEmail}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <label>PASSWORD</label>
         <input
           type='password'
           name='password'
@@ -77,7 +94,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>CONFIRM PASSWORD</label>
         <input
           type='password'
           name='repeat_password'
@@ -86,7 +103,8 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button type='submit'>Create An Account</button>
+      <p>If you do not with to receive promotional emails from us, do nothing. Note that we do not send any promotional emails.</p>
     </form>
   );
 };

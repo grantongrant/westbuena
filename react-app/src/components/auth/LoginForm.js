@@ -42,13 +42,15 @@ const LoginForm = () => {
   return (
     <div>
     <form onSubmit={onLogin}>
+      <p>Sign in using your email</p>
+      <p><p>You can now sign into this brand using your account! If you don't have an account, create an account.</p></p>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
+        <label htmlFor='email'>EMAIL</label>
         <input
           name='email'
           type='text'
@@ -58,7 +60,7 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
+        <label htmlFor='password'>PASSWORD</label>
         <input
           name='password'
           type='password'
@@ -66,10 +68,14 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+      </div>
+      <button type='submit'>Sign In</button>
+      <div>
+        <p>Are You An Interested Developer?</p>
+        <p>Users who access this site with the demo login enjoy exclusive site privileges + more.</p>
+        <button type="button" onClick={demoLogin}>Demo Sign In</button>
       </div>
     </form>
-    <button type="button" onClick={demoLogin}>Demo Login</button>
     </div>
   );
 };
