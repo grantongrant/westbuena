@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllShoppingcart } from '../../store/shoppingcart';
 import './Shoppingcart.css';
 import CartItems from './CartItems';
+import OrderSummary from './OrderSummary';
 
 
 function ShoppingCart({user}) {
@@ -22,7 +23,9 @@ function ShoppingCart({user}) {
                 <p>Shipping</p>
                 <div><CartItems items={items}/></div>
                 </div>
-            <div className="right-container-order-detail"></div>
+            <div className="right-container-order-detail">
+                <div><OrderSummary items={items}/></div>
+            </div>
         </div>
     );
 };

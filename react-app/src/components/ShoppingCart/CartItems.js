@@ -27,11 +27,11 @@ function CartItems({items}) {
                 <button type="button" onClick={(e) => {removeItem(item)}}>Remove</button>
             </div>
             <div className="cart-item-body">
-                <div>{item.name}</div>
+                <div>{item.product_name}</div>
                 <div className="price-and-quantity">
                     <div className="item-price">
                         <p>Item Price</p>
-                        <p>${(item.price * item.quantity).toFixed(2)}</p>
+                        <p>${item.price}</p>
                     </div>
                     <div className="item-quantity">
                         <p>QUANTITY</p>
@@ -50,6 +50,10 @@ function CartItems({items}) {
                                 <button type="button" onClick={updateQuantity}>Update</button>
                             </form>
                         </div>
+                    </div>
+                    <div className="item-total-price">
+                        <p>Item Total</p>
+                        <p>${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                 </div>
             </div>
