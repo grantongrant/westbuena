@@ -68,6 +68,12 @@ body {
     align-items: center;
 }
 
+.technologies a {
+    color: #363636;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .my-name {
     display: flex;
     flex-direction: row;

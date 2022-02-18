@@ -43,7 +43,7 @@ const NavBar = () => {
         </div>
       </div>
       <div className="technologies">
-        <div className="west-buena"><p>west buena</p></div>
+        <NavLink to="/"><div className="west-buena"><p>west buena</p></div></NavLink>
         <div className="my-name"><p>grant</p><p id="last-name">russell</p></div>
         <div className="technology-content">
           <li>javascript</li>
@@ -55,6 +55,7 @@ const NavBar = () => {
           <li>css</li>
           <li>amazon s3</li>
           <li>git</li>
+          <li>docker</li>
         </div>
       </div>
       <div className="global-navigation">
