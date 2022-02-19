@@ -10,6 +10,7 @@ import ProductPage from './components/Products';
 import CategoryPage from './components/Products/Category';
 import ShoppingCartPage from './components/ShoppingCart';
 import Authenticate from './components/auth';
+import OrdersPage from './components/Orders';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path="/shoppingcart" exact={true}>
           <ShoppingCartPage />
+        </Route>
+        <Route path="/orders" exact={true}>
+          <OrdersPage />
         </Route>
         <Route path="/shop/:category" exact={true}>
           <CategoryPage />
