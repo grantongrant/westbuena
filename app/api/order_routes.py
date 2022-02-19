@@ -57,7 +57,7 @@ def update_order_by_order_id(id):
 def delete_order_by_order_id(id):
 
     order = OrderDetail.query.filter(OrderDetail.id == id).first()
-    
+
     db.session.delete(order)
     db.session.commit()
 

@@ -5,6 +5,7 @@ class OrderDetail(db.Model):
     __tablename__ = 'order_details'
 
     id = db.Column(db.Integer, primary_key=True)
+    order_number = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey("products.id"), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
@@ -23,14 +24,21 @@ class OrderDetail(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'order_numbber': self.order_number,
             'user_id': self.user_id,
             'product_id': self.product_id,
             'quantity': self.quantity,
-            'price': self.price,
-            'sales_tax': self.sales_tax,
-            'total': self.total,
+            'price': str(self.price),
+            'sales_tax': str(self.sales_tax),
+            'total': str(self.total),
             'delivered': self.delivered,
             'returned': self.returned,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'product': {
+                'id': self.product.id,
+                'name': self.product.name,
+                'category': self.product.category.name,
+                'image': self.product.image_url1,
+            }
         }

@@ -15,13 +15,13 @@ function OrdersPage() {
     } else {
         sessionLinks = 
         <div className="order-sign-in">
+            <h1>Track Your Order</h1>
             <OrderSignin/>
         </div>
     }
     
     return (
         <div>
-            <h1>Track Your Order</h1>
             {sessionLinks}
         </div>
     );

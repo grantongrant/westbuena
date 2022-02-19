@@ -15,7 +15,8 @@ const getOrders = (orders) => ({
 // READ -------------------------------------
 
 export const getAllOrders = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/shoppingcart/${userId}`);
+    const response = await fetch(`/api/orders/${userId}`);
+    console.log(response)
   
     if (response.ok) {
         const data = await response.json();
@@ -33,9 +34,10 @@ export const getAllOrders = (userId) => async (dispatch) => {
 // REDUCER ----------------------------------
 
 export default function reducer(state = {}, action) {
-    let newState;
+    let newState
     switch (action.type) {
     case GET_ORDERS:
+        newState = {};
         action.orders.forEach(order => {
             newState[order.id] = {...order}
         });

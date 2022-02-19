@@ -4,6 +4,7 @@ def seed_orders():
     
     montrose_order1 = OrderDetail (
         user_id = 1,
+        order_number = 968537,
         product_id = 4,
         quantity = 2,
         price = 28.00,
@@ -15,6 +16,7 @@ def seed_orders():
 
     belle_order1 = OrderDetail (
         user_id = 2,
+        order_number = 358963,
         product_id = 2,
         quantity = 1,
         price = 28.00,
@@ -26,6 +28,7 @@ def seed_orders():
 
     sheridan_order1 = OrderDetail (
         user_id = 3,
+        order_number = 970073,
         product_id = 1,
         quantity = 1,
         price = 22.00,
@@ -37,6 +40,7 @@ def seed_orders():
 
     montrose_order2 = OrderDetail (
         user_id = 1,
+        order_number = 900067,
         product_id = 3,
         quantity = 1,
         price = 66.30,
@@ -48,6 +52,7 @@ def seed_orders():
 
     belle_order2 = OrderDetail (
         user_id = 2,
+        order_number = 188400,
         product_id = 5,
         quantity = 2,
         price = 128.00,
@@ -59,6 +64,7 @@ def seed_orders():
 
     sheridan_order2 = OrderDetail (
         user_id = 3,
+        order_number = 333994,
         product_id = 6,
         quantity = 2,
         price = 56.00,
