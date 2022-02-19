@@ -1,6 +1,12 @@
 const GET_ORDERS = 'order/GET_ORDERS';
+const ADD_ORDER = 'order/ADD_ORDER';
 
 // CREATE -----------------------------------
+
+const addOrder = (order) => ({
+    type: ADD_ORDER,
+    order,
+})
 // READ -------------------------------------
 
 const getOrders = (orders) => ({
@@ -12,11 +18,38 @@ const getOrders = (orders) => ({
 // DELETE -----------------------------------
 
 // CREATE -----------------------------------
+
+export const addAnOrder = (order_number, user_id, product_id, quantity, price, tax) => async (dispatch) => {
+    const response = await fetch('/api/orders/', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            order_number,
+            user_id,
+            product_id,
+            quantity,
+            price,
+            tax
+        })
+    });
+
+    if (response.ok) {
+        const order = await response.json();
+        if (order.errors) {
+            return;
+        } else {
+            dispatch(addOrder(order))
+        };
+        return order;
+    };
+};
+
 // READ -------------------------------------
 
 export const getAllOrders = (userId) => async (dispatch) => {
     const response = await fetch(`/api/orders/${userId}`);
-    console.log(response)
   
     if (response.ok) {
         const data = await response.json();
@@ -41,7 +74,10 @@ export default function reducer(state = {}, action) {
         action.orders.forEach(order => {
             newState[order.id] = {...order}
         });
-        return newState
+        return newState;
+    case ADD_ORDER:
+        newState = {...state, ...action.order}
+        return newState;
     default:
         return state;
     };

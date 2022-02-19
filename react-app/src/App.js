@@ -11,6 +11,7 @@ import CategoryPage from './components/Products/Category';
 import ShoppingCartPage from './components/ShoppingCart';
 import Authenticate from './components/auth';
 import OrdersPage from './components/Orders';
+import OrderReview from './components/ShoppingCart/OrderReview';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +55,9 @@ function App() {
         </Route>
         <Route exact path="/products/:productId">
           <ProductPage />
+        </Route>
+        <Route exact path="/checkout">
+          <OrderReview />
         </Route>
       </Switch>
     </BrowserRouter>

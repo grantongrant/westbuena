@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders } from '../../store/order';
-import { NavLink } from 'react-router-dom';
 
 
 function OrderHistory({user}) {
@@ -9,7 +8,6 @@ function OrderHistory({user}) {
     const dispatch = useDispatch();
     const ordersObject = useSelector((state) => state.order)
     const orders = Object.values(ordersObject)
-    console.log(orders)
 
     useEffect(() => {
         dispatch(getAllOrders(user.id))
@@ -59,7 +57,7 @@ function OrderHistory({user}) {
         }
 
         return (
-            <div id={order.id} className="order-card">
+            <div key={order.id} className="order-card">
                 <div className="order-number-info">
                     <div>Order Number: {order.order_number}</div>
                     <div>| Order Date: <DatePlaced/></div>
@@ -82,9 +80,6 @@ function OrderHistory({user}) {
                     <div className="return-or-cancel">
                         <div>{action}</div>
                     </div>
-                </div>
-                <div>
-                <NavLink to={`/products/${order.product.id}`}>{order.product.name}</NavLink>
                 </div>
             </div>
         );
