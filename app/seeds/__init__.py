@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .categories import seed_categories, undo_categories
 from .products import seed_products, undo_products
 from .shoppingcart import seed_cart_items, undo_cart_items
+from .orders import seed_orders, undo_orders
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -16,6 +17,7 @@ def seed():
     seed_categories()  
     seed_products()
     seed_cart_items()
+    seed_orders()
     # Add other seed functions here
 
 
@@ -26,4 +28,5 @@ def undo():
     undo_categories()
     undo_products()
     undo_cart_items()
+    undo_orders()
     # Add other undo functions here

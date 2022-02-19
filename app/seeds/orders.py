@@ -9,7 +9,8 @@ def seed_orders():
         price = 28.00,
         sales_tax = 2.80,
         total = 30.80,
-        delivered = True
+        delivered = True,
+        returned = False
     )
 
     belle_order1 = OrderDetail (
@@ -19,7 +20,8 @@ def seed_orders():
         price = 28.00,
         sales_tax = 2.80,
         total = 30.80,
-        delivered = True
+        delivered = True,
+        returned = True
     )
 
     sheridan_order1 = OrderDetail (
@@ -29,7 +31,8 @@ def seed_orders():
         price = 22.00,
         sales_tax = 2.20,
         total = 24.20,
-        delivered = True
+        delivered = True,
+        returned = False,
     )
 
     montrose_order2 = OrderDetail (
@@ -39,7 +42,8 @@ def seed_orders():
         price = 66.30,
         sales_tax = 6.63,
         total = 72.93,
-        delivered = False
+        delivered = False,
+        returned = False,
     )
 
     belle_order2 = OrderDetail (
@@ -49,7 +53,8 @@ def seed_orders():
         price = 128.00,
         sales_tax = 12.80,
         total = 140.80,
-        delivered = False
+        delivered = False,
+        returned = False,
     )
 
     sheridan_order2 = OrderDetail (
@@ -59,7 +64,8 @@ def seed_orders():
         price = 56.00,
         sales_tax = 5.60,
         total = 61.60,
-        delivered = False
+        delivered = False,
+        returned = False,
     )
  
 

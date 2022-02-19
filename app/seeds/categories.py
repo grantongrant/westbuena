@@ -4,31 +4,40 @@ from app.models import db, Category
 def seed_categories():
     
     planters = Category(
-        name="Planters")
+        name="planters",
+        title="Planters")
     
     botanicals = Category(
-        name="Botanicals")
+        name="botanicals",
+        title="Botanicals")
 
     live_plants = Category(
-        name="Live Plants")
+        name="live-plants",
+        title="Live Plants")
 
     faux_plants = Category(
-        name="Faux Plants")
+        name="faux-plants",
+        title="Faux Plants")
 
     stems_branches_bouquets = Category(
-        name="Stems, Branches & Bouquets")
+        name="stems-branches-bouquets",
+        title="Stems, Branches & Bouquets")
 
     candles = Category(
-        name="Candles")
+        name="candles",
+        title="Candles")
 
     garden_tools = Category(
-        name="Garden Tools")
+        name="garden-tools",
+        title="Garden Tools")
 
     garden_decor = Category(
-        name="Garden Decor")
+        name="garden-decor",
+        title="Garden Decor")
 
     seeds = Category(
-        name="Seeds")
+        name="seeds",
+        title="Seeds")
 
     db.session.add(planters)
     db.session.add(botanicals)

@@ -12,6 +12,7 @@ class OrderDetail(db.Model):
     sales_tax = db.Column(db.Numeric(6,2), nullable=False)
     total = db.Column(db.Numeric(6,2), nullable=False)
     delivered = db.Column(db.Boolean, nullable=False, default=False)
+    returned = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
     updated_at = db.Column(db.DateTime, default=db.func.now(), nullable=False)
 
@@ -29,6 +30,7 @@ class OrderDetail(db.Model):
             'sales_tax': self.sales_tax,
             'total': self.total,
             'delivered': self.delivered,
+            'returned': self.returned,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
