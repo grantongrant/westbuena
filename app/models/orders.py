@@ -24,7 +24,7 @@ class OrderDetail(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'order_numbber': self.order_number,
+            'order_number': self.order_number,
             'user_id': self.user_id,
             'product_id': self.product_id,
             'quantity': self.quantity,

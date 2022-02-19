@@ -35,7 +35,7 @@ def seed_orders():
         sales_tax = 2.20,
         total = 24.20,
         delivered = True,
-        returned = False,
+        returned = False
     )
 
     montrose_order2 = OrderDetail (
