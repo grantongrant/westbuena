@@ -43,7 +43,7 @@ const LoginForm = () => {
     <div>
     <form onSubmit={onLogin}>
       <p>Sign in using your email</p>
-      <p><p>You can now sign into this brand using your account! If you don't have an account, create an account.</p></p>
+      <p>You can now sign into this brand using your account! If you don't have an account, create an account.</p>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>

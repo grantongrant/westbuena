@@ -23,7 +23,7 @@ const NavBar = () => {
   const categoryComponents = categories?.map((category) => {
     return (
       <li className="category-list-content" key={category.id}>
-        <NavLink to={`/shop/${category.name}`}>{category.name}</NavLink>
+        <NavLink to={`/shop/${category.name}`}>{category.title}</NavLink>
       </li>
     );
   });
