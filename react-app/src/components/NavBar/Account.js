@@ -34,7 +34,7 @@ function Account () {
     if (sessionUser) {
         sessionLinks = (
         <nav className="account-content">
-            <p>Track Order</p>
+            <NavLink to="/orders">Track Order</NavLink>
             <LogoutButton/>
         </nav>
         );
