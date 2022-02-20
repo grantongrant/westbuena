@@ -79,12 +79,166 @@
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    padding: 16px;
     width: 100%;
     min-width: 990px;
+    height: 100%;
+}
+
+.left-container-item-detail {
+    padding: 16px;
+    width: 70%;
+}
+
+.right-container-order-detail {
+    padding-top: 16px;
+    padding-right: 16px;
+    width: 30%;
+}
+
+.left-container-item-detail h2 {
+    margin-bottom: 40px;
+    color: #363636;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 100;
+    letter-spacing: 0.02px;
+    line-height: 1.25;
+    margin-top: 0px;
+}
+
+.shipping {
+    font-size: 22px;
+    letter-spacing: 0.02px;
+    color: #363636;
+    margin: 0 0 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+    line-height: 26px;
 }
 
 .cart-table {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.image-card-with-remove {
+    width: 28%;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    float: left;
+}
+
+.cart-item-body {
+    width: 72%;
+}
+
+.image-card-with-remove img {
+    width: 100%;
+    height: auto;
+}
+
+.remove-button {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.remove-button-content {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: .5px;
+}
+
+.x-remove {
+    font-size: 18px;
+}
+
+.product-name {
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    border-bottom: 1px solid white;
+
+}
+
+.product-name:hover {
+    border-bottom: 1px solid #866347;
+    color:#866347;
+}
+
+.product-name a {
+    text-decoration: none;
+    color:#363636;
+}
+
+.product-name a:hover {
+    text-decoration: none;
+    color:#866347;
+}
+
+.price-and-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-price {
+    font-size: 11px;
+    line-height: 19px;
+    letter-spacing: 0.5px;
+    margin-bottom: 0px;
+    margin-top: 35px;
+}
+
+.item-price-amount {
+    font-size: 18px;
+}
+
+.item-quantity {
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity {
+    text-align: center;
+}
+
+.quantity-container input {
+    height: 44px;
+    padding: 0 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    border: 1px solid #363636;
+    background: white;
+    border-radius: 2px;
+    width: 4.5em;
+    text-align: center;
+}
+
+.quantity-container input:focus {
+    border: 1px solid #363636;
+    outline-offset: 0px;
+    outline: none;
+}
+
+.update-quantity {
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #866347;
+    cursor: pointer;
+    color:#866347;
+}
+
+.update-quantity:hover {
+    color:#012330;
+    border-bottom: 1px solid #012330;
 }

@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { deleteCartItem, updateCart } from '../../store/shoppingcart';
+import { NavLink } from 'react-router-dom';
+import {BiX} from "react-icons/bi";
 
 
 function CartItems({items}) {
@@ -24,19 +26,22 @@ function CartItems({items}) {
             <li className="cart-table" key={item.id}>
             <div className="image-card-with-remove">
                 <img src={item.image} alt={item.name}/>
-                <button type="button" onClick={(e) => {removeItem(item)}}>Remove</button>
+                <button className="remove-button"  type="button" onClick={(e) => {removeItem(item)}}>
+                    <div className="remove-button-content x-remove"><BiX/></div>
+                    <div className="remove-button-content">Remove</div>
+                </button>
             </div>
             <div className="cart-item-body">
-                <div>{item.product_name}</div>
+                <div className="product-name"><NavLink to={`/products/${item.product_id}`}>{item.product_name}</NavLink></div>
                 <div className="price-and-quantity">
-                    <div className="item-price">
-                        <p>Item Price</p>
-                        <p>${item.price}</p>
+                    <div>
+                        <div className="item-price">Item Price</div>
+                        <div className="item-price-amount">${item.price}</div>
                     </div>
                     <div className="item-quantity">
-                        <p>QUANTITY</p>
-                        <div className="quantity-container">
-                            <form>
+                        <div className="item-price quantity">QUANTITY</div>
+                        <div>
+                            <form className="quantity-container">
                                 <input
                                     type="text"
                                     placeholder={item.quantity}
@@ -47,13 +52,13 @@ function CartItems({items}) {
                                     }}
                                     name="quantity"
                                 />
-                                <button type="button" onClick={updateQuantity}>Update</button>
                             </form>
+                            <button className="update-quantity" type="button" onClick={updateQuantity}>Update</button>
                         </div>
                     </div>
                     <div className="item-total-price">
-                        <p>Item Total</p>
-                        <p>${(item.price * item.quantity).toFixed(2)}</p>
+                        <div className="item-price">Item Total</div>
+                        <div className="item-price-amount">${(item.price * item.quantity).toFixed(2)}</div>
                     </div>
                 </div>
             </div>
