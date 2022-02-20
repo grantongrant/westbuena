@@ -42,7 +42,6 @@ function OrderSummary({items}) {
                 total,
                 ))
         }
-        console.log(items)
         dispatch(clearCart(items))
         history.push("/checkout/thanks")
     };
