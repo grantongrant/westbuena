@@ -28,7 +28,7 @@ function OrderSummary({items}) {
     const checkout = async () => {
         const order_number = (Math.floor(Math.random() * 800000)) + 100000
         for (let i = 0; i < items.length; i++) {
-            const price = items[i].price
+            const price = items[i].price * items[i].quantity
             const sales_tax = (price * 0.10).toFixed(2);
             const total = (parseFloat(price) + parseFloat(sales_tax)).toFixed(2);
             dispatch(addAnOrder(
