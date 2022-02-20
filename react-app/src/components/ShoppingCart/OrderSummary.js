@@ -3,6 +3,7 @@ import './Shoppingcart.css';
 import { useDispatch, useSelector } from "react-redux";
 import { addAnOrder } from "../../store/order";
 import { useHistory } from "react-router-dom";
+import { clearCart } from "../../store/shoppingcart";
 
 function OrderSummary({items}) {
 
@@ -25,7 +26,7 @@ function OrderSummary({items}) {
         setSubtotalItems(item_subtotal);
     }, [items]);
 
-    const checkout = async () => {
+    const checkout = () => {
         const order_number = (Math.floor(Math.random() * 800000)) + 100000
         for (let i = 0; i < items.length; i++) {
             const price = items[i].price * items[i].quantity
@@ -41,6 +42,8 @@ function OrderSummary({items}) {
                 total,
                 ))
         }
+        console.log(items)
+        dispatch(clearCart(items))
         history.push("/checkout/thanks")
     };
 
