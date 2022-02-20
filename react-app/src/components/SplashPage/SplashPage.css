@@ -1,0 +1,117 @@
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(248, 248, 248);
+}
+
+.splash-slideshow {
+    background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-1.jpg);
+    background-size: fill;
+    min-height: 800px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1800px;
+    min-height: 600px;
+    max-height: 800x;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: slide 40s linear infinite;
+    justify-content: flex-start;
+    margin: auto;
+}
+
+@keyframes slide {
+    0% {
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-1.jpg);
+    }
+    30% {
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-1.jpg);
+    }
+    33% {
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-2.jpg);
+    }
+    63% {
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-2.jpg);
+    }
+    66% {
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-3.jpg);
+    }
+    96% {
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-3.jpg);
+    }
+}
+
+.splash-style-tip {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 50px;
+    width: 250px;
+    font-size: 16px;
+    padding-top: 60px;
+    line-height: 1.5em;
+    letter-spacing: .3px;
+    font-weight: 500;
+}
+
+.splash-shop-link {
+    width: 112px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid white;
+}
+
+.splash-shop-link a{
+    color: white;
+    text-decoration: none;
+    padding-top: 20px;
+    cursor: pointer;
+}
+
+.mental-health-banner {
+    display: flex;
+    flex-direction: row;
+    background-color: #b18361;
+    max-width: 1800px;
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.banner-1 {
+    color: white;
+    font-size: 18px;
+    line-height: 1.5em;
+    letter-spacing: .3px;
+    font-weight: 400;
+    padding-right: 9px;
+}
+
+.banner-2 {
+    color: #684d37;
+    font-size: 18px;
+    line-height: 1.5em;
+    letter-spacing: .3px;
+    font-weight: 500;
+}
+
+.banner-3 {
+    color: white;
+    text-decoration: underline;
+}
