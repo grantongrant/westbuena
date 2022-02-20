@@ -81,6 +81,7 @@
     margin-top: 20px;
     width: 100%;
     min-width: 990px;
+    height: 100%;
 }
 
 .left-container-item-detail {
@@ -118,6 +119,7 @@
 .cart-table {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .image-card-with-remove {
@@ -125,6 +127,10 @@
     margin-right: 20px;
     margin-bottom: 15px;
     float: left;
+}
+
+.cart-item-body {
+    width: 72%;
 }
 
 .image-card-with-remove img {
