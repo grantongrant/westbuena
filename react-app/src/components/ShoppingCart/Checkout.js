@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const CheckoutPage = () => {
 
-    const user = useSelector((state) => state.session.user)
+    // const user = useSelector((state) => state.session.user)
 
     // getlastOrderFromuser
 

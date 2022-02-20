@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllOrders, updateOrder } from '../../store/order';
+import { getAllOrders, updateOrder, deleteOrder } from '../../store/order';
 
 function OrderHistory({user}) {
 
@@ -9,21 +9,36 @@ function OrderHistory({user}) {
     const orders = Object.values(ordersObject)
     const [update, setUpdate] = useState(false);
     const [quantity, setQuantity] = useState();
-    const [productId, setProductId] = useState();
     const [orderId, setOrderId] = useState();
+    const [isLoaded, setisLoaded] = useState(false);
+    const [orderNo, setOrderNo] = useState();
+    const [productId, setProductId] = useState();
 
     useEffect(() => {
         dispatch(getAllOrders(user.id))
-    }, [dispatch, user.id]);
+        setisLoaded(true)
+    }, [dispatch, user.id, update, orders]);
 
-    const updateQuantity = () => {
-        dispatch(updateOrder(orderId, productId, parseInt(quantity,10)))
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //       setisLoaded(true)
+    //     }, 500);
+    //     return () => clearTimeout(timer);
+    //   });
+
+    const updateQuantity = async () => {
+        await dispatch(updateOrder(orderId, productId, parseInt(quantity,10)))
+        .then (() => setUpdate(false))
     };
+
+    const deleteThisOrder = (order) => {
+        dispatch(deleteOrder(order.id))
+    }
 
     const orderComponents = orders.map((order) => {
 
         let updateDiv;
-        if (update === true) {
+        if (update === true && order.id === orderNo) {
             updateDiv =
             <form>
             <input
@@ -32,8 +47,8 @@ function OrderHistory({user}) {
                 defaultValue={order.quantity}
                 onChange={(e) => {
                     setQuantity(e.target.value)
-                    setProductId(order.product_id)
                     setOrderId(order.id)
+                    setProductId(order.product_id)
                 }}
                 name="quantity"
             />
@@ -48,7 +63,7 @@ function OrderHistory({user}) {
         }
 
         const DatePlaced = () => {
-            const array = order.created_at.split(" ");
+            const array = order?.created_at?.split(" ");
             const newDate = [];
             newDate.push(array[1]);
             newDate.push(array[2]);
@@ -83,8 +98,14 @@ function OrderHistory({user}) {
             </>;
             action = 
             <>
-            <button>Cancel Order</button>
-            <button onClick={() => setUpdate(true)}>Update Order</button>
+            <button type="button" onClick={() => {
+                setOrderNo(order.id)
+                deleteThisOrder(order)
+            }}>Cancel Order</button>
+            <button onClick={() => {
+                setUpdate(true)
+                setOrderNo(order.id)
+            }}>Update Order</button>
             </>
         }
 
@@ -99,11 +120,11 @@ function OrderHistory({user}) {
                 <div className="order-detail-card">
                     <div className="product-info">
                         <div className="product-info-image">
-                            <img src={order.product.image} alt="product"/>
+                            <img src={order.product?.image} alt="product"/>
                         </div>
                         <div className="product-info-content">
-                            <div>{order.product.name}</div>
-                            <div>Item #: {order.product.id} </div>
+                            <div>{order.product?.name}</div>
+                            <div>Item #: {order.product?.id} </div>
                             <div>
                                 {updateDiv}
                             </div>
@@ -124,7 +145,7 @@ function OrderHistory({user}) {
                 <div><h1>Order History</h1></div>
                 <div>Search by Order Number</div>
             </div>
-            {orderComponents}
+            {isLoaded ? orderComponents : null}
         </div>
 
 
