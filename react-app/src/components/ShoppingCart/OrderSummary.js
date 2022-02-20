@@ -48,18 +48,21 @@ function OrderSummary({items}) {
 
     return (
         <form>
-            <div>Order Summary</div>
-            <div>
-                <p>Subtotal {subtotalItems === 1 ? `(${subtotalItems} Item)` : `(${subtotalItems} Items)`}</p>
-                <p>${subtotalPrice}</p>
+            <div className="order-summary">Order Summary</div>
+            <div className="order-subtotal">
+                <div className="subtotal-ternary">Subtotal {subtotalItems === 1 ? <div className="subtotal-item-count">{`(${subtotalItems} Item)`}</div> : <div className="subtotal-item-count">{`(${subtotalItems} Items)`}</div>}</div>
+                <div className="subtotal-price">${subtotalPrice}</div>
             </div>
-            <div>
-                <p>Total sales tax</p>
-                <p>${salesTax}</p>
+            <div className="sales-tax-container">
+                <div>Total sales tax</div>
+                <div>${salesTax}</div>
             </div>
-            <p>By continuing with your purchase you agree to our terms and conditions and privacy policy, which do not exist.</p>
-            <button type="button" onClick={checkout}>Checkout</button>
-            <p>Our Shopping cart reflects each item's most recent price. Price and availability is subject to change.</p>
+            <div className="free-shipping-container">
+                <div className="free-shipping">Free shipping</div>
+            </div>
+            <div className="legal-text">By continuing with your purchase you agree to our terms and conditions and privacy policy, which do not exist.</div>
+            <button className="checkout-button" type="button" onClick={checkout}>Checkout</button>
+            <div className="legal-text">Our Shopping cart reflects each item's most recent price. Price and availability is subject to change.</div>
         </form>
     )
 };
