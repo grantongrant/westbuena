@@ -63,6 +63,10 @@ export const getAllOrders = (userId) => async (dispatch) => {
 };
 
 // UPDATE -----------------------------------
+
+export const updateOrder = () => async (dispatch) => {
+    return "hello";
+}
 // DELETE -----------------------------------
 
 // REDUCER ----------------------------------

@@ -1,0 +1,29 @@
+.order-page-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.order-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-number-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.order-detail-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.status {
+    display: flex;
+    flex-direction: row;
+}
