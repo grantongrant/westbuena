@@ -21,5 +21,10 @@ class CartItem(db.Model):
             'product_id': self.product_id,
             'quantity': self.quantity,
             'price': str(self.product.final_price),
-            'product_name': self.product.name
+            'product_name': self.product.name,
+            'image': self.product.image_url1,
+            'product': {
+                'original_price':str(self.product.original_price),
+                'final_price': str(self.product.final_price)
+            }
         }

@@ -74,3 +74,17 @@
     background-color: #866347;
     color:white;
 }
+
+.cart-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    padding: 16px;
+    width: 100%;
+    min-width: 990px;
+}
+
+.cart-table {
+    display: flex;
+    flex-direction: row;
+}
