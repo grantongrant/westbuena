@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './Auth.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -49,15 +50,15 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <p>Create an Account</p>
-      <p>When you open a west buena account, you'll be able to Checkout, create a Wishlist, search for products, and see your order history.</p>
+      <p className="form-titles">Create an Account</p>
+      <p className="form-text">When you open a west buena account, you'll be able to Checkout, create a Wishlist, search for products, and see your order history.</p>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label>FULL NAME</label>
+        <div className="login-labels"><label>FULL NAME</label></div>
         <input
           type='text'
           name='username'
@@ -66,7 +67,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>EMAIL</label>
+        <div className="login-labels"><label>EMAIL</label></div>
         <input
           type='text'
           name='email'
@@ -75,7 +76,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>CONFIRM EMAIL</label>
+        <div className="login-labels"><label>CONFIRM EMAIL</label></div>
         <input
           type='text'
           name='repeat_email'
@@ -85,7 +86,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>PASSWORD</label>
+        <div className="login-labels"><label>PASSWORD</label></div>
         <input
           type='password'
           name='password'
@@ -94,7 +95,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>CONFIRM PASSWORD</label>
+        <div className="login-labels"><label>CONFIRM PASSWORD</label></div>
         <input
           type='password'
           name='repeat_password'
@@ -103,8 +104,8 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Create An Account</button>
-      <p>If you do not with to receive promotional emails from us, do nothing. Note that we do not send any promotional emails.</p>
+      <button className="login-buttons" type='submit'>Create An Account</button>
+      <p className="form-text receive-email-text">If you do not with to receive promotional emails from us, do nothing. Note that we do not send any promotional emails.</p>
     </form>
   );
 };

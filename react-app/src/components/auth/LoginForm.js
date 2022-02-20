@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './Auth.css';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -42,38 +43,36 @@ const LoginForm = () => {
   return (
     <div>
     <form onSubmit={onLogin}>
-      <p>Sign in using your email</p>
-      <p>You can now sign into this brand using your account! If you don't have an account, create an account.</p>
+      <p className="form-titles">Sign in using your email</p>
+      <p className="form-text">You can now sign into this brand using your account! If you don't have an account, create an account.</p>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div>
-        <label htmlFor='email'>EMAIL</label>
+        <div className="login-labels"><label htmlFor='email'>EMAIL</label></div>
         <input
           name='email'
           type='text'
-          placeholder='Email'
           value={email}
           onChange={updateEmail}
         />
       </div>
       <div>
-        <label htmlFor='password'>PASSWORD</label>
+        <div className="login-labels"><label htmlFor='password'>PASSWORD</label></div>
         <input
           name='password'
           type='password'
-          placeholder='Password'
           value={password}
           onChange={updatePassword}
         />
       </div>
-      <button type='submit'>Sign In</button>
+      <button className="login-buttons" type='submit'>Sign In</button>
       <div>
-        <p>Are You An Interested Developer?</p>
-        <p>Users who access this site with the demo login enjoy exclusive site privileges + more.</p>
-        <button type="button" onClick={demoLogin}>Demo Sign In</button>
+        <p className="form-titles demo-login-content">Are You An Interested Developer?</p>
+        <p className="form-text">Users who access this site with the demo login enjoy exclusive site privileges + more.</p>
+        <button className="login-buttons" type="button" onClick={demoLogin}>Demo Sign In</button>
       </div>
     </form>
     </div>

@@ -7,11 +7,15 @@ const Authenticate = () => {
 
     return (
         <div>
-            <div><p>Home <AiOutlineRight/> Sign In</p></div>
-            <div><h1>My Account</h1></div>
+            <div className="breadcrumbs">
+                <div className="breadcrumbs-text-brown">Home</div> 
+                <div className="breadcrumb-arrow"><AiOutlineRight/></div>
+                <div className="breadcrumbs-text-gray">Sign In</div>
+            </div>
+            <div className="my-account-header">My Account</div>
             <div className="authenticate-content">
-                <div><LoginForm/></div>
-                <div><SignUpForm/></div>
+                <div className="login-form-container"><LoginForm/></div>
+                <div className="signup-form-container"><SignUpForm/></div>
             </div>
         </div>
     )
