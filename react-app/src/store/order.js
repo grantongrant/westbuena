@@ -19,7 +19,7 @@ const getOrders = (orders) => ({
 
 // CREATE -----------------------------------
 
-export const addAnOrder = (order_number, user_id, product_id, quantity, price, tax) => async (dispatch) => {
+export const addAnOrder = (order_number, user_id, product_id, quantity, price, sales_tax, total) => async (dispatch) => {
     const response = await fetch('/api/orders/', {
         method: "POST",
         headers: {
@@ -31,7 +31,8 @@ export const addAnOrder = (order_number, user_id, product_id, quantity, price, t
             product_id,
             quantity,
             price,
-            tax
+            sales_tax,
+            total,
         })
     });
 

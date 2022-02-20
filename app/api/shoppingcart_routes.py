@@ -13,6 +13,7 @@ shopping_cart_routes = Blueprint("shopping_cart", __name__)
 def add_to_shoppingcart():
 
     data = request.json
+    print(data)
 
     # Does the item already exist in the cart?
 

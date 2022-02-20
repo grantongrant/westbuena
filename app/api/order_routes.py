@@ -10,14 +10,15 @@ order_routes = Blueprint("orders", __name__)
 
 @order_routes.route('/', methods=["POST"])
 def create_order():
+    data = request.json
+    print(data)
     form = OrderForm()
-    if form.validate_on_submit():
-        new_order = OrderDetail()
-        form.populate_ob(new_order)
-        db.session.add(new_order)
-        db.session.commit()
-        return redirect ("/orders")
-    return "Bad Data"
+    new_order = OrderDetail()
+    form.populate_obj(new_order)
+    db.session.add(new_order)
+    db.session.commit()
+
+    return new_order.to_dict()
 
 
 # READ

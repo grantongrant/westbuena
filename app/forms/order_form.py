@@ -5,10 +5,10 @@ from app.models import Product, Category
 
 
 class OrderForm(FlaskForm):
-    user_id = IntegerField('user_id', [DataRequired()])
-    produdct_id = IntegerField('product_id', [DataRequired()])
-    quantity = IntegerField('quantity', [DataRequired()])
-    price = DecimalField('price', [DataRequired()])
-    sales_tax = DecimalField('sales_tax', [DataRequired()])
-    total = DecimalField('total', [DataRequired()])
-    delivered = BooleanField('delivered', [DataRequired()])
+    order_number = IntegerField('order_number')
+    user_id = IntegerField('user_id')
+    product_id = IntegerField('product_id')
+    quantity = IntegerField('quantity')
+    price = StringField('price')
+    sales_tax = StringField('sales_tax')
+    total = StringField('total')

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import './Shoppingcart.css';
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addAnOrder } from "../../store/order";
+import { useHistory } from "react-router-dom";
 
 function OrderSummary({items}) {
 
     const [subtotalItems, setSubtotalItems] = useState();
     const [subtotalPrice, setSubtotalPrice] = useState();
     const [salesTax, setSalesTax] = useState();
-    const history = useHistory();
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector((state) => state.session.user)
 
     useEffect(() => {
@@ -25,20 +25,23 @@ function OrderSummary({items}) {
         setSubtotalItems(item_subtotal);
     }, [items]);
 
-    const checkout = () => {
+    const checkout = async () => {
         const order_number = (Math.floor(Math.random() * 800000)) + 100000
-        items.forEach(item => {
-            const sales_tax = (item.price * 0.10).toFixed(2);
+        for (let i = 0; i < items.length; i++) {
+            const price = items[i].price
+            const sales_tax = (price * 0.10).toFixed(2);
+            const total = (parseFloat(price) + parseFloat(sales_tax)).toFixed(2);
             dispatch(addAnOrder(
                 order_number,
-                user.id, 
-                item.product.id, 
-                item.quantity, 
-                item.price,
+                user.id,
+                items[i].product_id, 
+                items[i].quantity,
+                price,
                 sales_tax,
+                total,
                 ))
-        });
-        history.push('/orders');
+        }
+        history.push("/checkout/thanks")
     };
 
     return (
