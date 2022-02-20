@@ -15,8 +15,13 @@ function ShoppingCart({user}) {
     useEffect(() => {
         dispatch(getAllShoppingcart(user.id))
       }, [dispatch, user.id]);
-    
-    return (
+
+    let sessionCart;
+    if (!items.length) {
+        sessionCart = 
+        <><h1>Your cart is empty</h1></>
+    } else {
+        sessionCart = 
         <div className="cart-container">
             <div className="left-container-item-detail">
                 <p>Shopping Cart</p>
@@ -27,6 +32,10 @@ function ShoppingCart({user}) {
                 <div><OrderSummary items={items}/></div>
             </div>
         </div>
+    }
+    
+    return (
+        <>{sessionCart}</>
     );
 };
 
