@@ -2,6 +2,7 @@ const GET_CART = 'shoppingcart/GET_CART';
 const ADD_TO_CART = 'shoppingcart/ADD_TO_CART';
 const UPDATE_CART = 'shoppingcart/UPDATE_CART';
 const DELETE_ITEM = 'shoppingcart/DELETE_ITEM';
+const CLEAR_CART = 'shoppingcart/CLEAR_CART';
 
 // CREATE -----------------------------------
 const addToShoppingCart = (data) => ({
@@ -26,6 +27,10 @@ const updateShoppingcart = (item) => ({
 const deleteOneItem = (itemId) => ({
     type: DELETE_ITEM,
     itemId,
+})
+
+const deleteAllItems = () => ({
+    type: CLEAR_CART,
 })
 
 // ------------------------------------------
@@ -115,6 +120,24 @@ export const deleteCartItem = (item) => async (dispatch) => {
 
     if (response.ok) {
         dispatch(deleteOneItem(item.id));
+    } else {
+        return response;
+    }
+};
+
+export const clearCart = (items) => async (dispatch) => {
+    const response = await fetch('/api/shoppingcart/clear', {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            items
+        })
+    });
+
+    if (response.ok) {
+        dispatch(deleteAllItems());
     } else {
         return response;
     }

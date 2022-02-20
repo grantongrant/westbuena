@@ -16,15 +16,14 @@ function OrderHistory({user}) {
 
     useEffect(() => {
         dispatch(getAllOrders(user.id))
-        setisLoaded(true)
-    }, [dispatch, user.id, update, orders]);
+    }, [dispatch, user.id, update]);
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //       setisLoaded(true)
-    //     }, 500);
-    //     return () => clearTimeout(timer);
-    //   });
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setisLoaded(true)
+        }, 500);
+        return () => clearTimeout(timer);
+      });
 
     const updateQuantity = async () => {
         await dispatch(updateOrder(orderId, productId, parseInt(quantity,10)))
@@ -34,6 +33,9 @@ function OrderHistory({user}) {
     const deleteThisOrder = (order) => {
         dispatch(deleteOrder(order.id))
     }
+
+    const isLoading =
+        <div className="isLoading"></div>
 
     const orderComponents = orders.map((order) => {
 
@@ -109,8 +111,6 @@ function OrderHistory({user}) {
             </>
         }
 
-
-
         return (
             <div key={order.id} className="order-card">
                 <div className="order-number-info">
@@ -145,7 +145,7 @@ function OrderHistory({user}) {
                 <div><h1>Order History</h1></div>
                 <div>Search by Order Number</div>
             </div>
-            {isLoaded ? orderComponents : null}
+            {isLoaded ? orderComponents : isLoading}
         </div>
 
 
