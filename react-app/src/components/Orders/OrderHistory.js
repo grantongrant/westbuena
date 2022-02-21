@@ -17,7 +17,7 @@ function OrderHistory({user}) {
 
     useEffect(() => {
         dispatch(getAllOrders(user.id))
-    }, [dispatch, user.id, update]);
+    }, [dispatch, user.id, update, quantity]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -55,7 +55,8 @@ function OrderHistory({user}) {
                 }}
                 name="quantity"
             />
-            <button className="black-order-buttons" type="button" onClick={updateQuantity}>Update</button>
+            <button type="button" onClick={updateQuantity}>Update</button>
+            <button type="button" onClick={() => setUpdate(false)}>Cancel</button>
         </form>
         } else {
             updateDiv =

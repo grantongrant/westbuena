@@ -81,8 +81,7 @@
 }
 
 .product-info-image img {
-    height: 200px;
-    width: 200px;
+    width: 100%;
 }
 
 .product-info-content {
