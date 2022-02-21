@@ -3,6 +3,7 @@ from flask import Blueprint, redirect, request
 from app.forms.order_form import OrderForm
 from app.models import Product, CartItem, OrderDetail, db
 from datetime import datetime
+import time
 
 
 order_routes = Blueprint("orders", __name__)
@@ -28,7 +29,16 @@ def create_order():
 
 @order_routes.route('/<int:id>')
 def get_all_orders_by_user_id(id):
+
+    today = datetime.now()
     orders = OrderDetail.query.filter(OrderDetail.user_id == id).all()
+
+    for order in orders:
+
+        if ((today - order.updated_at).total_seconds() > 60):
+            order.delivered = True
+            db.session.commit()
+
     return {"orders": [order.to_dict() for order in orders]}
 
 
