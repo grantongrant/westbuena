@@ -19,12 +19,13 @@
 }
 
 .promo-content {
-    font-size: 12px;
+    font-size: 11px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     letter-spacing: .5px;
+    font-weight: 300;
 }
 
 .promo-content a {
@@ -50,10 +51,10 @@
     flex-direction: row;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: 18px;
+    font-size: 15px;
     color: #363636;
     letter-spacing: .13px;
-    font-weight: bold;
+    font-weight: 600;
     background-color: white;
     margin-top:0px;
     height: 43px;
@@ -72,10 +73,10 @@
     padding-left: 15px;
     padding-right: 15px;
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 15px;
     color: #363636;
     letter-spacing: .13px;
-    font-weight: bold;
+    font-weight: 600;
     height: 43px;
     align-items: center;
     cursor: pointer;
@@ -106,7 +107,7 @@
     display: flex;
     flex-direction: row;
     color: #363636;
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: .8px;
 }
 
@@ -252,7 +253,7 @@
 }
 
 .secondary-content {
-    font-size: 12px;
+    font-size: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -260,6 +261,7 @@
     letter-spacing: .12px;
     line-height: 1.25;
     cursor: pointer;
+    font-weight: 500;
 }
 
 #spacer {
@@ -267,7 +269,7 @@
 }
 
 .downarrow {
-    padding-top: 6px;
+    padding-top: 3px;
     font-size: 12px;
 }
 .category-list {
@@ -284,6 +286,7 @@
     align-items: center;
     border-bottom: 1px solid #d9d9d9;;
     border-top: 1px solid #d9d9d9;
+    font-weight: 500;
 }
 
 .category-list-content a{
