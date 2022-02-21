@@ -76,6 +76,16 @@ def update_order_by_order_id(id):
     return order.to_dict()
 
 
+@order_routes.route('/return/<int:id>', methods=['PATCH'])
+def update_return_status(id):
+
+    order = OrderDetail.query.get(id)
+    order.returned = True
+    db.session.commit()
+
+    return order.to_dict()
+
+
 # DELETE
 
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllOrders, updateOrder, deleteOrder } from '../../store/order';
+import { getAllOrders, updateOrder, deleteOrder, updateReturnOrder} from '../../store/order';
 import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
+import { AiFillCodeSandboxCircle } from 'react-icons/ai';
 
 function OrderHistory({user}) {
 
@@ -33,6 +34,10 @@ function OrderHistory({user}) {
 
     const deleteThisOrder = (order) => {
         dispatch(deleteOrder(order.id))
+    }
+
+    const returnThisItem = (orderId) => {
+        dispatch(updateReturnOrder(orderId))
     }
 
     const isLoading =
@@ -77,7 +82,7 @@ function OrderHistory({user}) {
 
         let status;
         let action;
-        if (order.delivered === true) {
+        if (order.delivered === true && order.returned === false) {
             status = 
             <>
             <div className="order-icons-container"><BsFillCheckCircleFill/></div>
@@ -85,12 +90,12 @@ function OrderHistory({user}) {
             </>;
             action = 
             <>
-            <button button className="black-order-buttons" type="button" >Return Items</button>
+            <button button className="black-order-buttons" type="button" onClick={() => returnThisItem(order.id)} >Return Items</button>
             </>
         } else if(order.returned === true) {
             status =
             <>
-            <div className="order-icons-container">Returned icon</div>
+            <div className="order-icons-container"><AiFillCodeSandboxCircle/></div>
             <div className="status-text">Returned</div>
             </>;
             action = null;

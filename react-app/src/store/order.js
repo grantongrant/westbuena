@@ -79,9 +79,6 @@ export const getAllOrders = (userId) => async (dispatch) => {
 
 export const updateOrder = (orderId, productId, quantity) => async (dispatch) => {
 
-    console.log(quantity)
-    console.log(orderId)
-
     if (quantity === 0) {
         dispatch(deleteOrder(orderId));
     } else {
@@ -99,7 +96,6 @@ export const updateOrder = (orderId, productId, quantity) => async (dispatch) =>
     
         if (response.ok) {
             const order = await response.json();
-            console.log(order)
             if (order.errors) {
                 return;
             } else {
@@ -110,6 +106,29 @@ export const updateOrder = (orderId, productId, quantity) => async (dispatch) =>
 
     }    
 };
+
+export const updateReturnOrder = (orderId) => async (dispatch) => {
+    console.log(orderId)
+    const response = await fetch(`api/orders/return/${orderId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "applicatoin/json",
+        },
+        body: JSON.stringify({
+            orderId,
+        })
+    });
+
+    if (response.ok) {
+        const order = await response.json();
+        if (order.errors) {
+            return;
+        } else {
+            dispatch(updateAnOrder(order))
+        }
+        return order;
+    };
+}
 
 // DELETE -----------------------------------
 
