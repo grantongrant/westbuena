@@ -42,7 +42,7 @@ function Account () {
         sessionLinks = (
         <nav className="account-content">
             <NavLink to="/login"><button id="login-button-account">Log In / Sign Up</button></NavLink>
-            <p>Track Order</p>
+            <NavLink to="/orders">Track Order</NavLink>
         </nav>
         );
     }

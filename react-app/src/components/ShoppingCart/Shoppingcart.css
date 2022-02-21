@@ -172,10 +172,10 @@
 
 }
 
-.product-name:hover {
+/* .product-name:hover {
     border-bottom: 1px solid #866347;
     color:#866347;
-}
+} */
 
 .product-name a {
     text-decoration: none;
@@ -183,7 +183,8 @@
 }
 
 .product-name a:hover {
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 5px;
     color:#866347;
 }
 
