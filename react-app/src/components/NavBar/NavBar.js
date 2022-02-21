@@ -6,6 +6,7 @@ import Shoppingcart from './Shoppingcart';
 import './NavBar.css'
 import { BsArrowRightShort } from 'react-icons/bs';
 import { AiFillCaretDown } from 'react-icons/ai';
+import SearchBar from '../Search/SearchBar';
 
 const NavBar = () => {
 
@@ -61,7 +62,7 @@ const NavBar = () => {
       </div>
       <div className="global-navigation">
         <div className="search-container">
-          <p>search bar here</p>
+          <div><SearchBar /></div>
         </div>
         <div className="left-container">
           <NavLink id="logo-font" exact to="/">

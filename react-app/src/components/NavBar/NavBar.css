@@ -126,11 +126,10 @@
 }
 
 .search-container {
-    background-color: yellow;
     width: 30%;
-    align-items: center;
+    height: 44px;
 }
-  
+
 .left-container {
     width: 60%;
     text-align: center;
