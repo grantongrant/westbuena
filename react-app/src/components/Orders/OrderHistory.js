@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders, updateOrder, deleteOrder } from '../../store/order';
+import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
 
 function OrderHistory({user}) {
 
@@ -54,7 +55,7 @@ function OrderHistory({user}) {
                 }}
                 name="quantity"
             />
-            <button type="button" onClick={updateQuantity}>Update</button>
+            <button className="black-order-buttons" type="button" onClick={updateQuantity}>Update</button>
         </form>
         } else {
             updateDiv =
@@ -78,12 +79,12 @@ function OrderHistory({user}) {
         if (order.delivered === true) {
             status = 
             <>
-            <div>Delivered Icon</div>
+            <div><BsFillCheckCircleFill/></div>
             <div>Delivered</div>
             </>;
             action = 
             <>
-            <button>Return Items</button>
+            <button button className="black-order-buttons" type="button" >Return Items</button>
             </>
         } else if(order.returned === true) {
             status =
@@ -95,16 +96,16 @@ function OrderHistory({user}) {
         } else {
             status =
             <>
-            <div>Ordered Icon</div>
+            <div><BsFillCartCheckFill/></div>
             <div>Ordered</div>
             </>;
             action = 
             <>
-            <button type="button" onClick={() => {
+            <button className="black-order-buttons" type="button" onClick={() => {
                 setOrderNo(order.id)
                 deleteThisOrder(order)
             }}>Cancel Order</button>
-            <button onClick={() => {
+            <button className="black-order-buttons" onClick={() => {
                 setUpdate(true)
                 setOrderNo(order.id)
             }}>Update Order</button>
@@ -130,9 +131,9 @@ function OrderHistory({user}) {
                             </div>
                             <div className="status">{status}</div>
                         </div>
-                    </div>
-                    <div className="return-or-cancel">
-                        <div>{action}</div>
+                        <div className="return-or-cancel">
+                            {action}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,10 +141,12 @@ function OrderHistory({user}) {
       });
 
     return (
-        <div>
+        <div className="order-page-container">
             <div className="order-page-header">
-                <div><h1>Order History</h1></div>
-                <div>Search by Order Number</div>
+                <div className="order-page-header-text">Order History</div>
+                <div className="order-page-search-box">
+                    <div>Search by Order Number</div>
+                </div>
             </div>
             {isLoaded ? orderComponents : isLoading}
         </div>
