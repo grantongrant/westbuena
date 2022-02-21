@@ -1,19 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300&display=swap');
 
-* {
-    box-sizing: border-box;
-    list-style: none;
-    font-family: 'Open Sans', sans-serif;    
-
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: block;
-}
-  
 .navigation-header {
     display: flex;
     height: 249px;
@@ -33,12 +19,19 @@ body {
 }
 
 .promo-content {
-    font-size: 12px;
+    font-size: 11px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     letter-spacing: .5px;
+    font-weight: 300;
+}
+
+.promo-content a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .promo-content p {
@@ -58,10 +51,10 @@ body {
     flex-direction: row;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: 18px;
+    font-size: 15px;
     color: #363636;
     letter-spacing: .13px;
-    font-weight: bold;
+    font-weight: 600;
     background-color: white;
     margin-top:0px;
     height: 43px;
@@ -80,10 +73,10 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 15px;
     color: #363636;
     letter-spacing: .13px;
-    font-weight: bold;
+    font-weight: 600;
     height: 43px;
     align-items: center;
     cursor: pointer;
@@ -114,7 +107,7 @@ body {
     display: flex;
     flex-direction: row;
     color: #363636;
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: .8px;
 }
 
@@ -146,10 +139,12 @@ body {
 
 #logo-font {
     text-decoration: none;
-    color: #363636;
-    font-size: 34px;
-    letter-spacing: 1.5px;
+    color:rgb(86, 84, 88);
+    font-size: 36px;
+    font-family: 'Khand', sans-serif;
+    letter-spacing: 3.5px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .right-container {
@@ -258,7 +253,7 @@ body {
 }
 
 .secondary-content {
-    font-size: 12px;
+    font-size: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -266,6 +261,7 @@ body {
     letter-spacing: .12px;
     line-height: 1.25;
     cursor: pointer;
+    font-weight: 500;
 }
 
 #spacer {
@@ -273,7 +269,7 @@ body {
 }
 
 .downarrow {
-    padding-top: 6px;
+    padding-top: 3px;
     font-size: 12px;
 }
 .category-list {
@@ -290,6 +286,7 @@ body {
     align-items: center;
     border-bottom: 1px solid #d9d9d9;;
     border-top: 1px solid #d9d9d9;
+    font-weight: 500;
 }
 
 .category-list-content a{
