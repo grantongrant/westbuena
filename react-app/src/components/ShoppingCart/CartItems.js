@@ -34,7 +34,7 @@ function CartItems({items}) {
             <div className="cart-item-body">
                 <div className="product-name"><NavLink to={`/products/${item.product_id}`}>{item.product_name}</NavLink></div>
                 <div className="price-and-quantity">
-                    <div>
+                    <div className="item-price-container">
                         <div className="item-price">Item Price</div>
                         <div className="item-price-amount">${item.price}</div>
                     </div>

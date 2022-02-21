@@ -150,6 +150,7 @@
 }
 
 .remove-button-content {
+    color:#363636;
     font-size: 14px;
     line-height: 1.6;
     letter-spacing: .5px;
@@ -157,6 +158,7 @@
 
 .x-remove {
     font-size: 18px;
+    color: #363636;
 }
 
 .product-name {
@@ -188,7 +190,16 @@
 .price-and-quantity {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    width: 100%;
+}
+
+.item-price-container {
+    width: 33%;
+}
+
+.item-total-price {
+    width: 34%;
 }
 
 .item-price {
@@ -206,10 +217,12 @@
 .item-quantity {
     display: flex;
     flex-direction: column;
+    width: 33%;
+    justify-content: center;
 }
 
 .quantity {
-    text-align: center;
+    padding-left: 3px;
 }
 
 .quantity-container input {

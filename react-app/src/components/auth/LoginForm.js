@@ -57,7 +57,8 @@ const LoginForm = () => {
           type='text'
           value={email}
           onChange={updateEmail}
-        />
+          className="login-inputs" 
+          />
       </div>
       <div>
         <div className="login-labels"><label htmlFor='password'>PASSWORD</label></div>
@@ -66,6 +67,7 @@ const LoginForm = () => {
           type='password'
           value={password}
           onChange={updatePassword}
+          className="login-inputs" 
         />
       </div>
       <button className="login-buttons" type='submit'>Sign In</button>
