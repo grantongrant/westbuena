@@ -32,13 +32,13 @@ const NavBar = () => {
     <header className="navigation-header">
       <div className="global-promo">
         <div className="promo-content">
-          <p>Up to 60% off warehouse deals</p>
+          <NavLink to="/shop/sale"><p>Up to 60% off greenhouse deals</p></NavLink>
           <span className="rightarrow"><BsArrowRightShort/></span>
           <p> | </p>
-          <p>Up to 40% off in-stock furniture</p>
+          <NavLink to="/shop/botanicals"><p>Up to 40% off in-stock botanicals</p></NavLink>
           <span className="rightarrow"><BsArrowRightShort/></span>
           <p>|</p>
-          <p>Up to 30% off bedding</p>
+          <NavLink to="/shop/seeds"><p>Up to 30% off seeds</p></NavLink>
           <span className="rightarrow"><BsArrowRightShort/></span>
         </div>
       </div>
@@ -56,6 +56,7 @@ const NavBar = () => {
           <li>amazon s3</li>
           <li>git</li>
           <li>docker</li>
+          <li>heroku</li>
         </div>
       </div>
       <div className="global-navigation">
