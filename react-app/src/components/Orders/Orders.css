@@ -1,21 +1,27 @@
 .order-page-container {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
     max-width: 990px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 8px;
     padding-right: 8px;
+    background-color: #2d2d2d;
 }
 
 .order-page-header {
+    max-width: 990px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 20px;
+    margin-top: 40px;
     height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .order-page-header-text {
@@ -26,12 +32,21 @@
     background-color: yellow;
 }
 
+.order-history {
+    background-color: #f8f8f8;
+}
+
 .order-card {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     padding: 20px 0;
     background-color: #f8f8f8;
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .order-number-info {
@@ -40,6 +55,10 @@
     background-color: #2d2d2d;
     color: white;
     padding: 20px;
+}
+
+.order-date {
+    padding-left: 10px;
 }
 
 .order-detail-card {
@@ -76,6 +95,11 @@
     flex-direction: row;
 }
 
+.status-text {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .return-or-cancel {
     width: 25%;
     display: flex;
@@ -92,4 +116,11 @@
     color: white;
     background-color: #2d2d2d;
     width: 100%;
+}
+
+.order-icons-container {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    font-size: 25px;
 }

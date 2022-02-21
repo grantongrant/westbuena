@@ -79,8 +79,8 @@ function OrderHistory({user}) {
         if (order.delivered === true) {
             status = 
             <>
-            <div><BsFillCheckCircleFill/></div>
-            <div>Delivered</div>
+            <div className="order-icons-container"><BsFillCheckCircleFill/></div>
+            <div className="status-text">Delivered</div>
             </>;
             action = 
             <>
@@ -89,15 +89,15 @@ function OrderHistory({user}) {
         } else if(order.returned === true) {
             status =
             <>
-            <div>Returned icon</div>
-            <div>Returned</div>
+            <div className="order-icons-container">Returned icon</div>
+            <div className="status-text">Returned</div>
             </>;
             action = null;
         } else {
             status =
             <>
-            <div><BsFillCartCheckFill/></div>
-            <div>Ordered</div>
+            <div className="order-icons-container"><BsFillCartCheckFill/></div>
+            <div className="status-text">Ordered</div>
             </>;
             action = 
             <>
@@ -116,7 +116,7 @@ function OrderHistory({user}) {
             <div key={order.id} className="order-card">
                 <div className="order-number-info">
                     <div>Order Number: {order.order_number}</div>
-                    <div>| Order Date: <DatePlaced/></div>
+                    <div className="order-date">| Order Date: <DatePlaced/></div>
                 </div>
                 <div className="order-detail-card">
                     <div className="product-info">
@@ -141,15 +141,17 @@ function OrderHistory({user}) {
       });
 
     return (
-        <div className="order-page-container">
+        <>
             <div className="order-page-header">
                 <div className="order-page-header-text">Order History</div>
                 <div className="order-page-search-box">
                     <div>Search by Order Number</div>
+                    </div>
                 </div>
+            <div className="order-history">
+                {isLoaded ? orderComponents : isLoading}
             </div>
-            {isLoaded ? orderComponents : isLoading}
-        </div>
+        </>
 
 
     )
