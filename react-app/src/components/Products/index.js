@@ -12,11 +12,23 @@ function ProductPage() {
     const product = useSelector((state) => state.product)
     const user = useSelector(state => state.session.user);
     const history = useHistory();
+    const [isLoaded, setisLoaded] = useState(false)
     const [quantity, setQuantity] = useState(0);
+    const [photoUrl, setPhotoUrl] = useState();
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
-      }, [dispatch, productId]);
+    }, []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setisLoaded(true)
+        }, 300);
+        return () => clearTimeout(timer);
+    }, []);
+
+    const isLoading =
+        <div className="isLoading"></div>
 
     const addToShoppingcart = async () => {
         await dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
@@ -37,23 +49,34 @@ function ProductPage() {
         setQuantity(quantity + 1)
     }
 
-    return (
+    const ProductComponents = (
         <>
         <div className="product-page-container">
-            <div className="small-photo-container"></div>
+            <div className="small-photo-container">
+                <div type="button" className="small-photos" onClick={(e) => {
+                    setPhotoUrl(product.image_url1)}}>
+                    <img src={product.image_url1} alt="product 1"/></div>
+                <div type="button" className="small-photos" onClick={(e) => {
+                    setPhotoUrl(product.image_url2)}}>
+                    <img src={product.image_url2} alt="product 2"/></div>
+            </div>
             <div className="large-photo-container">
-                <ul><img src={product.image_url1} alt="product"/></ul>
+                {photoUrl? 
+                <div><img src={photoUrl} alt="product"/></div> :
+                <div><img src={product.image_url1} alt="product"/></div>
+                }
             </div>
             <div className="product-info-container">
-                <div>Free Shipping</div>
-                <div>{product.name}</div>
-                <div>{product.discount? `${product.original_price}` : null}</div>
-                <div>${product.final_price}</div>
+                <div className="free-shipping-top">Free Shipping</div>
+                <div className="product-info-name">{product.name}</div>
+                <div className="product-info-discount-price">{product.discount?`$${product.original_price}`: null}</div>
+                <div className="product-info-discount-text">{product.discount? 'Limited Time Offer' : null}</div>
+                <div className="product-info-final-price">${product.final_price}</div>
                 <div>
                         <div className="item-price quantity">QUANTITY</div>
                         <div className="item-quantity-product-form">
-                            <button type="button" onClick={decreaseQuantity}>-</button>
-                            <form className="quantity-container">
+                            <button type="button" className="add-subtract-button subtract" onClick={decreaseQuantity}>-</button>
+                            <form className="quantity-container-product-page">
                                 <input
                                     type="text"
                                     value={quantity}
@@ -63,16 +86,22 @@ function ProductPage() {
                                     name="quantity"
                                 />
                             </form>
-                            <button type="button" onClick={increaseQuantity}>+</button>
+                            <button type="button" className="add-subtract-button add" onClick={increaseQuantity}>+</button>
                         </div>
                 </div>
-                <div>Free Shipping</div>
-                <button type="button" onClick={addToShoppingcart}>Add To Cart</button>
+                <div className="free-shipping-bottom">Free Shipping</div>
+                <button className="product-add-to-cart" type="button" onClick={addToShoppingcart}>Add To Cart</button>
             </div>
         </div>
         <Footer />
         </>
     );
+
+    return (
+        <>
+        {isLoaded ? ProductComponents : null}
+        </>
+    )
 };
 
 export default ProductPage;
