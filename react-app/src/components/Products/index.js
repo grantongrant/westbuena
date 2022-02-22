@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { getOneproduct } from '../../store/product';
 import { addToCart } from '../../store/shoppingcart';
 import Footer from '../Footer';
@@ -90,7 +90,10 @@ function ProductPage() {
                         </div>
                 </div>
                 <div className="free-shipping-bottom">Free Shipping</div>
-                <button className="product-add-to-cart" type="button" onClick={addToShoppingcart}>Add To Cart</button>
+                {user? 
+                <button className="product-add-to-cart" type="button" onClick={addToShoppingcart}>Add To Cart</button> :
+                <NavLink to="/login"><button className="product-login-button">Log in or Sign Up to Add To Cart</button></NavLink>
+                }
             </div>
         </div>
         <Footer />
