@@ -23,7 +23,7 @@ function ProductPage() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setisLoaded(true)
-        }, 500);
+        }, 300);
         return () => clearTimeout(timer);
     }, []);
 
@@ -67,15 +67,16 @@ function ProductPage() {
                 }
             </div>
             <div className="product-info-container">
-                <div>Free Shipping</div>
-                <div>{product.name}</div>
-                <div>{product.discount? `${product.original_price}` : null}</div>
-                <div>${product.final_price}</div>
+                <div className="free-shipping-top">Free Shipping</div>
+                <div className="product-info-name">{product.name}</div>
+                <div className="product-info-discount-price">{product.discount?`$${product.original_price}`: null}</div>
+                <div className="product-info-discount-text">{product.discount? 'Limited Time Offer' : null}</div>
+                <div className="product-info-final-price">${product.final_price}</div>
                 <div>
                         <div className="item-price quantity">QUANTITY</div>
                         <div className="item-quantity-product-form">
-                            <button type="button" onClick={decreaseQuantity}>-</button>
-                            <form className="quantity-container">
+                            <button type="button" className="add-subtract-button subtract" onClick={decreaseQuantity}>-</button>
+                            <form className="quantity-container-product-page">
                                 <input
                                     type="text"
                                     value={quantity}
@@ -85,11 +86,11 @@ function ProductPage() {
                                     name="quantity"
                                 />
                             </form>
-                            <button type="button" onClick={increaseQuantity}>+</button>
+                            <button type="button" className="add-subtract-button add" onClick={increaseQuantity}>+</button>
                         </div>
                 </div>
-                <div>Free Shipping</div>
-                <button type="button" onClick={addToShoppingcart}>Add To Cart</button>
+                <div className="free-shipping-bottom">Free Shipping</div>
+                <button className="product-add-to-cart" type="button" onClick={addToShoppingcart}>Add To Cart</button>
             </div>
         </div>
         <Footer />
