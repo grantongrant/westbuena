@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAnOrder } from "../../store/order";
 import { useHistory } from "react-router-dom";
 import { clearCart } from "../../store/shoppingcart";
+import CheckoutPage from "./Checkout";
 
 function OrderSummary({items}) {
 
@@ -13,6 +14,7 @@ function OrderSummary({items}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
+    const [orderNo, setOrderNo] = useState();
 
     useEffect(() => {
         let price_subtotal = 0;
@@ -28,6 +30,7 @@ function OrderSummary({items}) {
 
     const checkout = () => {
         const order_number = (Math.floor(Math.random() * 800000)) + 100000
+        setOrderNo(order_number)
         for (let i = 0; i < items.length; i++) {
             const price = items[i].price * items[i].quantity
             const sales_tax = (price * 0.10).toFixed(2);
@@ -43,6 +46,7 @@ function OrderSummary({items}) {
                 ))
         }
         dispatch(clearCart(items))
+        // return <Checkout/>
         history.push("/checkout/thanks")
     };
 

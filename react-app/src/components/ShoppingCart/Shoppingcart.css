@@ -172,10 +172,10 @@
 
 }
 
-.product-name:hover {
+/* .product-name:hover {
     border-bottom: 1px solid #866347;
     color:#866347;
-}
+} */
 
 .product-name a {
     text-decoration: none;
@@ -183,7 +183,8 @@
 }
 
 .product-name a:hover {
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 5px;
     color:#866347;
 }
 
@@ -319,6 +320,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     width: 100%;
+    cursor: pointer;
 }
 
 .checkout-button:hover {
@@ -332,4 +334,36 @@
     font-size: 9px;
     letter-spacing: 0.01px;
     margin-bottom: 15px;
+}
+
+.order-confirmation-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order-confirmation-header {
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color:#363636;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.order-confirmation-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-text2 {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color:#363636;
+    margin: 12px 0;
+    text-align: center;
 }

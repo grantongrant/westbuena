@@ -15,7 +15,7 @@ function OrdersPage() {
     } else {
         sessionLinks = 
         <div className="order-sign-in">
-            <h1>Track Your Order</h1>
+            <p className="order-sign-in-header">Track Your Order</p>
             <OrderSignin/>
         </div>
     }

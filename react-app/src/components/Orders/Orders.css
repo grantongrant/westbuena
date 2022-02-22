@@ -1,29 +1,206 @@
+.order-page-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #2d2d2d;
+}
+
 .order-page-header {
+    max-width: 990px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.order-page-header-text {
+    font-size: 32px;
+}
+
+.order-page-search-box {
+    background-color: yellow;
+}
+
+.order-history {
+    background-color: #f8f8f8;
 }
 
 .order-card {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .order-number-info {
     display: flex;
     flex-direction: row;
+    background-color: #2d2d2d;
+    color: white;
+    padding: 20px;
+}
+
+.order-date {
+    padding-left: 10px;
 }
 
 .order-detail-card {
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    height: 240px;
 }
 
 .product-info {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.product-info-image {
+    width: 22%;
+}
+
+.product-info-image img {
+    width: 100%;
+}
+
+.product-info-content {
+    margin-left: 20px;
+    width: 53%;
 }
 
 .status {
     display: flex;
     flex-direction: row;
+}
+
+.status-text {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.return-or-cancel {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.black-order-buttons {
+    margin-bottom: .625rem;
+    align-self: center;
+    padding: 10px 60px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background-color: #2d2d2d;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.order-icons-container {
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    font-size: 25px;
+}
+
+.order-sign-in {
+    width: 30%;
+    margin-left: 20%;
+    margin-right: auto;
+}
+
+.order-sign-in-header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 100;
+    letter-spacing: 0.02px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.order-form-header {
+    font-size: 21px;
+    margin-bottom: 12px;
+    margin-top: 48px;
+}
+
+.order-signin-form-text {
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+.order-login-inputs {
+    padding: 12px;
+    border: 0.5px solid #050708;
+    background-color: white;
+    letter-spacing: .5px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 44px;
+}
+
+.order-login-inputs:focus {
+    border: 0.5px solid #050708;
+    outline-offset: 0px;
+    outline: none;
+}
+
+.order-login-button {
+    background-color: #023a51;
+    color: white;
+    border: 1px solid #023151;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 5px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.order-login-button:hover {
+    background-color: #012330;
+    border: 1px solid #012330;
+}
+
+.order-demo-account-login {
+    margin-top: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #866347;
+}
+
+.order-demo-account-login:hover {
+    color: #012330;
 }
