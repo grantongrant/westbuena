@@ -96,3 +96,36 @@
 .product-price-card {
     font-size: 14px;
 }
+
+.product-page-container {
+    max-width: 1140px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.small-photo-container {
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.large-photo-container {
+    margin-left: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.product-info-container {
+    width: 100%;
+    min-width: 300px;
+    max-width: 520px;
+    margin: 0 0px 15px 50px;
+    flex: 1;
+}
+
+.item-quantity-product-form{
+    display: flex;
+    flex-direction: row;
+}
