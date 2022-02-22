@@ -34,7 +34,7 @@ def get_all_orders_by_user_id(id):
 
     for order in orders:
 
-        if ((today - order.updated_at).total_seconds() > 60):
+        if ((today - order.updated_at).total_seconds() > 120):
             order.delivered = True
             db.session.commit()
 
