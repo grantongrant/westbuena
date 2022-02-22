@@ -5,7 +5,7 @@ def seed_products():
     
     kalos_botanical = Product(
         name="Mist Congeniality | Rose Water Hyrda-Mist",
-        category_id = 4,
+        category_id = 2,
         attributes='Vegan; Cruelty-Free; Plumping; Moisturizing; Nourishing',
         original_price=22.00,
         discount=False,

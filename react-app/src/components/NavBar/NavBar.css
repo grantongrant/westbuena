@@ -188,6 +188,7 @@
     right: 20px;
     background-color: white;
     justify-content: center;
+    align-items: center;
     font-size: 12px;
     text-align: right;
     padding:12px;
@@ -198,16 +199,23 @@
 .cart-menu-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-#log-in-button {
+.log-in-button {
     background-color: #023a51;
-    border-color: #023a51;
+    border: 1px solid #023a51;
+    width: 250px;
     color: white;
     line-height: 38px;
     font-size: 14px;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-bottom: 10px;
 }
 
 #login-button-account {
@@ -223,8 +231,62 @@
     border: none;
 }
 .account-content {
-    border: 1px solid black;
+    border: none;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    background-color: white;
+    font-size: 12px;
+    padding:12px;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,.25);
+}
+
+.login-signup-dropdown {
+    cursor: pointer;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.login-signup-dropdown a {
+    color: #363636;
+    text-decoration: none;
+    letter-spacing: .5px;
+    font-size: 14px;
+}
+
+.login-signup-dropdown a:hover {
+    color: #866347;
+}
+
+.go-to-orders-dropdown {
+    padding-top: 10px;
+}
+
+.go-to-orders-dropdown a {
+    color: #363636;
+    text-decoration: none;
+    letter-spacing: .5px;
+    font-size: 14px;
+}
+
+.go-to-orders-dropdown a:hover {
+    color: #866347;
+}
+
+.logout-button-nav {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    padding-top: 10px;
+    font-size: 14px;
+    margin-left: -3px;
+    cursor: pointer;
+}
+
+.logout-button-nav:hover {
+    color: #866347;
 }
 
 #account-icon-a {
@@ -315,4 +377,28 @@
 
 #sale a:hover {
     border-bottom: 1 px solid #af1a31;
+}
+
+.items-in-cart {
+    margin: 2px 40px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.link-to-cart {
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    background-color: white;
+    color:#866347;
+    border: 1px solid #866347;
+    font-weight: 300;
+}
+
+.link-to-cart:hover {
+    background-color: #866347;
+    color: white;
 }
