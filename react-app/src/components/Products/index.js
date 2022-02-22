@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { getOneproduct } from '../../store/product';
 import { addToCart } from '../../store/shoppingcart';
+import Footer from '../Footer';
 
 function ProductPage() {
 
@@ -24,11 +25,14 @@ function ProductPage() {
 
     return (
         <>
+        <div>
             <h1>Product: </h1>
             <ul>{product.name}</ul>
             <ul>${product.final_price}</ul>
             <button type="button" onClick={addToShoppingcart}>Add To Cart</button>
             <ul><img src={product.image_url1} alt="product"/></ul>
+        </div>
+        <Footer />
         </>
     );
 };

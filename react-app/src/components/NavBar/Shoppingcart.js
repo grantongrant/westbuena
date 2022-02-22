@@ -14,7 +14,7 @@ function Shoppingcart () {
 
     useEffect(() => {
         dispatch(getAllShoppingcart(sessionUser?.id))
-      }, [dispatch]);
+      }, [dispatch, items]);
 
     let sessionLinks;
 

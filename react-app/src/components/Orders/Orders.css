@@ -199,8 +199,15 @@
     border: none;
     cursor: pointer;
     color: #866347;
+    margin-bottom: 100px;
 }
 
 .order-demo-account-login:hover {
     color: #012330;
+}
+
+.empty-space {
+    width: 100%;
+    height: 100px;
+    background-color: white;
 }

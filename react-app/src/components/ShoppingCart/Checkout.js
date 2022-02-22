@@ -1,11 +1,13 @@
 import { useSelector, useStore } from "react-redux";
 import { NavLink } from "react-router-dom";
+import Footer from "../Footer";
 
 const CheckoutPage = () => {
 
     const user = useSelector((state) => state.session.user)
 
     return (
+        <>
         <div className="order-confirmation-container">
             <div className="order-confirmation-header">
                 <div>Order Confirmation</div>
@@ -17,6 +19,8 @@ const CheckoutPage = () => {
                 <NavLink to="/orders"><button className="cart-button blue-white-button">View Order Details</button></NavLink>
             </div>
         </div>
+        <Footer />
+        </>
     )
 };
 
