@@ -21,7 +21,7 @@ const Footer = () => {
                     <div className="footer-list" id="location-link"><a href="https://goo.gl/maps/UmbQRkWBMcpTMVPc6" target="_blank" rel="noreferrer"><GoLocation id="location-icon" />BUENA PARK</a></div>
                     <div className="footer-list">West Buena Avenue</div>
                     <div className="footer-list">Chicago, IL 60613</div>
-                    <div className="footer-list">(312) 489-9384</div>
+                    <div className="footer-list" id="phone-link"><a href="tel:312-489-9384">(312) 489-9384</a></div>
                 </div>
                 <div className="social-links">
                     <div><a href="https://github.com/grantongrant" target="_blank" rel="noreferrer"><img id="github-logo" src={"https://westbuena.s3.us-east-2.amazonaws.com/GitHub-Mark-32px.png"} alt="github logo"/></a></div>
