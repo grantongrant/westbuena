@@ -231,9 +231,29 @@
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 .product-add-to-cart:hover {
     background-color: #851023;
     border: 1px solid #851023;
+}
+
+.product-login-button {
+    background-color: #023a51;
+    width: 100%;
+    color: white;
+    border: 1px solid #023a51;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.product-login-button:hover {
+    background-color: #012330;
+    border: 1px solid #012330;
 }
