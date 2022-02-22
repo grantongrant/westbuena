@@ -12,11 +12,24 @@ function ProductPage() {
     const product = useSelector((state) => state.product)
     const user = useSelector(state => state.session.user);
     const history = useHistory();
+    const [isLoaded, setisLoaded] = useState(false)
     const [quantity, setQuantity] = useState(0);
+    const [photoUrl, setPhotoUrl] = useState();
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
       }, [dispatch, productId]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setPhotoUrl(product.image_url1)
+            setisLoaded(true)
+        }, 500);
+        return () => clearTimeout(timer);
+    });
+
+    const isLoading =
+        <div className="isLoading"></div>
 
     const addToShoppingcart = async () => {
         await dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
@@ -37,12 +50,19 @@ function ProductPage() {
         setQuantity(quantity + 1)
     }
 
-    return (
+    const ProductComponents = (
         <>
         <div className="product-page-container">
-            <div className="small-photo-container"></div>
+            <div className="small-photo-container">
+                <div type="button" className="small-photos" onDoubleClick={(e) => {
+                    setPhotoUrl(product.image_url1)}}>
+                    <img src={product.image_url1} alt="product 1"/></div>
+                <div type="button" className="small-photos" onClick={(e) => {
+                    setPhotoUrl(product.image_url2)}}>
+                    <img src={product.image_url2} alt="product 2"/></div>
+            </div>
             <div className="large-photo-container">
-                <ul><img src={product.image_url1} alt="product"/></ul>
+                <div><img src={photoUrl} alt="product"/></div>
             </div>
             <div className="product-info-container">
                 <div>Free Shipping</div>
@@ -73,6 +93,12 @@ function ProductPage() {
         <Footer />
         </>
     );
+
+    return (
+        <>
+        {isLoaded ? ProductComponents : isLoading}
+        </>
+    )
 };
 
 export default ProductPage;
