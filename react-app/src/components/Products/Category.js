@@ -2,6 +2,8 @@ import { useParams, NavLink } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { getProductsByCategory } from '../../store/product';
 import { useDispatch, useSelector } from 'react-redux';
+import {FaHeart} from 'react-icons/fa';
+
 import "./Products.css";
 
 function CategoryPage() {
@@ -18,8 +20,12 @@ function CategoryPage() {
     const categoryComponents = products?.map((product) => {
         return (
           <div className="product-container" key={product.id}>
-            <div className="product-image-container">
-              <div><NavLink to={`/products/${product.id}`}><img src={product.image_url1} alt="product"/></NavLink></div>
+            <div className="product-image-container"> 
+              <div><NavLink to={`/products/${product.id}`}>
+                <div className="favorite-icon-category-page"><FaHeart/></div>
+                <img className="image-1" src={product.image_url1} alt="product"/>
+                  <img className="image-2" src={product.image_url2} alt="product"/>
+                </NavLink></div>
             </div>
             <div className="product-name-card">{product.name}</div>
             <div className="shipping-and-price">
