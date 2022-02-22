@@ -1,47 +1,46 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsCart } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import './NavBar.css';
+import { useEffect, useState } from 'react';
+import { getAllShoppingcart } from '../../store/shoppingcart';
 
 function Shoppingcart () {
 
     const sessionUser = useSelector((state) => state.session.user);
-
-    const [showMenu, setShowMenu] = useState(false);
-
-    // const openMenu = () => {
-    //     if (showMenu) return;
-    //     setShowMenu(true);
-    // };
+    const dispatch = useDispatch();
+    const cartObject = useSelector((state) => state.shoppingcart)
+    const items = Object.values(cartObject)
 
     useEffect(() => {
-        if (!showMenu) return;
-
-        const closeMenu = () => {
-            setShowMenu(false);
-        };
-
-        document.addEventListener('click', closeMenu);
-
-        return () => document.removeEventListener('click', closeMenu);
-    }, [showMenu]);
+        dispatch(getAllShoppingcart(sessionUser?.id))
+      }, [dispatch]);
 
     let sessionLinks;
 
     if (sessionUser) {
-        sessionLinks = (
-        <nav className="cart-content">
-            <p>Track Order</p>
-        </nav>
-        );
+        // itemsInCart();
+        if (!items?.length) {
+            sessionLinks = (
+                <nav className="cart-content">
+                    <div>Hi! Looks Like Your Cart's Empty...</div>
+                </nav>
+            )
+        } else {
+            sessionLinks = (
+                <nav className="cart-content">
+                    <div className="items-in-cart">Exciting! You Have Cart Items</div>
+                    <div><NavLink to="/shoppingcart"><button className="link-to-cart">View Cart</button></NavLink></div>
+                </nav>
+                );
+        }
     } else {
         sessionLinks = (
         <nav className="cart-content">
             <div className="cart-menu-content">
-                <p>Hi! Looks Like Your Cart's Empty...</p>
-                <NavLink to="/login"><button id="log-in-button">Sign In</button></NavLink>
-                <p>to add to your cart</p>
+                <div className="items-in-cart">Hi! Looks Like Your Cart's Empty...</div>
+                <div><NavLink to="/login"><button className="log-in-button">Sign In</button></NavLink></div>
+                <p className="items-in-cart">to add to your cart</p>
                 <p>You'll see the same thing whether you're shopping on your phone, tablet or computer.</p>
                 </div>
         </nav>
