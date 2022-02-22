@@ -37,8 +37,8 @@ function OrderSignin() {
 
     return (
         <form onSubmit={onLogin}>
-            <p>Sign in to view order history</p>
-            <p>Use the same sign-in credentials as your account sign in.</p>
+            <div className="order-form-header">Sign in to view order history</div>
+            <div className="order-signin-form-text">Use the same sign-in credentials as your account sign in.</div>
         <div>
             {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
@@ -52,6 +52,7 @@ function OrderSignin() {
                     placeholder='Email *'
                     value={email}
                     onChange={updateEmail}
+                    className="order-login-inputs"
                 />
         </div>
         <div>
@@ -62,11 +63,12 @@ function OrderSignin() {
                     placeholder='Password *'
                     value={password}
                     onChange={updatePassword}
+                    className="order-login-inputs"
                 />
         </div>
-        <p>This will keep you logged-in on this device. To keep your account secure, use this option only on your personal devices</p>
-        <button type='submit'>Sign In</button>
-        <button type="button" onClick={demoLogin}>Don't have an account? Sign in as our demo user.</button>
+        <div className="order-signin-form-text">This will keep you logged-in on this device. To keep your account secure, use this option only on your personal devices</div>
+        <button className="order-login-button" type='submit'>Sign In</button>
+        <button className="order-demo-account-login" type="button" onClick={demoLogin}>Don't have an account? Sign in as our demo user.</button>
         </form>
     );
 };

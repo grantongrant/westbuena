@@ -78,16 +78,44 @@ export const getAllOrders = (userId) => async (dispatch) => {
 // UPDATE -----------------------------------
 
 export const updateOrder = (orderId, productId, quantity) => async (dispatch) => {
-    console.log("data", orderId, productId, quantity)
-    const response = await fetch(`/api/orders/details/${orderId}`, {
+
+    if (quantity === 0) {
+        dispatch(deleteOrder(orderId));
+    } else {
+        const response = await fetch(`/api/orders/details/${orderId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                orderId,
+                productId,
+                quantity,
+            })
+        });
+    
+        if (response.ok) {
+            const order = await response.json();
+            if (order.errors) {
+                return;
+            } else {
+                dispatch(updateAnOrder(order))
+            }
+            return order;
+        };
+
+    }    
+};
+
+export const updateReturnOrder = (orderId) => async (dispatch) => {
+    console.log(orderId)
+    const response = await fetch(`api/orders/return/${orderId}`, {
         method: "PATCH",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "applicatoin/json",
         },
         body: JSON.stringify({
             orderId,
-            productId,
-            quantity,
         })
     });
 
@@ -96,10 +124,10 @@ export const updateOrder = (orderId, productId, quantity) => async (dispatch) =>
         if (order.errors) {
             return;
         } else {
-            dispatch(updateAnOrder(order));
+            dispatch(updateAnOrder(order))
         }
         return order;
-    }
+    };
 }
 
 // DELETE -----------------------------------
