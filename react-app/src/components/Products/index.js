@@ -18,15 +18,14 @@ function ProductPage() {
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
-      }, [dispatch, productId]);
+    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setPhotoUrl(product.image_url1)
             setisLoaded(true)
         }, 500);
         return () => clearTimeout(timer);
-    });
+    }, []);
 
     const isLoading =
         <div className="isLoading"></div>
@@ -54,7 +53,7 @@ function ProductPage() {
         <>
         <div className="product-page-container">
             <div className="small-photo-container">
-                <div type="button" className="small-photos" onDoubleClick={(e) => {
+                <div type="button" className="small-photos" onClick={(e) => {
                     setPhotoUrl(product.image_url1)}}>
                     <img src={product.image_url1} alt="product 1"/></div>
                 <div type="button" className="small-photos" onClick={(e) => {
@@ -62,7 +61,10 @@ function ProductPage() {
                     <img src={product.image_url2} alt="product 2"/></div>
             </div>
             <div className="large-photo-container">
-                <div><img src={photoUrl} alt="product"/></div>
+                {photoUrl? 
+                <div><img src={photoUrl} alt="product"/></div> :
+                <div><img src={product.image_url1} alt="product"/></div>
+                }
             </div>
             <div className="product-info-container">
                 <div>Free Shipping</div>
@@ -96,7 +98,7 @@ function ProductPage() {
 
     return (
         <>
-        {isLoaded ? ProductComponents : isLoading}
+        {isLoaded ? ProductComponents : null}
         </>
     )
 };
