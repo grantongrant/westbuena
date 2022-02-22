@@ -1,4 +1,3 @@
-from turtle import up
 from flask import Blueprint, redirect, request
 from app.forms.order_form import OrderForm
 from app.models import Product, CartItem, OrderDetail, db
@@ -98,5 +97,3 @@ def delete_order_by_order_id(id):
     db.session.commit()
 
     return {"message": "success"}
-
-    
