@@ -4,7 +4,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* border-top: 1px solid #666; */
+    height: 100%;
+    bottom: 0;
 }
 
 .content-container {

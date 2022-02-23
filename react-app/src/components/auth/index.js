@@ -18,7 +18,7 @@ const Authenticate = () => {
                 <div className="login-form-container"><LoginForm/></div>
                 <div className="signup-form-container"><SignUpForm/></div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 };

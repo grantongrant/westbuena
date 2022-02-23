@@ -15,6 +15,8 @@ import OrderReview from './components/ShoppingCart/OrderReview';
 import CheckoutPage from './components/ShoppingCart/Checkout';
 import SplashPage from './components/SplashPage';
 import "./index.css";
+import SalePage from './components/Products/Sale';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +49,9 @@ function App() {
         <Route path="/shop/:category" exact={true}>
           <CategoryPage />
         </Route>
+        <Route path="/shop/sale" exact={true}>
+          <SalePage />
+        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
@@ -66,6 +71,7 @@ function App() {
           <CheckoutPage />
         </Route>
       </Switch>
+      <Footer/>
     </BrowserRouter>
   );
 }

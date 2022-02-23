@@ -1,22 +1,20 @@
-import { useParams, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import { getProductsByCategory } from '../../store/product';
+import { getSaleProducts } from '../../store/product';
 import { useDispatch, useSelector } from 'react-redux';
 import {FaHeart} from 'react-icons/fa';
 import Footer from '../Footer';
-
 import "./Products.css";
 
-function CategoryPage() {
+function SalePage() {
   
-    const { category } = useParams();
     const dispatch = useDispatch();
     const productObject = useSelector((state) => state.product)
     const products = Object.values(productObject)
 
     useEffect(() => {
-      dispatch(getProductsByCategory(category))
-    }, [dispatch, category]);
+      dispatch(getSaleProducts())
+    }, [dispatch]);
 
     const categoryComponents = products?.map((product) => {
         return (
@@ -49,4 +47,4 @@ function CategoryPage() {
     )
 }
 
-export default CategoryPage;
+export default SalePage;
