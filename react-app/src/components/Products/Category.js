@@ -25,7 +25,7 @@ function CategoryPage() {
               <div className="favorite-icon-category-page"><FaHeart/></div> 
               <div><NavLink to={`/products/${product.id}`}>
                 <img className="image-1" src={product.image_url1} alt="product"/>
-                  <img className="image-2" src={product.image_url2} alt="product"/>
+                <img className="image-2" src={product.image_url2} alt="product"/>
                 </NavLink></div>
             </div>
             <div className="product-name-card">{product.name}</div>

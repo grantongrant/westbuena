@@ -19,7 +19,6 @@ function Shoppingcart () {
     let sessionLinks;
 
     if (sessionUser) {
-        // itemsInCart();
         if (!items?.length) {
             sessionLinks = (
                 <nav className="cart-content">
