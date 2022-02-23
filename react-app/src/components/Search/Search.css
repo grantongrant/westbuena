@@ -39,3 +39,19 @@
     color:#565458;
     text-align: end;
 }
+
+.product-container-search {
+    /* border: 1px solid black; */
+    width: 32%;
+    max-height: 700px;
+    min-height: 200px;
+    margin-top: 20px;
+}
+
+.product-image-container-search {
+    /* border: 1px solid black; */
+    height: 75%;
+    overflow: hidden;
+    position: relative;
+    min-height: 300px;
+}
