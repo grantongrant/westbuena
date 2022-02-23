@@ -131,6 +131,7 @@
     margin-left: 20%;
     margin-right: auto;
     margin-bottom: auto;
+    min-height: 550px;
 }
 
 .order-sign-in-header {
