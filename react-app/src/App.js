@@ -17,6 +17,8 @@ import SplashPage from './components/SplashPage';
 import "./index.css";
 import SalePage from './components/Products/Sale';
 import Footer from './components/Footer';
+import SearchResult from './components/Search/SearchResult';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -63,6 +65,9 @@ function App() {
         </Route>
         <Route exact path="/products/:productId">
           <ProductPage />
+        </Route>
+        <Route path="/search">
+          <SearchResult />
         </Route>
         <Route exact path="/checkout">
           <OrderReview />

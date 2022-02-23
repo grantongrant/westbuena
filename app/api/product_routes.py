@@ -1,6 +1,7 @@
 from flask import Blueprint
 from app.models import Product, Category
 
+
 product_routes = Blueprint("products", __name__)
 
 # GET ALL PRODUCTS
