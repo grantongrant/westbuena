@@ -46,7 +46,7 @@ const NavBar = () => {
       </div>
       <div className="technologies">
         <NavLink to="/"><div className="west-buena"><p>west buena</p></div></NavLink>
-        <div className="my-name"><p>grant</p><p id="last-name">russell</p></div>
+        <a href="https://linkedin.com/in/grant-ellis-russell" target="_blank" rel="noreferrer"><div className="my-name"><p>grant</p><p id="last-name">russell</p></div></a>
         <div className="technology-content">
           <li>javascript</li>
           <li>python</li>
@@ -78,9 +78,9 @@ const NavBar = () => {
       </div>
       <div className="secondary-navigation">
         <div className="secondary-content">
-          <p>design & values</p>
+          <NavLink to="/about"><p>design & values</p></NavLink>
           <p id="spacer"> | </p>
-          <p>hire me</p>
+          <NavLink to="/about"><p>hire me</p></NavLink>
           <span className="downarrow"><AiFillCaretDown/></span>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import { useSelector, useStore } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Footer from "../Footer";
 
 const CheckoutPage = () => {
 
