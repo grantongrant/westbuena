@@ -21,7 +21,7 @@ const SplashPage = () => {
                 </div>
                 <div className="banner-3">Learn more</div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }

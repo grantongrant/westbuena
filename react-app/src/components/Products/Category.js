@@ -44,7 +44,7 @@ function CategoryPage() {
             {categoryComponents}
           </>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
 }

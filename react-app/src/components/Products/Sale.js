@@ -42,7 +42,7 @@ function SalePage() {
             {categoryComponents}
           </>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     )
 }

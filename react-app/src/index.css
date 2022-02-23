@@ -16,3 +16,7 @@ body {
     width: 100%;
     display: block;
 }
+
+#root {
+    min-height: 100vh;
+}
