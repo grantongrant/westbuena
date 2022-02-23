@@ -45,11 +45,13 @@ const LoginForm = () => {
     <form onSubmit={onLogin}>
       <p className="form-titles">Sign in using your email</p>
       <p className="form-text">You can now sign into this brand using your account! If you don't have an account, create an account.</p>
-      <div>
+      {errors.length ? 
+      <div className="login-errors">
+        <div className="login-errors-header">Sorry, unrecognized password or email.</div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> : null }
       <div>
         <div className="login-labels"><label htmlFor='email'>EMAIL</label></div>
         <input

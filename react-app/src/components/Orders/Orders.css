@@ -211,3 +211,17 @@
     height: 100px;
     background-color: white;
 }
+
+.login-errors-order {
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    color: #b30008;
+    background-color: rgba(179,0,8,0.1);
+    margin-bottom: 20px;
+}
+
+.login-errors-header-order {
+    margin-bottom: 10px;
+}

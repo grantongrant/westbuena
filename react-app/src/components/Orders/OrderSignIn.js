@@ -39,12 +39,14 @@ function OrderSignin() {
         <form onSubmit={onLogin}>
             <div className="order-form-header">Sign in to view order history</div>
             <div className="order-signin-form-text">Use the same sign-in credentials as your account sign in.</div>
-        <div>
-            {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-            ))}
-        </div>
-        <div>
+            {errors.length ? 
+            <div className="login-errors-order">
+                <div className="login-errors-header-order">Sorry, unrecognized password or email.</div>
+                {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+                ))}
+                </div> : null }
+            <div>
             <label htmlFor='email'></label>
                 <input
                     name='email'

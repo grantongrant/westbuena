@@ -127,3 +127,16 @@
 .receive-email-text {
     margin-top: 25px;
 }
+
+.login-errors {
+    padding: 10px 15px;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    color: #b30008;
+    background-color: rgba(179,0,8,0.1);
+}
+
+.login-errors-header {
+    margin-bottom: 10px;
+}
