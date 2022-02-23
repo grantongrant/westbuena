@@ -18,6 +18,7 @@ import SalePage from './components/Products/Sale';
 import Footer from './components/Footer';
 import SearchResult from './components/Search/SearchResult';
 import AboutMe from './components/AboutMe';
+import LogoutPage from './components/auth/LogoutPage';
 
 
 function App() {
@@ -74,6 +75,9 @@ function App() {
         </Route>
         <Route exact path="/about">
           <AboutMe />
+        </Route>
+        <Route exact path="/logout">
+          <LogoutPage />
         </Route>
       </Switch>
       <Footer/>
