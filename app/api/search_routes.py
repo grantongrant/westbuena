@@ -10,5 +10,7 @@ search_routes = Blueprint("search", __name__)
 def get_products_by_search(query):
     print("query", query)
     standardized_query = query.lower()
-    products = Product.query.filter(func.lower(Product.title).contains(standardized_query)) 
+    print(standardized_query)
+    products = Product.query.filter(func.lower(Product.name).contains(standardized_query))
+    print("PRODUCTS:", products) 
     return {"products": [product.to_dict() for product in products]}

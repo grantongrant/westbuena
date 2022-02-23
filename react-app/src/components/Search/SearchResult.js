@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import "./Search.css";
+import "../Products/Products.css";
 import { getProductsBySearch } from '../../store/search';
 
 const SearchResult = () => {
@@ -11,9 +12,9 @@ const SearchResult = () => {
     const { search } = window.location;
     const dispatch = useDispatch();
     const query = new URLSearchParams(search).get("q");
-    const productObject = useSelector((state) => state.product)
+    const productObject = useSelector((state) => state.search)
     const products = Object.values(productObject)
-    console.log(query)
+    console.log(products)
 
     useEffect(() => {
       dispatch(getProductsBySearch(query))
@@ -63,7 +64,11 @@ const SearchResult = () => {
 
       return (
         <>
+        <div className="category-container">
+          <>
         {products ? results : isLoading}
+        </>
+        </div>
         </>
       )
 }
