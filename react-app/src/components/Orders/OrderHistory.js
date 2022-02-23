@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders, updateOrder, deleteOrder, updateReturnOrder} from '../../store/order';
 import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
 import { AiFillCodeSandboxCircle } from 'react-icons/ai';
+import { BiMessageAltError } from 'react-icons/bi';
 
 function OrderHistory({user}) {
 
@@ -33,15 +34,18 @@ function OrderHistory({user}) {
         } else {
             await dispatch(updateOrder(orderId, productId, quantity))
             .then (() => setUpdate(false))
+            .then (() => alert ("We've updated your order. Thanks for shopping with us!"));
         } 
     };
 
     const deleteThisOrder = (order) => {
         dispatch(deleteOrder(order.id))
+        alert(`Thanks! We've canceled your order, Order No. ${order.order_number}. We've credited $${order.total} to your account.`)
     }
 
-    const returnThisItem = (orderId) => {
-        dispatch(updateReturnOrder(orderId))
+    const returnThisItem = (order) => {
+        dispatch(updateReturnOrder(order.id))
+        alert(`Thanks! We've emailed a return label for Order No. ${order.order_number} to ${user.email}.`)
     }
 
     const isLoading =
@@ -94,7 +98,7 @@ function OrderHistory({user}) {
             </>;
             action = 
             <>
-            <button button className="black-order-buttons" type="button" onClick={() => returnThisItem(order.id)} >Return Items</button>
+            <button button className="black-order-buttons" type="button" onClick={() => returnThisItem(order)} >Return Items</button>
             </>
         } else if(order.returned === true) {
             status =
