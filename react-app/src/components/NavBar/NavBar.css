@@ -338,6 +338,11 @@
     font-weight: 500;
 }
 
+.secondary-content a {
+    text-decoration: none;
+    color: #363636;
+}
+
 #spacer {
     margin: 0px 10px;
 }

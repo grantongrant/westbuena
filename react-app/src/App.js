@@ -17,6 +17,7 @@ import "./index.css";
 import SalePage from './components/Products/Sale';
 import Footer from './components/Footer';
 import SearchResult from './components/Search/SearchResult';
+import AboutMe from './components/AboutMe';
 
 
 function App() {
@@ -53,12 +54,12 @@ function App() {
         <Route path="/shop/sale" exact={true}>
           <SalePage />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        </ProtectedRoute> */}
+        {/* <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>
@@ -70,6 +71,9 @@ function App() {
         </Route>
         <Route exact path="/checkout/thanks">
           <CheckoutPage />
+        </Route>
+        <Route exact path="/about">
+          <AboutMe />
         </Route>
       </Switch>
       <Footer/>
