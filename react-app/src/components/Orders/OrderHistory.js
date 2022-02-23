@@ -157,6 +157,7 @@ function OrderHistory({user}) {
             <div className="order-history">
                 {isLoaded ? orderComponents : isLoading}
             </div>
+            <div className="empty-space"></div>
         </>
 
 

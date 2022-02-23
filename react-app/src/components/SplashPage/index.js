@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import './SplashPage.css';
+import Footer from '../Footer';
 
 const SplashPage = () => {
 
@@ -20,6 +21,7 @@ const SplashPage = () => {
                 </div>
                 <div className="banner-3">Learn more</div>
             </div>
+            <Footer/>
         </div>
     )
 }

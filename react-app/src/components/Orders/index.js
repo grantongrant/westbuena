@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import OrderHistory from './OrderHistory';
 import './Orders.css';
 import OrderSignin from './OrderSignIn';
+import Footer from '../Footer';
 
 
 function OrdersPage() {
@@ -23,6 +24,7 @@ function OrdersPage() {
     return (
         <div>
             {sessionLinks}
+            <Footer />
         </div>
     );
 };

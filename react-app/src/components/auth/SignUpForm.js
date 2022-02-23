@@ -52,11 +52,13 @@ const SignUpForm = () => {
     <form onSubmit={onSignUp}>
       <p className="form-titles">Create an Account</p>
       <p className="form-text">When you open a west buena account, you'll be able to Checkout, create a Wishlist, search for products, and see your order history.</p>
-      <div>
+      {errors.length? 
+      <div className="login-errors">
+        <div className="login-errors-header">Sorry, unrecognized password or email.</div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> : null }
       <div>
         <div className="login-labels"><label>FULL NAME</label></div>
         <input
