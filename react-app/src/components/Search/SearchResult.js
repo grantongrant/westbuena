@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { NavLink } from 'react-router-dom';
 import { FaHeart } from 'react-icons/fa';
 import "./Search.css";
@@ -14,10 +13,12 @@ const SearchResult = () => {
     const query = new URLSearchParams(search).get("q");
     const productObject = useSelector((state) => state.search)
     const products = Object.values(productObject)
+    const [isLoaded, setIsLoaded] = useState(false)
     console.log(products)
 
     useEffect(() => {
       dispatch(getProductsBySearch(query))
+      setIsLoaded(true)
     }, [dispatch, query]);
 
     // useEffect(() => {
@@ -35,15 +36,20 @@ const SearchResult = () => {
     const isLoading =
         <div className="isLoading"></div>
     
-    const productNotFound = 
-        <div className="search-not-found">
-            <div className="search-content">
-                <h2>We couldn't find any results for {query}</h2>
-                <p>Try searching for something else instead?</p>
-          </div>        
+    const productNotFound = (
+        <div className="order-confirmation-container">
+          <div className="order-confirmation-header">
+          </div>
+          <div className="order-confirmation-body">
+              <div className="body-text1-search">We couldn't find results for "{query}."</div>
+              <div className="body-text2">Check the spelling, try a more general term, or use fewer words.</div>
+              <div className="body-text2">You can also browse our product catalog.</div>
+              <NavLink to="/"><button className="cart-button white-brown-button">Continue Browsing</button></NavLink>
         </div>
+      </div>
+    )
 
-    const results = products?.map((product) => {
+    const productList = products?.map((product) => {
         return (
           <div className="product-container" key={product.id}>
             <div className="product-image-container">
@@ -62,11 +68,19 @@ const SearchResult = () => {
         );
       });
 
+      let results;
+
+      if (products.length >=1) {
+        results = productList
+      } else {
+        results = productNotFound
+      }
+
       return (
         <>
         <div className="category-container">
           <>
-        {products ? results : isLoading}
+        {isLoaded ? results : isLoading}
         </>
         </div>
         </>

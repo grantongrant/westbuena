@@ -19,8 +19,7 @@ const CheckoutPage = () => {
                 <NavLink to="/orders"><button className="cart-button blue-white-button">View Order Details</button></NavLink>
             </div>
         </div>
-        {/* <Footer /> */}
-        </>
+         </>
     )
 };
 
