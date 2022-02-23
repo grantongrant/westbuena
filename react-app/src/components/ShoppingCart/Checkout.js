@@ -1,6 +1,5 @@
 import { useSelector, useStore } from "react-redux";
 import { NavLink } from "react-router-dom";
-import Footer from "../Footer";
 
 const CheckoutPage = () => {
 
@@ -19,8 +18,7 @@ const CheckoutPage = () => {
                 <NavLink to="/orders"><button className="cart-button blue-white-button">View Order Details</button></NavLink>
             </div>
         </div>
-        {/* <Footer /> */}
-        </>
+         </>
     )
 };
 

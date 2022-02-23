@@ -55,3 +55,9 @@
     position: relative;
     min-height: 300px;
 }
+
+.body-text1-search{
+    padding-bottom: 8px;
+    font-size: 26px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

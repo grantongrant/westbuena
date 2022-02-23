@@ -1,5 +1,6 @@
 import './Footer.css';
 import { GoLocation } from "react-icons/go";
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -8,13 +9,13 @@ const Footer = () => {
             <div className="content-container">
                 <div className="footer-content">
                     <div className="footer-header">I'm Here To Help</div>
-                    <li className="footer-list">Track Your Order</li>
-                    <li className="footer-list">Contact Me</li>
+                    <li className="footer-list"><NavLink to="/orders">Track Your Order</NavLink></li>
+                    <li className="footer-list"><a href="https://linkedin.com/in/grant-ellis-russell" target="_blank" rel="noreferrer">Contact Me</a></li>
                 </div>
                 <div className="footer-content">
                     <div className="footer-header">Why Grant Russell?</div>
-                    <li className="footer-list">My Values</li>
-                    <li className="footer-list">Hire Me</li>
+                    <li className="footer-list"><NavLink to="/about">My Values</NavLink></li>
+                    <li className="footer-list"><a href="https://linkedin.com/in/grant-ellis-russell" target="_blank" rel="noreferrer">Hire Me</a></li>
                 </div>
                 <div className="footer-content">
                     <div className="footer-header">My Location</div>

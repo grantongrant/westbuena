@@ -141,3 +141,37 @@
 .login-errors-header {
     margin-bottom: 10px;
 }
+
+.logout-message-container {
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 550px;
+}
+
+.logout-confirmation-header {
+    margin-top: 64px;
+    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 0.03;
+}
+
+.logout-text1 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.64;
+    letter-spacing: 0.5px;
+}
+
+#logout-btn1 {
+    width: 40%;
+    margin-left: 0;
+}
+
+#logout-btn2 {
+    width: 40%;
+}

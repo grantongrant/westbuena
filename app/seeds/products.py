@@ -5,9 +5,9 @@ from app.models import db, Product
 def seed_products():
     
     kalos_botanical = Product(
-        name="Mist Congeniality | Rose Water Hyrda-Mist",
+        name="Mist Congeniality | Rose Water Hydra-Mist",
         category_id = 2,
-        attributes='Vegan; Cruelty-Free; Plumping; Moisturizing; Nourishing',
+        attributes='Vegan, Cruelty-Free, Plumping, Moisturizing, Nourishing, Mist Congeniality Rose Water Hydra-Mist, Aloe, Chamomile, Organic',
         original_price=22.00,
         discount=False,
         final_price=22.00,
@@ -18,7 +18,7 @@ def seed_products():
     mitzie_botanical = Product(
         name="Mitzie | Lavender + Mint All-Purpose Cleaner (Set of 2)",
         category_id = 2,
-        attributes="",
+        attributes="Mitzie Lavender Mist All-Purpose Cleaner Set, Organic, Spray, Amber, Bottle, Botanical",
         original_price=28.00,
         discount=False,
         final_price=28.00,
@@ -29,7 +29,7 @@ def seed_products():
     phaedra_botanical = Product(
         name="Phaedra | Erato's Multipurpose Essence",
         category_id = 2,
-        attributes="",
+        attributes="Phaedra Erato Multipurpose Essence, Yellow Label, 50 ml, Pump Bottle, European, Organic, Botanical",
         original_price=78.00,
         discount=True,
         final_price=66.30,
@@ -38,9 +38,9 @@ def seed_products():
     )
 
     rosewater_botanical = Product(
-        name="Pearlessence | Aloe Rosewater Soothing Fact Mist",
+        name="Pearlessence | Aloe Rosewater Soothing Face Mist",
         category_id = 2,
-        attributes="",
+        attributes="Botanical, Pearlessence, Aloe, Rosewater, Soothing, Face, Mist, 59 ml, Spray Bottle, Nourishing",
         original_price=14.00,
         discount=False,
         final_price=14.00,
@@ -51,7 +51,7 @@ def seed_products():
     tahnyc_botanical = Product(
         name="Tahnyc | Vitamic C + AHA & Peptides Serum",
         category_id = 2,
-        attributes="",
+        attributes="Tahnyc, Vitamin C, AHA Peptides Serum, Spray Bottle, Acne, Botanical, Molecular, Cruelty-Free",
         original_price=64.00,
         discount=False,
         final_price=64.00,
@@ -62,7 +62,7 @@ def seed_products():
     verdant_botanical = Product(
         name="Verdant Lab | Lavender Hand Sanitizer (Set of 2)",
         category_id = 2,
-        attributes="",
+        attributes="Verdant Lab Lavender Hand Sanitizer Set, Spray, Organic, Vegan, Spray Bottle, Limited, Set, Botanical",
         original_price=32.00,
         discount=True,
         final_price=28.00,
@@ -73,7 +73,7 @@ def seed_products():
     bergamot_candle = Product(
         name="Bergamot + Bourbon Scented Candle",
         category_id = 6,
-        attributes="",
+        attributes="Bergamot Bourbon Scented candle, Small Jar, Amber, Rose, Candle, Small, Soy",
         original_price=19.95,
         discount=False,
         final_price=19.95,
@@ -84,7 +84,7 @@ def seed_products():
     ceramic_candle = Product(
         name="St Evan | Hand-Painted Ceramic Vanilla Crackle",
         category_id = 6,
-        attributes="",
+        attributes="St Evan, Candle, Hand-Painted Ceramic Vanilla Crackle Candle, Poured, Wide wick, Artisan",
         original_price=39.95,
         discount=True,
         final_price=32.95,
@@ -95,7 +95,7 @@ def seed_products():
     fenwick_candle = Product(
         name="Fenwick | Organic Coconut Wax Candle (Black Spruce)",
         category_id = 6,
-        attributes="",
+        attributes="Fenwick Organic Coconut Wax Candle, Black Spruce, Glass Jar, Small, Travel",
         original_price=16.95,
         discount=False,
         final_price=16.95,
@@ -106,7 +106,7 @@ def seed_products():
     hay_candle = Product(
         name="Kb69 | Small Batch Premium Wax Dry Hay No. 1",
         category_id = 6,
-        attributes="",
+        attributes="Kb69 Small Batch Premium Wax Dry Hay No. 1, Scented Candle, Quality Original, Wine Bottle, Hand-Poured",
         original_price=22.95,
         discount=False,
         final_price=22.95,
@@ -117,7 +117,7 @@ def seed_products():
     morra_candle = Product(
         name="Morra | Aromatic Garden + Exclusive Musk (Set of 2)",
         category_id = 6,
-        attributes="",
+        attributes="Morra Aromatic Garden Exclusive Musk Set Candle, Blue Jar, Wooden Lid, Set, Vegan, Cruelty-Free, Beeswax",
         original_price=28.00,
         discount=True,
         final_price=24.95,
@@ -128,7 +128,7 @@ def seed_products():
     russian_candle = Product(
         name="DRY | Russian Aromatherapy",
         category_id = 6,
-        attributes="",
+        attributes="Russian Aromatherapy, Nourishing Candle, Beeswax, Amber Jar, Hand-Poured, Cruelty-Free",
         original_price=9.00,
         discount=False,
         final_price=9.00,
@@ -139,7 +139,7 @@ def seed_products():
     banana_faux = Product(
         name="Banana Leaf in Concrete Planter",
         category_id = 4,
-        attributes="",
+        attributes="Banana Leaf, Concrete Planter Faux Plant, Large",
         original_price=59.00,
         discount=False,
         final_price=59.00,
@@ -150,7 +150,7 @@ def seed_products():
     cotton_faux = Product(
         name="Natural Hills Collection | Cotton Stems",
         category_id = 4,
-        attributes="",
+        attributes="Natural Hills Collection Cotton Stems Faux Plant",
         original_price=34.95,
         discount=True,
         final_price=32.00,
@@ -161,7 +161,7 @@ def seed_products():
     fig_faux = Product(
         name="FiddleLeaf Fig + New England Large Weave Basket",
         category_id = 4,
-        attributes="",
+        attributes="FiddleLeaf Fig, New England Large Weave Basket Faux Plant",
         original_price=189.95,
         discount=False,
         final_price=189.95,
@@ -172,7 +172,7 @@ def seed_products():
     paradise_faux = Product(
         name="Paradise Plant | Sculptural 48 Inches",
         category_id = 4,
-        attributes="",
+        attributes="Paradise Plant Sculptural 48 Inches",
         original_price=202.00,
         discount=True,
         final_price=164.00,
@@ -183,7 +183,7 @@ def seed_products():
     oakparadise_faux = Product(
         name="Paradise Plant | Tabletop Oak Base",
         category_id = 4,
-        attributes="",
+        attributes="Paradise Plant Tabletop Oak Base",
         original_price=68.00,
         discount=False,
         final_price=68.00,
@@ -194,7 +194,7 @@ def seed_products():
     philodendron_faux = Product(
         name="Glorious Philodendron Upright Stalks (Set of 2)",
         category_id = 4,
-        attributes="",
+        attributes="Glorious Philodendron Uprigth Stalks Set Faux",
         original_price=24.00,
         discount=False,
         final_price=24.00,

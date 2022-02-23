@@ -42,6 +42,11 @@
     font-size: 12px;
 }
 
+.footer-list a {
+    text-decoration: none;
+    color: #363636;
+}
+
 .copyright-container {
     display: flex;
     max-width: 990px;
