@@ -11,7 +11,6 @@ import CategoryPage from './components/Products/Category';
 import ShoppingCartPage from './components/ShoppingCart';
 import Authenticate from './components/auth';
 import OrdersPage from './components/Orders';
-import OrderReview from './components/ShoppingCart/OrderReview';
 import CheckoutPage from './components/ShoppingCart/Checkout';
 import SplashPage from './components/SplashPage';
 import "./index.css";
@@ -68,9 +67,6 @@ function App() {
         </Route>
         <Route path="/search">
           <SearchResult />
-        </Route>
-        <Route exact path="/checkout">
-          <OrderReview />
         </Route>
         <Route exact path="/checkout/thanks">
           <CheckoutPage />

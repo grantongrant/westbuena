@@ -41,7 +41,7 @@
     border-radius: 2px;
     letter-spacing: 1px;
     margin: 15px 12px 15px 12px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .blue-white-button {
@@ -245,6 +245,17 @@
     border: 1px solid #363636;
     outline-offset: 0px;
     outline: none;
+}
+
+.quantity-container input::-webkit-outer-spin-button,
+.quantity-container input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-container input [type=number] {
+    -moz-appearance:textfield;
 }
 
 .update-quantity {

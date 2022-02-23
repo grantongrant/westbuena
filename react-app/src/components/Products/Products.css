@@ -80,6 +80,7 @@
     width: 30px;
     font-size: 25px;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .favorite-icon-category-page:hover {
@@ -212,6 +213,19 @@
     height: 40px;
     border: 1px solid #d8d8d8;
     box-sizing: content-box;
+    outline-offset: 0px;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 .free-shipping-bottom {

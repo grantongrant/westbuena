@@ -46,7 +46,6 @@ function OrderSummary({items}) {
                 ))
         }
         dispatch(clearCart(items))
-        // return <Checkout/>
         history.push("/checkout/thanks")
     };
 
