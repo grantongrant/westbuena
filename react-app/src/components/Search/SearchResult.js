@@ -18,20 +18,14 @@ const SearchResult = () => {
 
     useEffect(() => {
       dispatch(getProductsBySearch(query))
-      setIsLoaded(true)
     }, [dispatch, query]);
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //       const query = new URLSearchParams(search).get('q')
-    //       console.log(query)
-    //       const response = await fetch(`/api/search/${query}`);
-    //       const responseData = await response.json();
-    //       console.log(responseData)
-    //       setProducts(responseData.products)
-    //       }
-    //       fetchData();
-    //     }, [query, search]);
+    useEffect(() => {
+      const timer = setTimeout(() => {
+          setIsLoaded(true)
+      }, 500);
+      return () => clearTimeout(timer);
+  }, []);
 
     const isLoading =
         <div className="isLoading"></div>

@@ -11,6 +11,6 @@ def get_products_by_search(query):
     print("query", query)
     standardized_query = query.lower()
     print(standardized_query)
-    products = Product.query.filter(func.lower(Product.name).contains(standardized_query))
+    products = Product.query.filter(func.lower(Product.attributes).contains(standardized_query)).limit(15)
     print("PRODUCTS:", products) 
     return {"products": [product.to_dict() for product in products]}
