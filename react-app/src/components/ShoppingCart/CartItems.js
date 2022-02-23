@@ -21,6 +21,16 @@ function CartItems({items}) {
         dispatch(deleteCartItem(item));
       };
 
+    const adjustQuantity = (input) => {
+        if (!input) {
+            return;
+        } else if (input < 0) {
+            setQuantity(quantity)
+        } else {
+            setQuantity(input)
+        }
+    }
+
     const CartList = items.map((item) => {
         return (
             <li className="cart-table" key={item.id}>
@@ -43,11 +53,12 @@ function CartItems({items}) {
                         <div>
                             <form className="quantity-container">
                                 <input
-                                    type="text"
+                                    type="number"
                                     placeholder={item.quantity}
+                                    // value={item.quantity}
                                     defaultValue={item.quantity}
                                     onChange={(e) => {
-                                        setQuantity(e.target.value)
+                                        adjustQuantity(e.target.value)
                                         setProductId(item.product_id)
                                     }}
                                     name="quantity"

@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders, updateOrder, deleteOrder, updateReturnOrder} from '../../store/order';
 import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
 import { AiFillCodeSandboxCircle } from 'react-icons/ai';
+import { BiMessageAltError } from 'react-icons/bi';
 
 function OrderHistory({user}) {
 
     const dispatch = useDispatch();
     const ordersObject = useSelector((state) => state.order)
-    const orders = Object.values(ordersObject)
+    const orders = Object.values(ordersObject).reverse();
     const [update, setUpdate] = useState(false);
     const [quantity, setQuantity] = useState();
     const [orderId, setOrderId] = useState();
@@ -28,16 +29,23 @@ function OrderHistory({user}) {
       });
 
     const updateQuantity = async () => {
-        await dispatch(updateOrder(orderId, productId, parseInt(quantity,10)))
-        .then (() => setUpdate(false))
+        if (quantity < 0) {
+            return
+        } else {
+            await dispatch(updateOrder(orderId, productId, quantity))
+            .then (() => setUpdate(false))
+            .then (() => alert ("We've updated your order. Thanks for shopping with us!"));
+        } 
     };
 
     const deleteThisOrder = (order) => {
         dispatch(deleteOrder(order.id))
+        alert(`Thanks! We've canceled your order, Order No. ${order.order_number}. We've credited $${order.total} to your account.`)
     }
 
-    const returnThisItem = (orderId) => {
-        dispatch(updateReturnOrder(orderId))
+    const returnThisItem = (order) => {
+        dispatch(updateReturnOrder(order.id))
+        alert(`Thanks! We've emailed a return label for Order No. ${order.order_number} to ${user.email}.`)
     }
 
     const isLoading =
@@ -48,20 +56,20 @@ function OrderHistory({user}) {
         let updateDiv;
         if (update === true && order.id === orderNo) {
             updateDiv =
-            <form>
+            <form className="order-history-update-form">
             <input
-                type="text"
+                type="number"
                 placeholder={order.quantity}
                 defaultValue={order.quantity}
                 onChange={(e) => {
-                    setQuantity(e.target.value)
+                    setQuantity(parseInt(e.target.value,10))
                     setOrderId(order.id)
                     setProductId(order.product_id)
                 }}
                 name="quantity"
             />
-            <button type="button" onClick={updateQuantity}>Update</button>
-            <button type="button" onClick={() => setUpdate(false)}>Cancel</button>
+            <button className="order-form-update-order-button" type="button" onClick={updateQuantity}>Update</button>
+            <button className="order-form-update-order-button" type="button" onClick={() => setUpdate(false)}>Cancel</button>
         </form>
         } else {
             updateDiv =
@@ -90,7 +98,7 @@ function OrderHistory({user}) {
             </>;
             action = 
             <>
-            <button button className="black-order-buttons" type="button" onClick={() => returnThisItem(order.id)} >Return Items</button>
+            <button button className="black-order-buttons" type="button" onClick={() => returnThisItem(order)} >Return Items</button>
             </>
         } else if(order.returned === true) {
             status =
@@ -149,7 +157,7 @@ function OrderHistory({user}) {
     return (
         <>
             <div className="order-page-header">
-                <div className="order-page-header-text">Order History</div>
+                <div className="order-page-header-text">Order History for {user.full_name}</div>
                 <div className="order-page-search-box">
                     <div>Search by Order Number</div>
                     </div>

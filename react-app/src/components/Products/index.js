@@ -31,12 +31,15 @@ function ProductPage() {
         <div className="isLoading"></div>
 
     const addToShoppingcart = async () => {
-        await dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
-        .then(() => history.push("/shoppingcart"))
+        if (quantity === 0 ) {
+            return
+        } else {
+            await dispatch(addToCart(user.id, parseInt(productId, 10), quantity))
+            .then(() => history.push("/shoppingcart"))
+        }
     }
 
     const decreaseQuantity = () => {
-        console.log(quantity)
         if (quantity === 0) {
             return 0;
         } else {
@@ -45,8 +48,15 @@ function ProductPage() {
     }
 
     const increaseQuantity = () => {
-        console.log(quantity)
         setQuantity(quantity + 1)
+    }
+
+    const adjustQuantity = (quantity) => {
+        if (!quantity) {
+            setQuantity(0)
+        } else {
+            setQuantity(quantity)
+        }
     }
 
     const ProductComponents = (
@@ -78,11 +88,9 @@ function ProductPage() {
                             <button type="button" className="add-subtract-button subtract" onClick={decreaseQuantity}>-</button>
                             <form className="quantity-container-product-page">
                                 <input
-                                    type="text"
+                                    type="number"
                                     value={quantity}
-                                    onChange={(e) => {
-                                        setQuantity(parseInt(e.target.value), 10)
-                                    }}
+                                    onChange={(e) => {adjustQuantity(parseInt(e.target.value),10)}}
                                     name="quantity"
                                 />
                             </form>
