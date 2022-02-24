@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders, updateOrder, deleteOrder, updateReturnOrder} from '../../store/order';
 import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
 import { AiFillCodeSandboxCircle } from 'react-icons/ai';
-import { BiMessageAltError } from 'react-icons/bi';
 
 function OrderHistory({user}) {
 

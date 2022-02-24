@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BsCart } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getAllShoppingcart } from '../../store/shoppingcart';
 
 function Shoppingcart () {
@@ -14,7 +14,7 @@ function Shoppingcart () {
 
     useEffect(() => {
         dispatch(getAllShoppingcart(sessionUser?.id))
-      }, [dispatch]);
+      }, [dispatch, sessionUser?.id]);
 
     let sessionLinks;
 

@@ -1,10 +1,7 @@
-import { useSelector, useStore } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./AboutMe.css";
 
 const AboutMe = () => {
-
-    const user = useSelector((state) => state.session.user)
 
     return (
         <>
