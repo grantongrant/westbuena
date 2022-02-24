@@ -157,9 +157,9 @@ function OrderHistory({user}) {
         <>
             <div className="order-page-header">
                 <div className="order-page-header-text">Order History for {user.full_name}</div>
-                <div className="order-page-search-box">
+                {/* <div className="order-page-search-box">
                     <div>Search by Order Number</div>
-                    </div>
+                </div> */}
                 </div>
             <div className="order-history">
                 {isLoaded ? orderComponents : isLoading}
