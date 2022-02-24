@@ -235,6 +235,7 @@
 }
 .account-content {
     border: none;
+    right: 20px;
     position: absolute;
     display: flex;
     flex-direction: column;

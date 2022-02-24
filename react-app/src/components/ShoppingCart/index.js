@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Shoppingcart from './Shoppingcart';
 import './Shoppingcart.css';
-import Footer from '../Footer';
 
 function ShoppingCartPage() {
 
@@ -29,7 +28,6 @@ function ShoppingCartPage() {
     return (
         <>
             {sessionLinks}
-            {/* <Footer /> */}
         </>
     );
 };

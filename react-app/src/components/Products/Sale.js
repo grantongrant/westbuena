@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { getSaleProducts } from '../../store/product';
 import { useDispatch, useSelector } from 'react-redux';
 import {FaHeart} from 'react-icons/fa';
-import Footer from '../Footer';
 import "./Products.css";
 
 function SalePage() {
@@ -42,7 +41,6 @@ function SalePage() {
             {categoryComponents}
           </>
         </div>
-        {/* <Footer /> */}
       </>
     )
 }

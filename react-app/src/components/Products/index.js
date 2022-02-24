@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { getOneproduct } from '../../store/product';
 import { addToCart } from '../../store/shoppingcart';
-import Footer from '../Footer';
 
 function ProductPage() {
 
@@ -18,7 +17,7 @@ function ProductPage() {
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
-    }, []);
+    }, [dispatch, productId]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -27,8 +26,8 @@ function ProductPage() {
         return () => clearTimeout(timer);
     }, []);
 
-    const isLoading =
-        <div className="isLoading"></div>
+    // const isLoading =
+    //     <div className="isLoading"></div>
 
     const addToShoppingcart = async () => {
         if (quantity === 0 ) {
@@ -104,7 +103,6 @@ function ProductPage() {
                 }
             </div>
         </div>
-        {/* <Footer /> */}
         </>
     );
 

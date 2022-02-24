@@ -2,7 +2,6 @@ import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import "./Auth.css";
 import { AiOutlineRight } from 'react-icons/ai';
-import Footer from "../Footer";
 
 const Authenticate = () => {
 
@@ -18,7 +17,6 @@ const Authenticate = () => {
                 <div className="login-form-container"><LoginForm/></div>
                 <div className="signup-form-container"><SignUpForm/></div>
             </div>
-            {/* <Footer /> */}
         </div>
     )
 };
