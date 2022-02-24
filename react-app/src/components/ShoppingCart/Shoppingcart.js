@@ -22,7 +22,7 @@ function ShoppingCart({user}) {
         sessionCart = 
         <div className="empty-cart-content">
             <h2>Shopping Cart</h2>
-            <p>Welcome Back! Looks Like Your Cart's Empty...</p>
+            <p>Welcome Back, {user.full_name}! Looks Like Your Cart's Empty...</p>
             <NavLink to="/"><button className="cart-button white-brown-button">Start Shopping</button></NavLink>
         </div>
     } else {

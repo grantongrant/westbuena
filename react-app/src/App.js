@@ -71,7 +71,7 @@ function App() {
           <SearchResult />
         </Route>
         <Route exact path="/checkout/thanks">
-          <CheckoutPage />
+          <CheckoutPage/>
         </Route>
         <Route exact path="/about">
           <AboutMe />
