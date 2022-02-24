@@ -2,7 +2,7 @@
 
 This project is a [West Elm](https://www.westelm.com/) clone. West Buena is the street where I live, in the neighborhood of Buena Park in Chicago, IL. West Buena is a site where users can shop for garden-related products, add those products to their personal shopping cart, checkout, and then track their orders. West Buena is a fullstack application.
 
-(Insert photo of splash page here)
+![westbuena Splash](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-splash.png)
 
 ## Technologies
 
@@ -36,9 +36,17 @@ Users can:
 
 ## Screenshots
 
-(Product Page)
-(Shopping Cart)
-(Track Orders)
+- Product Page
+
+![westbuena Product Page](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-product.png)
+
+- Shopping Cart
+
+![westbuena Shopping Cart](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-cart.png)
+
+- Track Your Order
+
+![westbuena Track Order](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-order.png)
 
 ## Setup
 
