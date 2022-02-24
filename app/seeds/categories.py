@@ -31,10 +31,6 @@ def seed_categories():
         name="garden-tools",
         title="Garden Tools")
 
-    garden_decor = Category(
-        name="garden-decor",
-        title="Garden Decor")
-
     seeds = Category(
         name="seeds",
         title="Seeds")
@@ -46,7 +42,6 @@ def seed_categories():
     db.session.add(stems_branches_bouquets)
     db.session.add(candles)
     db.session.add(garden_tools)
-    db.session.add(garden_decor)
     db.session.add(seeds)
 
     db.session.commit()
