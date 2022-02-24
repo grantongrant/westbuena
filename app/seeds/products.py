@@ -140,7 +140,7 @@ def seed_products():
     banana_faux = Product(
         name="Banana Leaf in Concrete Planter",
         category_id = 4,
-        attributes="Banana Leaf, Concrete Planter Faux Plant, Large",
+        attributes="Banana Leaf, Concrete Planter Faux Plant, Large, Plants",
         original_price=59.00,
         discount=False,
         final_price=59.00,
@@ -151,7 +151,7 @@ def seed_products():
     cotton_faux = Product(
         name="Natural Hills Collection | Cotton Stems",
         category_id = 4,
-        attributes="Natural Hills Collection Cotton Stems Faux Plant",
+        attributes="Natural Hills Collection Cotton Stems Faux Plant, Plants",
         original_price=34.95,
         discount=True,
         final_price=32.00,
@@ -162,7 +162,7 @@ def seed_products():
     fig_faux = Product(
         name="FiddleLeaf Fig + New England Large Weave Basket",
         category_id = 4,
-        attributes="FiddleLeaf Fig, New England Large Weave Basket Faux Plant",
+        attributes="FiddleLeaf Fig, New England Large Weave Basket Faux Plant, Plants",
         original_price=189.95,
         discount=False,
         final_price=189.95,
@@ -173,7 +173,7 @@ def seed_products():
     paradise_faux = Product(
         name="Paradise Plant | Sculptural 48 Inches",
         category_id = 4,
-        attributes="Paradise Plant Sculptural 48 Inches",
+        attributes="Paradise Plant Sculptural 48 Inches, Plants",
         original_price=202.00,
         discount=True,
         final_price=164.00,
@@ -184,7 +184,7 @@ def seed_products():
     oakparadise_faux = Product(
         name="Paradise Plant | Tabletop Oak Base",
         category_id = 4,
-        attributes="Paradise Plant Tabletop Oak Base",
+        attributes="Paradise Plant Tabletop Oak Base, Plants",
         original_price=68.00,
         discount=False,
         final_price=68.00,
@@ -195,7 +195,7 @@ def seed_products():
     philodendron_faux = Product(
         name="Glorious Philodendron Upright Stalks (Set of 2)",
         category_id = 4,
-        attributes="Glorious Philodendron Uprigth Stalks Set Faux",
+        attributes="Glorious Philodendron Uprigth Stalks Set Faux, Plants",
         original_price=24.00,
         discount=False,
         final_price=24.00,
@@ -338,7 +338,7 @@ def seed_products():
     cactus_plants = Product(
         name="Ashley | Cactus in Glazed Pot",
         category_id = 3,
-        attributes="Garden Me | Garden Wheelbarrow and Basket",
+        attributes="Garden Me | Garden Wheelbarrow and Basket, Plants",
         original_price=59.99,
         discount=False,
         final_price=59.99,
@@ -349,7 +349,7 @@ def seed_products():
     fern_plants = Product(
         name="Potted Wood Fern | Korean Labs",
         category_id = 3,
-        attributes="Potted Wood Fern | Korean Labs",
+        attributes="Potted Wood Fern | Korean Labs, Plants",
         original_price=27.00,
         discount=False,
         final_price=27.00,
@@ -360,7 +360,7 @@ def seed_products():
     rubber_plants = Product(
         name="Indoor Rubber Plant | Concrete & Pine Planter",
         category_id = 3,
-        attributes="Indoor Rubber Plant | Concrete & Pine Planter",
+        attributes="Indoor Rubber Plant | Concrete & Pine Planter, Plants",
         original_price=32.50,
         discount=False,
         final_price=32.50,
@@ -371,7 +371,7 @@ def seed_products():
     set_plants = Product(
         name="Tropical Plant Set",
         category_id = 3,
-        attributes="Tropical Plant Set",
+        attributes="Tropical Plant Set, Plants",
         original_price=72.50,
         discount=True,
         final_price=62.50,
@@ -382,7 +382,7 @@ def seed_products():
     succulent_plants = Product(
         name="Armitage | Succulent Set in Textured Bone Planter",
         category_id = 3,
-        attributes="Armitage | Succulent Set in Textured Bone Planter",
+        attributes="Armitage | Succulent Set in Textured Bone Planter, Plants",
         original_price=42.50,
         discount=False,
         final_price=42.50,
@@ -393,7 +393,7 @@ def seed_products():
     zz_plants = Product(
         name="A to Z | ZZ Plant",
         category_id = 3,
-        attributes="A to Z | ZZ Plant",
+        attributes="A to Z | ZZ Plant, Plants",
         original_price=12.50,
         discount=False,
         final_price=12.50,
