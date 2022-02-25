@@ -34,10 +34,10 @@ const NavBar = () => {
     <header className="navigation-header">
       <div className="global-promo">
         <div className="promo-content">
-          <NavLink to="/shop/sale"><p>Up to 60% off greenhouse deals</p></NavLink>
+          <NavLink to="/shop/sale"><p>Up to 10% off greenhouse deals</p></NavLink>
           <span className="rightarrow"><BsArrowRightShort/></span>
           <p> | </p>
-          <NavLink to="/shop/botanicals"><p>Up to 40% off in-stock botanicals</p></NavLink>
+          <NavLink to="/shop/botanicals"><p>Up to 20% off in-stock botanicals</p></NavLink>
           <span className="rightarrow"><BsArrowRightShort/></span>
           <p>|</p>
           <NavLink to="/shop/seeds"><p>Up to 30% off seeds</p></NavLink>
@@ -79,9 +79,9 @@ const NavBar = () => {
       <div className="secondary-navigation">
         <div className="secondary-content">
           <NavLink to="/about"><p>design & values</p></NavLink>
-          <p id="spacer"> | </p>
+          {/* <p id="spacer"> | </p>
           <NavLink to="/about"><p>hire me</p></NavLink>
-          <span className="downarrow"><AiFillCaretDown/></span>
+          <span className="downarrow"><AiFillCaretDown/></span> */}
         </div>
       </div>
       <div className="category-list">
