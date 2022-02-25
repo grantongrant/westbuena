@@ -14,7 +14,6 @@ const SearchResult = () => {
     const productObject = useSelector((state) => state.search)
     const products = Object.values(productObject)
     const [isLoaded, setIsLoaded] = useState(false)
-    console.log(products)
 
     useEffect(() => {
       dispatch(getProductsBySearch(query))

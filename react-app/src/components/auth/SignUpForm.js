@@ -6,26 +6,30 @@ import './Auth.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [repeatEmail, setRepeatEmail] = useState('');
+  const [confirmEmail, setConfirmEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  console.log(fullName)
+  console.log(email)
+  console.log(confirmEmail)
+  console.log(password)
+  console.log(confirmPassword)
 
   const onSignUp = async (e) => {
+    console.log(fullName)
     e.preventDefault();
-    if (password === repeatPassword && email === repeatEmail) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(fullName, email, confirmEmail, password, confirmPassword));
       if (data) {
         setErrors(data)
-      }
-    }
-  };
+      };
+  };;
 
   const updateUsername = (e) => {
-    setUsername(e.target.value);
+    setFullName(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -33,7 +37,7 @@ const SignUpForm = () => {
   };
 
   const updateRepeatEmail = (e) => {
-    setRepeatEmail(e.target.value);
+    setConfirmEmail(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -41,7 +45,7 @@ const SignUpForm = () => {
   };
 
   const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
+    setConfirmPassword(e.target.value);
   };
 
   if (user) {
@@ -63,9 +67,9 @@ const SignUpForm = () => {
         <div className="login-labels"><label>FULL NAME</label></div>
         <input
           type='text'
-          name='username'
+          name='fullName'
           onChange={updateUsername}
-          value={username}
+          value={fullName}
           className="login-inputs"
         ></input>
       </div>
@@ -83,10 +87,9 @@ const SignUpForm = () => {
         <div className="login-labels"><label>CONFIRM EMAIL</label></div>
         <input
           type='text'
-          name='repeat_email'
+          name='confirmEmail'
           onChange={updateRepeatEmail}
-          value={repeatEmail}
-          required={true}
+          value={confirmEmail}
           className="login-inputs"
         ></input>
       </div>
@@ -104,10 +107,9 @@ const SignUpForm = () => {
         <div className="login-labels"><label>CONFIRM PASSWORD</label></div>
         <input
           type='password'
-          name='repeat_password'
+          name='confirmPassword'
           onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
+          value={confirmPassword}
           className="login-inputs"
         ></input>
       </div>

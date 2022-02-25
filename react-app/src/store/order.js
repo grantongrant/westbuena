@@ -108,7 +108,6 @@ export const updateOrder = (orderId, productId, quantity) => async (dispatch) =>
 };
 
 export const updateReturnOrder = (orderId) => async (dispatch) => {
-    console.log(orderId)
     const response = await fetch(`api/orders/return/${orderId}`, {
         method: "PATCH",
         headers: {

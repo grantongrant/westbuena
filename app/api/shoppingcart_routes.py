@@ -13,7 +13,6 @@ shopping_cart_routes = Blueprint("shopping_cart", __name__)
 def add_to_shoppingcart():
 
     data = request.json
-    print(data)
 
     # Does the item already exist in the cart?
 
@@ -81,8 +80,6 @@ def clear_shopping_cart():
     for item in data["items"]:
         
         cart_item = CartItem.query.get(item["id"])
-        print("HELLLLLOOOOO")
-        print(cart_item)
         db.session.delete(cart_item)
         db.session.commit()
 
