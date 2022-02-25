@@ -26,6 +26,7 @@ function CartItems({items}) {
         if (!input) {
             return;
         } else if (input < 0) {
+            SetError("Please input a valid number.")
             setQuantity(quantity)
         } else if (input > 9) {
             setQuantity(9)
