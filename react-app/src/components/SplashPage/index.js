@@ -13,13 +13,13 @@ const SplashPage = () => {
                     <div className="splash-shop-link"><NavLink to="shop/sale">Shop the sale</NavLink></div>
                 </div>
             </div>
-            {/* <NavLink to="/about"><div className="mental-health-banner">
+            <NavLink to="/about"><div className="mental-health-banner">
                 <div className="banner-content">
                     <div className="banner-1">Grant-Russell, Inc. celebrates</div>
                     <div className="banner-2">Mental Health Awareness</div>
                 </div>
                 <div className="banner-3">Learn more</div>
-            </div></NavLink> */}
+            </div></NavLink>
         </div>
         {/* <div className="second-content">
             <div className="second-content-1"></div>
