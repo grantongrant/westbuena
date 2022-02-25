@@ -7,9 +7,7 @@ const getSearchedProducts = (products) => ({
   });
 
   export const getProductsBySearch = (query) => async (dispatch) => {
-    console.log(query)
     const response = await fetch(`/api/search/${query}`);
-    console.log(response)
 
     if (response.ok) {
         const data = await response.json();

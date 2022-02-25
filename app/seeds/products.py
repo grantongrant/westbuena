@@ -464,7 +464,7 @@ def seed_products():
         discount=False,
         final_price=32.80,
         image_url1="https://westbuena.s3.us-east-2.amazonaws.com/milkweed_seeds_1.jpg",
-        image_url2="https://westbuena.s3.us-east-2.amazonaws.com/milkweed_seeds_2.jpg"
+        image_url2="https://westbuena.s3.us-east-2.amazonaws.com/Milkweed2.jpg"
     )
 
     apple_sbb = Product(

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BiMessageSquareError } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { getOneproduct } from '../../store/product';
@@ -14,6 +15,7 @@ function ProductPage() {
     const [isLoaded, setisLoaded] = useState(false)
     const [quantity, setQuantity] = useState(0);
     const [photoUrl, setPhotoUrl] = useState();
+    const [error, SetError] = useState("");
 
     useEffect(() => {
         dispatch(getOneproduct(productId))
@@ -26,8 +28,16 @@ function ProductPage() {
         return () => clearTimeout(timer);
     }, []);
 
-    // const isLoading =
-    //     <div className="isLoading"></div>
+    if (quantity > 9) {
+        SetError("Please add fewer than ten (10) items.")
+        setQuantity(9);
+    };
+     
+
+    if (quantity >= 10) {
+        SetError("Please add fewer than ten (10) items.")
+        setQuantity(9);
+    }
 
     const addToShoppingcart = async () => {
         if (quantity === 0 ) {
@@ -43,11 +53,18 @@ function ProductPage() {
             return 0;
         } else {
             setQuantity(quantity - 1);
+            SetError("")
         }
     }
 
     const increaseQuantity = () => {
-        setQuantity(quantity + 1)
+        if (quantity < 9) {
+            setQuantity(quantity + 1)
+            SetError("")
+        } else if (quantity >= 9) {
+            setQuantity(9)
+            SetError("Please add fewer than ten (10) items.")
+        }
     }
 
     const adjustQuantity = (quantity) => {
@@ -82,6 +99,7 @@ function ProductPage() {
                 <div className="product-info-discount-text">{product.discount? 'Limited Time Offer' : null}</div>
                 <div className="product-info-final-price">${product.final_price}</div>
                 <div>
+                        <div className="product-error">{error? error : null}</div>   
                         <div className="item-price quantity">QUANTITY</div>
                         <div className="item-quantity-product-form">
                             <button type="button" className="add-subtract-button subtract" onClick={decreaseQuantity}>-</button>

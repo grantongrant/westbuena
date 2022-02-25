@@ -1,6 +1,7 @@
+from sre_constants import IN
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, EqualTo, InputRequired
 from app.models import User
 import re
 
@@ -24,6 +25,8 @@ def valid_email(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), user_exists, valid_email])
-    password = StringField('password', validators=[DataRequired()])
+    fullName = StringField('fullName', validators=[DataRequired()])
+    email = StringField('email', validators=[DataRequired(), EqualTo("confirmEmail", message='Please provide matching emails.'), user_exists, valid_email,])
+    confirmEmail = StringField('confirmEmail', [DataRequired()])
+    password = StringField('password', validators=[DataRequired(), EqualTo("confirmPassword", message='Please provide matching passwords.')])
+    confirmPassword = StringField('confirmPassword', [DataRequired()])

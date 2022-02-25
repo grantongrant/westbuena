@@ -278,3 +278,9 @@
     text-align: center;
     cursor: pointer;
 }
+
+.order-error-text {
+    font-size: 11px;
+    color: #af1a31;
+    height: 12px;
+}
