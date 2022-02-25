@@ -10,7 +10,7 @@ const SplashPage = () => {
             <div className ="splash-slideshow">
                 <div className="splash-style-tip">
                     <p>Style tip: Play with size and scale for garden decor perfection</p>
-                    <div className="splash-shop-link"><NavLink to="shop/garden-decor">Shop all decor</NavLink></div>
+                    <div className="splash-shop-link"><NavLink to="shop/sale">Shop the sale</NavLink></div>
                 </div>
             </div>
             {/* <NavLink to="/about"><div className="mental-health-banner">

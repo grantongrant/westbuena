@@ -146,7 +146,7 @@ function OrderHistory({user}) {
                         <div className="product-info-content">
                             <div>{order.product?.name}</div>
                             <div>Item #: {order.product?.id} </div>
-                            <div className="order-error-text">{error ? error : null}</div>
+                            <div className="order-error-text">{error && orderId === order.id ? error : null}</div>
                             <div>
                                 {updateDiv}
                             </div>
