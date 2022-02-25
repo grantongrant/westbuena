@@ -26,6 +26,10 @@ def add_to_shoppingcart():
         db.session.add(new_item)
         db.session.commit()
         return new_item.to_dict()
+    elif (item.quantity + data["quantity"] > 9):
+        item.quantity = 9
+        db.session.commit()
+        return item.to_dict()
     else:
         item.quantity += data["quantity"]
         db.session.commit()

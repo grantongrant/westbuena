@@ -299,3 +299,9 @@ input[type=number] {
     background-color: #012330;
     border: 1px solid #012330;
 }
+
+.product-error{
+    font-size: 12px;
+    color:#af1a31;
+    height: 20px;
+}

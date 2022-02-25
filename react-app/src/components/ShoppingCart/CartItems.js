@@ -12,6 +12,7 @@ function CartItems({items}) {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState();
     const [productId, setProductId] = useState("");
+    const [error, SetError] = useState("");
    
     const updateQuantity = () => {
         dispatch(updateCart(user.id, productId, parseInt(quantity,10)))
@@ -26,12 +27,17 @@ function CartItems({items}) {
             return;
         } else if (input < 0) {
             setQuantity(quantity)
+        } else if (input > 9) {
+            setQuantity(9)
+            SetError("We limit to nine (9) product items per order.")
         } else {
             setQuantity(input)
+            SetError("")
         }
     }
 
     const CartList = items.map((item) => {
+
         return (
             <li className="cart-table" key={item.id}>
             <div className="image-card-with-remove">
@@ -43,6 +49,7 @@ function CartItems({items}) {
             </div>
             <div className="cart-item-body">
                 <div className="product-name"><NavLink to={`/products/${item.product_id}`}>{item.product_name}</NavLink></div>
+                <div className="cart-quantity-error">{error && productId === item.product_id? error : null}</div>
                 <div className="price-and-quantity">
                     <div className="item-price-container">
                         <div className="item-price">Item Price</div>

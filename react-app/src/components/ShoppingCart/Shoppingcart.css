@@ -190,6 +190,12 @@
     color:#866347;
 }
 
+.cart-quantity-error {
+    font-size: 10px;
+    height: 12px;
+    color:#af1a31;
+}
+
 .price-and-quantity {
     display: flex;
     flex-direction: row;

@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders, updateOrder, deleteOrder, updateReturnOrder} from '../../store/order';
 import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
-import { AiFillCodeSandboxCircle } from 'react-icons/ai';
+import { AiFillCodeSandboxCircle, AiOutlineRetweet } from 'react-icons/ai';
+import { BiMessageAltError } from 'react-icons/bi';
 
 function OrderHistory({user}) {
 
@@ -15,6 +16,7 @@ function OrderHistory({user}) {
     const [isLoaded, setisLoaded] = useState(false);
     const [orderNo, setOrderNo] = useState();
     const [productId, setProductId] = useState();
+    const [error, setError] = useState("");
 
     useEffect(() => {
         dispatch(getAllOrders(user.id))
@@ -27,13 +29,18 @@ function OrderHistory({user}) {
         return () => clearTimeout(timer);
       });
 
-    const updateQuantity = async () => {
+    const updateQuantity = () => {
+        console.log(quantity)
+
         if (quantity < 0) {
-            return
-        } else {
-            await dispatch(updateOrder(orderId, productId, quantity))
-            .then (() => setUpdate(false))
-            .then (() => alert ("We've updated your order. Thanks for shopping with us!"));
+            return setError("Please enter a valid number.") 
+        } else if (quantity > 9) {
+            return setError("We limit to nine (9) product items per order.")
+        } else if (0 <= quantity < 10) {
+            setError("")
+            dispatch(updateOrder(orderId, productId, parseInt(quantity, 10)))
+            setUpdate(false)
+            return alert ("We've updated your order. Thanks for shopping with us!")
         } 
     };
 
@@ -61,7 +68,7 @@ function OrderHistory({user}) {
                 placeholder={order.quantity}
                 defaultValue={order.quantity}
                 onChange={(e) => {
-                    setQuantity(parseInt(e.target.value,10))
+                    setQuantity(parseInt(e.target.value),10)
                     setOrderId(order.id)
                     setProductId(order.product_id)
                 }}
@@ -139,6 +146,7 @@ function OrderHistory({user}) {
                         <div className="product-info-content">
                             <div>{order.product?.name}</div>
                             <div>Item #: {order.product?.id} </div>
+                            <div className="order-error-text">{error ? error : null}</div>
                             <div>
                                 {updateDiv}
                             </div>
