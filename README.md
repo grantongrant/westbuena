@@ -27,10 +27,15 @@ Users can:
    - View details of the order (Read)
    - Return an item on the order (Update)
    - Cancel an order (Delete)
+- Favorites
+  - Favorite a product by clicking on a white heart (Create)
+  - View your favorites by navigating to Favorites (Read)
+    - A favorite product also appears on the site with a red heart
+  - Remove a favorite by clicking on a red heart (Delete)
+    - In Favorites, this product will no longer appear
 - Search
    - Use a keyword to search for products
 - Upcoming features
-   - Favorites List
    - Save for Later
    - Account details
 
@@ -47,6 +52,14 @@ Users can:
 - Track Your Order
 
 ![westbuena Track Order](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-order.png)
+
+- Favorites
+
+![westbuena Favorites](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-favorites.png)
+
+- Products
+
+![westbuena Products](https://westbuena.s3.us-east-2.amazonaws.com/westbuena-products.png)
 
 ## Setup
 
