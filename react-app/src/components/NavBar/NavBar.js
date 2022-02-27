@@ -5,7 +5,7 @@ import Account from './Account';
 import Shoppingcart from './Shoppingcart';
 import './NavBar.css'
 import { BsArrowRightShort } from 'react-icons/bs';
-import { AiFillCaretDown } from 'react-icons/ai';
+// import { AiFillCaretDown } from 'react-icons/ai';
 import SearchBar from '../Search/SearchBar';
 import { GoHeart } from "react-icons/go";
 

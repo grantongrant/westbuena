@@ -13,14 +13,8 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  console.log(fullName)
-  console.log(email)
-  console.log(confirmEmail)
-  console.log(password)
-  console.log(confirmPassword)
 
   const onSignUp = async (e) => {
-    console.log(fullName)
     e.preventDefault();
       const data = await dispatch(signUp(fullName, email, confirmEmail, password, confirmPassword));
       if (data) {

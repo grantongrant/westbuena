@@ -13,11 +13,10 @@ const Favorites = ({user}) => {
     const favoriteObject = useSelector((state) => state.favorite)
     const favorites = Object.values(favoriteObject)
     let favoriteComponents;
-    console.log(favorites)
 
     useEffect(() => {
         dispatch(getAllFavorites(user.id))
-    }, [dispatch])
+    }, [dispatch, user.id])
 
 
     const removeFromFavs = async (productId) => {
@@ -28,9 +27,9 @@ const Favorites = ({user}) => {
     if (!favorites.length) {
         favoriteComponents = 
         <div className="empty-cart-content">
-            <h2>Favorites</h2>
+            {/* <div className="favorites-header">Favorites</div> */}
             <div className="favorite-page-heart"><FaHeart/></div>
-            <p>Lots of room for the things you love.</p>
+            <div className="lots-of-room">Lots of room for the things you love.</div>
             <p>Explore our products and add your favorites anywhere you see a heart.</p>
             <div>
                 <NavLink to="/"><button className="cart-button white-blue-button">Start Shopping</button></NavLink>
@@ -38,7 +37,6 @@ const Favorites = ({user}) => {
         </div>
     } else {
         favoriteComponents = favorites?.map((favorite) => {
-            console.log(favorite)
 
             return (
               <div className="product-container" key={favorite.id}>
@@ -65,7 +63,7 @@ const Favorites = ({user}) => {
         <>
         <div className="category-container">
           <>
-            {favoriteComponents}
+          {favoriteComponents}
           </>
         </div>
       </>

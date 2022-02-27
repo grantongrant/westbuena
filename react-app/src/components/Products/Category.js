@@ -1,15 +1,14 @@
-import { useParams, NavLink, useHistory } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import { useParams, NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { getProductsByCategory } from '../../store/product';
 import { useDispatch, useSelector } from 'react-redux';
 import {FaHeart} from 'react-icons/fa';
 import "./Products.css";
-import { addToFavoritesList, getAllFavorites, removeFromFavoritesList } from '../../store/favorite';
+import { addToFavoritesList, removeFromFavoritesList } from '../../store/favorite';
 
 function CategoryPage() {
   
     const { category } = useParams();
-    const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user)
     const productObject = useSelector((state) => state.product)
@@ -33,10 +32,6 @@ function CategoryPage() {
     useEffect(() => {
       dispatch(getProductsByCategory(category))
     }, [dispatch, category]);
-
-    // useEffect(() => {
-    //   dispatch(getAllFavorites(user?.id))
-    // }, [dispatch, user?.id])
 
     const categoryComponents = products?.map((product) => {
 
