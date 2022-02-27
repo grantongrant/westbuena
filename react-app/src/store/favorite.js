@@ -61,19 +61,24 @@ export const getAllFavorites = (userId) => async (dispatch) => {
 
 // DELETE
 
-export const removeFromFavoritesList = (product) => async (dispatch) => {
-    const response = await fetch('/api/favorites', {
+export const removeFromFavoritesList = (userId, productId) => async (dispatch) => {
+    const response = await fetch('/api/favorites/', {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            product
+            userId,
+            productId
         })
     });
 
     if (response.ok) {
-        dispatch(deleteAFavorite(product.id));
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(deleteAFavorite(data.id));
     } else {
         return response;
     }

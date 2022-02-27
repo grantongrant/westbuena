@@ -37,5 +37,6 @@ class User(db.Model, UserMixin):
             'full_name': self.full_name,
             'email': self.email,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'favorites': [favorite.product_id for favorite in self.favorites]
         }

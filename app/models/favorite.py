@@ -21,4 +21,13 @@ class Favorite(db.Model):
             'product_id': self.product_id,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'product': {
+                'id': self.product.id,
+                'name': self.product.name,
+                'original_price': str(self.product.original_price),
+                'discount': self.product.discount,
+                'final_price': str(self.product.final_price),
+                'image_url1': self.product.image_url1,
+                'image_url2': self.product.image_url2,
+            }
         }

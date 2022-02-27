@@ -1,42 +1,35 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getAllFavorites } from '../../store/favorite';
-
-const Favorites = () => {
-
-    const user = useSelector((state) => state.session.user);
-    const favObject = useSelector((state) => state.favorite)
-    const favorites = Object.values(favObject)
-    const dispatch = useDispatch();
-    let favoritesComponents;
-
-    useEffect(() => {
-        dispatch(getAllFavorites(user.id))
-      }, [dispatch, user.id]);
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import '../Products/Products.css';
+import Favorites from './Favorites';
+import {FaHeart} from 'react-icons/fa';
 
 
-    const FavoritesList = favorites.map((favorite) => {
-        return (
-            <>{favorite.id}</>
-        )
-    });
+const FavoritesPage = () => {
 
+    const user = useSelector(state => state.session.user);
+
+    let sessionLinks;
     if (user) {
-        favoritesComponents = (
-            <>
-            <div>Welcome Back, {user.full_name}</div>
-            <div>{FavoritesList}</div>
-            </>
-        )
+        sessionLinks = <Favorites user={user}/>
     } else {
-        favoritesComponents = (
-            <div>Please sign in to view your favorites.</div>
-        )
+        sessionLinks = 
+        <div className="empty-cart-content">
+            <h2>Favorites</h2>
+            <div><FaHeart/></div>
+            <p>Lots of room for the things you love.</p>
+            <p>Explore our products and add your favorites anywhere you see a heart.</p>
+            <div>
+                <NavLink to="/login"><button className="cart-button blue-white-button">Sign In</button></NavLink>
+                <NavLink to="/login"><button className="cart-button white-blue-button">Create an Account</button></NavLink>
+            </div>
+        </div>
     }
 
     return (
-        <>{favoritesComponents}</>
+        <>{sessionLinks}</>
     )
 }
 
-export default Favorites;
+export default FavoritesPage;

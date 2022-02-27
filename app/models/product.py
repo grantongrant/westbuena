@@ -34,5 +34,6 @@ class Product(db.Model):
             'discount': self.discount,
             'final_price': str(self.final_price),
             'image_url1': self.image_url1,
-            'image_url2': self.image_url2
+            'image_url2': self.image_url2,
+            'favorites': [favorite.user_id for favorite in self.favorites]
         }
