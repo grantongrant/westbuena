@@ -12,6 +12,7 @@ from .api.product_routes import product_routes
 from .api.shoppingcart_routes import shopping_cart_routes
 from .api.order_routes import order_routes
 from .api.search_routes import search_routes
+from .api.favorite_routes import favorite_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +40,7 @@ app.register_blueprint(product_routes, url_prefix='/api/products')
 app.register_blueprint(shopping_cart_routes, url_prefix='/api/shoppingcart')
 app.register_blueprint(order_routes, url_prefix="/api/orders")
 app.register_blueprint(search_routes, url_prefix="/api/search")
+app.register_blueprint(favorite_routes, url_prefix="/api/favorites")
 db.init_app(app)
 Migrate(app, db)
 

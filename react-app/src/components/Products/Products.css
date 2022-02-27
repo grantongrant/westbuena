@@ -96,6 +96,22 @@
     color:#af1a31;
 }
 
+.favorited-icon-category-page {
+    color: #af1a31;
+    position: absolute;
+    margin-left: 12px;
+    z-index: 45;
+    height: 30px;
+    width: 30px;
+    font-size: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.favorited-icon-category-page:hover {
+    color: white;
+}
+
 .free-shipping-product {
     color: #af1a31;
     letter-spacing: .1px;

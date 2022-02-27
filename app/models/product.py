@@ -19,6 +19,8 @@ class Product(db.Model):
     category = db.relationship("Category", back_populates="products")
     cart_items = db.relationship("CartItem", back_populates="product")
     orders = db.relationship("OrderDetail", back_populates="product")
+    favorites = db.relationship("Favorite", back_populates="product")
+
 
 
     def to_dict(self):
@@ -32,5 +34,6 @@ class Product(db.Model):
             'discount': self.discount,
             'final_price': str(self.final_price),
             'image_url1': self.image_url1,
-            'image_url2': self.image_url2
+            'image_url2': self.image_url2,
+            'favorites': [favorite.user_id for favorite in self.favorites]
         }

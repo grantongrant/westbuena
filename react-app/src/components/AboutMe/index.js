@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import "./AboutMe.css";
 
 const AboutMe = () => {
@@ -24,7 +23,7 @@ const AboutMe = () => {
                     </div>
                 </div>
                 <div className="about-right">
-                    <img src="https://westbuena.s3.us-east-2.amazonaws.com/self1.png"/>
+                    <img src="https://westbuena.s3.us-east-2.amazonaws.com/self1.png" alt="Grant's Face"/>
                 </div>
 
             </div>

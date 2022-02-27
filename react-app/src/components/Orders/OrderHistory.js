@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllOrders, updateOrder, deleteOrder, updateReturnOrder} from '../../store/order';
 import { BsFillCheckCircleFill, BsFillCartCheckFill } from "react-icons/bs";
-import { AiFillCodeSandboxCircle, AiOutlineRetweet } from 'react-icons/ai';
-import { BiMessageAltError } from 'react-icons/bi';
+import { AiFillCodeSandboxCircle } from 'react-icons/ai';
 
 function OrderHistory({user}) {
 
@@ -30,13 +29,12 @@ function OrderHistory({user}) {
       });
 
     const updateQuantity = () => {
-        console.log(quantity)
 
         if (quantity < 0) {
             return setError("Please enter a valid number.") 
         } else if (quantity > 9) {
             return setError("We limit to nine (9) product items per order.")
-        } else if (0 <= quantity < 10) {
+        } else if ((0 <= quantity) && (quantity < 10)) {
             setError("")
             dispatch(updateOrder(orderId, productId, parseInt(quantity, 10)))
             setUpdate(false)

@@ -5,9 +5,9 @@ import Account from './Account';
 import Shoppingcart from './Shoppingcart';
 import './NavBar.css'
 import { BsArrowRightShort } from 'react-icons/bs';
-import { AiFillCaretDown } from 'react-icons/ai';
+// import { AiFillCaretDown } from 'react-icons/ai';
 import SearchBar from '../Search/SearchBar';
-// import { GoHeart } from "react-icons/go";
+import { GoHeart } from "react-icons/go";
 
 const NavBar = () => {
 
@@ -72,7 +72,7 @@ const NavBar = () => {
         </div>
         <div className="right-container">
           <div className="account-icon"><Account /></div>
-          {/* <div className="favorite-icon"><GoHeart /></div> */}
+          <NavLink to="/favorites"><div className="favorite-icon"><GoHeart /></div></NavLink>
           <div className="shoppingcart-icon"><Shoppingcart /></div>
         </div>
       </div>

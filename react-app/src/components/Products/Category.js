@@ -2,26 +2,45 @@ import { useParams, NavLink } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { getProductsByCategory } from '../../store/product';
 import { useDispatch, useSelector } from 'react-redux';
-// import {FaHeart} from 'react-icons/fa';
-
+import {FaHeart} from 'react-icons/fa';
 import "./Products.css";
+import { addToFavoritesList, removeFromFavoritesList } from '../../store/favorite';
 
 function CategoryPage() {
   
     const { category } = useParams();
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user)
     const productObject = useSelector((state) => state.product)
-    const products = Object.values(productObject)
+    const products = Object.values(productObject);
+
+    const addToFavs = async (product) => {
+      if (!user) {
+        alert(`We agree. ${product.name} is a great product. Please sign in or create an account to save your favorites.`)
+        return;
+      } else {
+        await dispatch(addToFavoritesList(user.id, product.id))
+        await dispatch(getProductsByCategory(category))
+      }
+    }
+
+    const removeFromFavs = async (productId) => {
+      await dispatch(removeFromFavoritesList(user.id, productId))
+      await dispatch(getProductsByCategory(category)) 
+    }
 
     useEffect(() => {
       dispatch(getProductsByCategory(category))
     }, [dispatch, category]);
 
     const categoryComponents = products?.map((product) => {
+
         return (
           <div className="product-container" key={product.id}>
             <div className="product-image-container">
-              {/* <div className="favorite-icon-category-page"><FaHeart/></div>  */}
+              {product.favorites.includes(user?.id) ?
+              <div className="favorited-icon-category-page" onClick={() => {removeFromFavs(product.id)}}><FaHeart/></div> :
+              <div className="favorite-icon-category-page" onClick={() => {addToFavs(product)}}><FaHeart/></div>}
               <div className="product-images"><NavLink to={`/products/${product.id}`}>
                 <img className="image-1" src={product.image_url1} alt="product"/>
                 <img className="image-2" src={product.image_url2} alt="product"/>

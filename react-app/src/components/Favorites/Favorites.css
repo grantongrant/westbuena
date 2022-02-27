@@ -1,0 +1,41 @@
+.favorite-page-heart {
+    font-size: 48px;
+    color: #af1a31;
+}
+
+.favorites-header {
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.favorites-header-text {
+    display: flex;
+    flex-direction: row;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin-bottom: 0;
+    padding-left: 4px;
+}
+
+.lots-of-room{
+    font-size: 24px;
+    display: flex;
+    flex-direction: row;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 200;
+    letter-spacing: 0.3px;
+}
+
+.favorite-length {
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    margin-bottom: 3px;
+    margin-top: auto;
+    margin-left: 8px;
+    letter-spacing: 1px;
+}

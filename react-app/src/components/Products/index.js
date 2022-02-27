@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { BiMessageSquareError } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams, NavLink } from 'react-router-dom';
 import { getOneproduct } from '../../store/product';

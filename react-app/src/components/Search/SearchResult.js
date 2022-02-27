@@ -5,15 +5,33 @@ import { FaHeart } from 'react-icons/fa';
 import "./Search.css";
 import "../Products/Products.css";
 import { getProductsBySearch } from '../../store/search';
+import { addToFavoritesList, removeFromFavoritesList } from '../../store/favorite';
+
 
 const SearchResult = () => {
 
     const { search } = window.location;
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user)
     const query = new URLSearchParams(search).get("q");
     const productObject = useSelector((state) => state.search)
     const products = Object.values(productObject)
     const [isLoaded, setIsLoaded] = useState(false)
+
+    const addToFavs = async (product) => {
+      if (!user) {
+        alert(`We agree. ${product.name} is a great product. Please sign in or create an account to save your favorites.`)
+        return;
+      } else {
+        await dispatch(addToFavoritesList(user.id, product.id))
+        await dispatch(getProductsBySearch(query))
+      }
+    }
+
+    const removeFromFavs = async (productId) => {
+      await dispatch(removeFromFavoritesList(user.id, productId))
+      await dispatch(getProductsBySearch(query))
+    }
 
     useEffect(() => {
       dispatch(getProductsBySearch(query))
@@ -46,7 +64,9 @@ const SearchResult = () => {
         return (
           <div className="product-container" key={product.id}>
             <div className="product-image-container">
-              {/* <div className="favorite-icon-category-page"><FaHeart/></div>  */}
+              {product.favorites.includes(user?.id) ?
+              <div className="favorited-icon-category-page" onClick={() => {removeFromFavs(product.id)}}><FaHeart/></div> :
+              <div className="favorite-icon-category-page" onClick={() => {addToFavs(product)}}><FaHeart/></div>}
               <div className="product-images"><NavLink to={`/products/${product.id}`}>
                 <img className="image-1" src={product.image_url1} alt="product"/>
                 <img className="image-2" src={product.image_url2} alt="product"/>

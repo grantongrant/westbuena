@@ -5,6 +5,7 @@ import product from './product'
 import shoppingcart from './shoppingcart'
 import order from './order'
 import search from './search'
+import favorite from './favorite'
  
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   shoppingcart,
   order,
   search,
+  favorite,
 });
 
 

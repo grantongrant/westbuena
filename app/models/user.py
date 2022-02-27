@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     addresses = db.relationship("Address", back_populates="user")
     cart_items = db.relationship("CartItem", back_populates ="user")
     orders = db.relationship("OrderDetail", back_populates="user")
+    favorites = db.relationship("Favorite", back_populates="user")
+
 
 
     @property
@@ -35,5 +37,6 @@ class User(db.Model, UserMixin):
             'full_name': self.full_name,
             'email': self.email,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'favorites': [favorite.product_id for favorite in self.favorites]
         }
