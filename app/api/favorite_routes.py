@@ -38,7 +38,6 @@ def remove_from_favs():
     data = request.json
     favorite = Favorite.query.filter(Favorite.user_id == data["userId"], Favorite.product_id == data["productId"]).first()
     id = favorite.id
-    print("HEEEJREIOSPJFDISOFU*DUFDS!", id)
     db.session.delete(favorite)
     db.session.commit()
 

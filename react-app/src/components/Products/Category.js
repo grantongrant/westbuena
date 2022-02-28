@@ -25,7 +25,6 @@ function CategoryPage() {
     }
 
     const removeFromFavs = async (product) => {
-      // console.log(product)
       await dispatch(removeFromFavoritesList(user.id, product.id))
       await dispatch(getProductsByCategory(category)) 
     }
