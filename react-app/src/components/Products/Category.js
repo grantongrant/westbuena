@@ -24,8 +24,9 @@ function CategoryPage() {
       }
     }
 
-    const removeFromFavs = async (productId) => {
-      await dispatch(removeFromFavoritesList(user.id, productId))
+    const removeFromFavs = async (product) => {
+      // console.log(product)
+      await dispatch(removeFromFavoritesList(user.id, product.id))
       await dispatch(getProductsByCategory(category)) 
     }
 
@@ -39,7 +40,7 @@ function CategoryPage() {
           <div className="product-container" key={product.id}>
             <div className="product-image-container">
               {product.favorites?.includes(user?.id) ?
-              <div className="favorited-icon-category-page" onClick={() => {removeFromFavs(product.id)}}><FaHeart/></div> :
+              <div className="favorited-icon-category-page" onClick={() => {removeFromFavs(product)}}><FaHeart/></div> :
               <div className="favorite-icon-category-page" onClick={() => {addToFavs(product)}}><FaHeart/></div>}
               <div className="product-images"><NavLink to={`/products/${product.id}`}>
                 <img className="image-1" src={product.image_url1} alt="product"/>
