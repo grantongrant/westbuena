@@ -38,7 +38,7 @@ function CategoryPage() {
         return (
           <div className="product-container" key={product.id}>
             <div className="product-image-container">
-              {product.favorites.includes(user?.id) ?
+              {product.favorites?.includes(user?.id) ?
               <div className="favorited-icon-category-page" onClick={() => {removeFromFavs(product.id)}}><FaHeart/></div> :
               <div className="favorite-icon-category-page" onClick={() => {addToFavs(product)}}><FaHeart/></div>}
               <div className="product-images"><NavLink to={`/products/${product.id}`}>
