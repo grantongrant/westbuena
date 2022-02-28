@@ -62,7 +62,7 @@ export const getAllFavorites = (userId) => async (dispatch) => {
 // DELETE
 
 export const removeFromFavoritesList = (userId, productId) => async (dispatch) => {
-    const response = await fetch('/api/favorites/', {
+    const response = await fetch('/api/favorites/delete', {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

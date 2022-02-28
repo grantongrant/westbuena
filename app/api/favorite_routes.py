@@ -32,12 +32,13 @@ def add_to_favs():
 # DELETE
 
 
-@favorite_routes.route("/", methods=["DELETE"])
+@favorite_routes.route("/delete", methods=["DELETE"])
 def remove_from_favs():
 
     data = request.json
     favorite = Favorite.query.filter(Favorite.user_id == data["userId"], Favorite.product_id == data["productId"]).first()
+    id = favorite.id
     db.session.delete(favorite)
     db.session.commit()
 
-    return favorite.to_dict()
+    return {"id": id}
