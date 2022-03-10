@@ -1,5 +1,5 @@
 import { useParams, NavLink } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getProductsByCategory } from '../../store/product';
 import { useDispatch, useSelector } from 'react-redux';
 import {FaHeart} from 'react-icons/fa';
@@ -10,9 +10,10 @@ function CategoryPage() {
   
     const { category } = useParams();
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.session.user)
-    const productObject = useSelector((state) => state.product)
+    const user = useSelector((state) => state.session.user);
+    const productObject = useSelector((state) => state.product);
     const products = Object.values(productObject);
+    const [productImageId, setProductImageId] = useState(null);
 
     const addToFavs = async (product) => {
       if (!user) {
@@ -41,9 +42,13 @@ function CategoryPage() {
               {product.favorites?.includes(user?.id) ?
               <div className="favorited-icon-category-page" onClick={() => {removeFromFavs(product)}}><FaHeart/></div> :
               <div className="favorite-icon-category-page" onClick={() => {addToFavs(product)}}><FaHeart/></div>}
-              <div className="product-images"><NavLink to={`/products/${product.id}`}>
-                <img className="image-1" src={product.image_url1} alt="product"/>
-                <img className="image-2" src={product.image_url2} alt="product"/>
+              <div
+                className="product-images"
+                onMouseEnter={() => setProductImageId(product.id)}
+                onMouseLeave={() => setProductImageId(null)}
+                ><NavLink to={`/products/${product.id}`}>
+                {productImageId !== product.id && (<img className="image-1" src={product.image_url1} alt="product"/>)}
+                {productImageId === product.id && (<img className="image-2" src={product.image_url2} alt="product"/>)}
                 </NavLink></div>
             </div>
             <div className="product-name-card">{product.name}</div>
