@@ -31,13 +31,15 @@
         background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-1.jpg);
     }
     30% {
-        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-1.jpg);
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-1.jpg),
+        url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-2.jpg);
     }
     33% {
         background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-2.jpg);
     }
     63% {
-        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-2.jpg);
+        background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-2.jpg),
+        url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-3.jpg);
     }
     66% {
         background-image: url(https://westbuena.s3.us-east-2.amazonaws.com/splash-page-3.jpg);
