@@ -74,7 +74,7 @@ def seed_products():
     bergamot_candle = Product(
         name="Bergamot + Bourbon Scented Candle",
         category_id = 6,
-        attributes="Bergamot Bourbon Scented candle, Small Jar, Amber, Rose, Candle, Small, Soy",
+        attributes="Bergamot Bourbon Scented candle, Small Jar, Amber, Rose, Candles, Small, Soy",
         original_price=19.95,
         discount=False,
         final_price=19.95,
@@ -266,7 +266,7 @@ def seed_products():
         discount=False,
         final_price=22.00,
         image_url1="https://westbuena.s3.us-east-2.amazonaws.com/white_planter_1.jpg",
-        image_url2="https://westbuena.s3.us-east-2.amazonaws.com/white_planter_1.jpg"
+        image_url2="https://westbuena.s3.us-east-2.amazonaws.com/white_planter_2.jpg"
     )
 
     gloves_tools = Product(
