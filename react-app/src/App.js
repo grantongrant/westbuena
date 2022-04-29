@@ -56,12 +56,6 @@ function App() {
         <Route path="/shop/sale" exact={true}>
           <SalePage />
         </Route>
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>

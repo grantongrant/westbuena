@@ -41,7 +41,6 @@
 }
 
 .product-container-search {
-    /* border: 1px solid black; */
     width: 32%;
     max-height: 700px;
     min-height: 200px;
@@ -49,7 +48,6 @@
 }
 
 .product-image-container-search {
-    /* border: 1px solid black; */
     height: 75%;
     overflow: hidden;
     position: relative;
