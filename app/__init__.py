@@ -1,5 +1,4 @@
 import os
-import psycopg2
 from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
@@ -18,8 +17,6 @@ from .api.favorite_routes import favorite_routes
 from .seeds import seed_commands
 
 from .config import Config
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 app = Flask(__name__)
 
