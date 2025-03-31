@@ -22,88 +22,75 @@ const deleteAFavorite = (favoriteId) => ({
 // CREATE
 
 export const addToFavoritesList = (userId, productId) => async (dispatch) => {
-    const response = await fetch('/api/favorites/', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            userId,
-            productId,
-        })
-    });
+    try {
+        const response = await fetch('/api/favorites/', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId, productId }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error ("Failed to add favorite");
+
         const product = await response.json();
-        if (product.errors) {
-            return;
-        } else {
-            dispatch(addToFavorites(product));
-        }
+        dispatch(addToFavorites(product));
         return product;
-    };
+    } catch (error) {
+        console.error("Error adding favorite:", error);
+    }
 }
 
 // READ
 
 export const getAllFavorites = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/favorites/${userId}`);
-  
-    if (response.ok) {
+    try {
+        const response = await fetch(`/api/favorites/${userId}`);
+        if (!response.ok) throw new Error("Failed to fetch favorites");
+
         const data = await response.json();
-        if (data.errors) {
-            return;
-        };
         dispatch(getFavorites(data.favorites));
         return data;
-    };
+    } catch (error) {
+        console.error("Error fetching favorites:", error);
+    }
 };
 
 // DELETE
 
 export const removeFromFavoritesList = (userId, productId) => async (dispatch) => {
-    const response = await fetch('/api/favorites/delete', {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            userId,
-            productId
-        })
-    });
+    try {
+        const response = await fetch('/api/favorites/delete', {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId, productId }),
+        });
 
-    if (response.ok) {
-        const data = await response.json();
-        if (data.errors) {
-            return;
-        }
-        dispatch(deleteAFavorite(data.id));
-    } else {
-        return response;
+        if (!response.ok) throw new Error ("Failed to delete favorite");
+
+        const { id } = await response.json();
+        dispatch(deleteAFavorite(id));
+        return id;
+    } catch (error) {
+        console.error("Error deleting favorite:", error);
     }
 };
 
 // REDUCER
 
-export default function reducer(state = {}, action) {
-    let newState;
+const initialState = {};
+
+export default function favoritesReducer(state = initialState, action) {
     switch (action.type) {
     case GET_FAVORITES:
-        return { ...action.favorites };
+        return action.favorites.reduce((acc, favorite) => {
+            acc[favorite.id] = favorite;
+            return acc;
+        }, {});
     case ADD_FAVORITE:
-            newState = {...state, ...action.products}
-            return newState;
+        return { ...state, [action.product.id]: action.product };
     case DELETE_FAVORITE:
-            newState = {...state}
-            let values = Object.values(newState)
-            for (let i = 0; i < values.length; i++) {
-                if (values[i].id === action.favoriteId) {
-                    delete values[i]
-                }
-                newState = {...values};
-            }
-            return newState;
+        const newState = {...state}
+        delete newState[action.favoriteId];
+        return newState;
     default:
         return state;
     };
