@@ -33,46 +33,45 @@ const deleteAnOrder = (orderId) => ({
 // CREATE -----------------------------------
 
 export const addAnOrder = (order_number, user_id, product_id, quantity, price, sales_tax, total) => async (dispatch) => {
-    const response = await fetch('/api/orders/', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            order_number,
-            user_id,
-            product_id,
-            quantity,
-            price,
-            sales_tax,
-            total,
-        })
-    });
+    try {
+        const response = await fetch('/api/orders/', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                order_number,
+                user_id,
+                product_id,
+                quantity,
+                price,
+                sales_tax,
+                total,
+            }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error ("Failed to add order");
+
         const order = await response.json();
-        if (order.errors) {
-            return;
-        } else {
-            dispatch(addOrder(order))
-        };
+        dispatch(addOrder(order));
         return order;
-    };
+    } catch (error) {
+        console.error("Error adding order:", error);
+    }
 };
 
 // READ -------------------------------------
 
 export const getAllOrders = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/orders/${userId}`);
-  
-    if (response.ok) {
+    try {
+        const response = await fetch(`/api/orders/${userId}`);
+
+        if (!response.ok) throw new Error ("Failed to fetch orders");
+
         const data = await response.json();
-        if (data.errors) {
-            return;
-        };
         dispatch(getOrders(data.orders));
         return data;
-    };
+    } catch (error) {
+        console.error("Error fetching orders:", error);
+    }
 };
 
 // UPDATE -----------------------------------
@@ -81,108 +80,87 @@ export const updateOrder = (orderId, productId, quantity) => async (dispatch) =>
 
     if (quantity === 0) {
         dispatch(deleteOrder(orderId));
-    } else {
+    }
+    
+    try {
         const response = await fetch(`/api/orders/details/${orderId}`, {
             method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 orderId,
                 productId,
                 quantity,
-            })
+            }),
         });
     
-        if (response.ok) {
-            const order = await response.json();
-            if (order.errors) {
-                return;
-            } else {
-                dispatch(updateAnOrder(order))
-            }
-            return order;
-        };
-
-    }    
+        if (!response.ok) throw new Error ("Failed to update order");
+        
+        const order = await response.json();
+        dispatch(updateAnOrder(order));
+        return order;
+    } catch (error) {
+        console.error("Error updating order:", error);
+    }
 };
 
 export const updateReturnOrder = (orderId) => async (dispatch) => {
-    const response = await fetch(`api/orders/return/${orderId}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "applicatoin/json",
-        },
-        body: JSON.stringify({
-            orderId,
-        })
-    });
+    try {
+        const response = await fetch(`api/orders/return/${orderId}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "applicatoin/json" },
+            body: JSON.stringify({ orderId }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error("Failed to update order");
+
         const order = await response.json();
-        if (order.errors) {
-            return;
-        } else {
-            dispatch(updateAnOrder(order))
-        }
+        dispatch(updateAnOrder(order));
         return order;
-    };
+    } catch (error) {
+        console.error("Error updating order:", error);
+    }
 }
 
 // DELETE -----------------------------------
 
 export const deleteOrder = (orderId, productId) => async (dispatch) => {
-    const response = await fetch(`/api/orders/details/${orderId}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            orderId,
-            productId,
-        })
-    });
+    try {
+        const response = await fetch(`/api/orders/details/${orderId}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                orderId,
+                productId,
+            }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error("Failed to delete order");
+
         dispatch(deleteAnOrder(orderId));
-    } else {
         return response;
+    } catch (error) {
+        console.error("Error deleting order", error);
     }
 };
 
 // REDUCER ----------------------------------
 
-export default function reducer(state = {}, action) {
-    let newState
+const initialState = {};
+
+export default function ordersReducer(state = initialState, action) {
     switch (action.type) {
     case GET_ORDERS:
-        newState = {};
-        action.orders.forEach(order => {
-            newState[order.id] = {...order}
-        });
-        return newState;
+        return action.orders.reduce((acc, order) => {
+            acc[order.id] = order;
+            return acc;
+        }, {});
     case ADD_ORDER:
-        newState = {...state, ...action.order}
-        return newState;
+        return { ...state, [action.order.id]: action.order };
     case UPDATE_ORDER:
-        newState = {...state}
-        let array = Object.values(newState)
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].id === action.order.id) {
-                array[i] = action.order
-            }
-            newState = {...array}
-        }
-        return newState;
+        return { ...state, [action.order.id]: action.order };
     case DELETE_ORDER:
-        newState = {...state}
-        let values = Object.values(newState)
-        for (let i = 0; i < values.length; i++) {
-            if (values[i].id === action.orderId) {
-                delete values[i]
-            }
-            newState = {...values};
-        }
+        const newState = { ...state };
+        delete newState[action.orderId];
         return newState;
     default:
         return state;
