@@ -37,141 +37,121 @@ const deleteAllItems = () => ({
 
 // CREATE -----------------------------------
 export const addToCart = (userId, productId, quantity) => async (dispatch) => {
-    const response = await fetch('/api/shoppingcart/', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            userId,
-            productId,
-            quantity,
-        })
-    });
+    try {
+        const response = await fetch('/api/shoppingcart/', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId,
+                productId,
+                quantity,
+            }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error ("Failed to add to Cart")
+
         const item = await response.json();
-        if (item.errors) {
-            return;
-        };
-        if (item.quantity === 1) {
-            dispatch(addToShoppingCart(item));
-        } else {
-            dispatch(updateShoppingcart(item));
-        }
+        dispatch(addToShoppingCart(item));
         return item;
-    };
+    } catch (error) {
+        console.error("Error adding item to shopping cart:", error);
+    }
 }
 
 // READ --------------------------------------
 export const getAllShoppingcart = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/shoppingcart/${userId}`);
-  
-    if (response.ok) {
+    try {
+        const response = await fetch(`/api/shoppingcart/${userId}`);
+
+        if (!response.ok) throw new Error ("Failed to fetch shopping cart.");
+
         const data = await response.json();
-        if (data.errors) {
-            return;
-        };
         dispatch(getShoppingcart(data.items));
         return data;
-    };
+    } catch (error) {
+        console.error("Error fetching shopping cart:", error);
+    }
 };
 
 // UPDATE ------------------------------------
 export const updateCart = (userId, productId, quantity) => async (dispatch) => {
-    const response = await fetch('/api/shoppingcart/', {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            userId,
-            productId,
-            quantity
-        })
-    });
+    try {
+        const response = await fetch('/api/shoppingcart/', {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId,
+                productId,
+                quantity
+            }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error("Failed to update shopping cart");
+
         const item = await response.json();
-        if (item.errors) {
-            return;
-        };
         if (item.quantity === 0) {
             dispatch(deleteCartItem(item));
         } else {
             dispatch(updateShoppingcart(item));
         }
+
         return item;
-    };
+    } catch (error) {
+        console.error("Error updating shopping cart");
+    }
 };
 
 // DELETE ------------------------------------
 
 export const deleteCartItem = (item) => async (dispatch) => {
-    const response = await fetch('/api/shoppingcart/', {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            item
-        })
-    });
+    try {
+        const response = await fetch('/api/shoppingcart/', {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ item }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw Error ("Failed to delete shopping cart item");
         dispatch(deleteOneItem(item.id));
-    } else {
-        return response;
+    } catch (error) {
+        console.error("Error deleting shopping cart item:", error);
     }
 };
 
 export const clearCart = (items) => async (dispatch) => {
-    const response = await fetch('/api/shoppingcart/clear', {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            items
-        })
-    });
+    try {
+        const response = await fetch('/api/shoppingcart/clear', {
+            method: "DELETE",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ items }),
+        });
 
-    if (response.ok) {
+        if (!response.ok) throw new Error ("Failed to clear shopping cart");
         dispatch(deleteAllItems());
-    } else {
-        return response;
+    } catch (error) {
+        console.error("Error clearing shopping cart:", error);
     }
 };
 
 
 // REDUCER
-export default function reducer(state = {}, action) {
-    let newState;
+
+const initialState = {};
+
+export default function shoppingcartReducer(state = initialState, action) {
     switch (action.type) {
     case GET_CART:
-        return { ...action.items };
+        return action.items.reduce((acc, item) => {
+            acc[item.id] = item;
+            return acc;
+        }, {});
     case ADD_TO_CART:
-        newState = {...state, ...action.data}
-        return newState;
+        return { ...state, [action.data.id] : action.data };
     case UPDATE_CART:
-        newState = {...state}
-        let array = Object.values(newState)
-        for (let i = 0; i < array.length; i++) {
-            if (array[i].id === action.item.id) {
-                array[i] = action.item
-            }
-            newState = {...array}
-        }
-        return newState;
+        return { ...state, [action.item.id]: action.item };
     case DELETE_ITEM:
-        newState = {...state}
-        let values = Object.values(newState)
-        for (let i = 0; i < values.length; i++) {
-            if (values[i].id === action.itemId) {
-                delete values[i]
-            }
-            newState = {...values};
-        }
+        const newState = { ...state }
+        delete newState[action.itemId];
         return newState;
     default:
         return state;
