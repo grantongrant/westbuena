@@ -18,7 +18,7 @@ const AboutMe = () => {
                     <p>Navigating this site isn't just a demonstration of the skill set that I learned while at App Academy; it's also an opportunity 
                     to learn a little about me.</p>
 
-                    <a href="https://linkedin.com/in/grant-ellis-russell" target="_blank" rel="noreferrer"><p>@grantongrant</p></a>
+                    <a href="https://linkedin.com/in/ge-russell/" target="_blank" rel="noreferrer"><p>@grantongrant</p></a>
                 
                     </div>
                 </div>
