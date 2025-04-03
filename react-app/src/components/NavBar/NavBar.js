@@ -46,7 +46,7 @@ const NavBar = () => {
       </div>
       <div className="technologies">
         <NavLink to="/"><div className="west-buena"><p>west buena</p></div></NavLink>
-        <a href="https://linkedin.com/in/grant-ellis-russell" target="_blank" rel="noreferrer"><div className="my-name"><p>grant</p><p id="last-name">russell</p></div></a>
+        <a href="https://linkedin.com/in/ge-russell/" target="_blank" rel="noreferrer"><div className="my-name"><p>grant</p><p id="last-name">russell</p></div></a>
         <div className="technology-content">
           <li>javascript</li>
           <li>python</li>
