@@ -1,4 +1,3 @@
-from tkinter import TRUE
 from unicodedata import category
 from app.models import db, Product
 
